@@ -13,10 +13,9 @@ class Admin extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this -> load -> library('session');
-		$this -> load -> model('backend/admin_model');
+		$this -> load -> model('admin_model');
 	}
-//Verify username and pass then redirect accordingly
+//Verify username and pass then redirect to dashboard
 	public function index() {
 		if ($this -> session -> userdata('username') != '') {
 			redirect(site_url('dashboard'));
@@ -109,6 +108,8 @@ class Admin extends CI_Controller {
 	public function logout() {
 		$this -> session -> unset_userdata('username');
 		$this -> session -> unset_userdata('usertype');
+		
+		//redirect('admin','refresh');
 		$this -> load -> view('backend/auth/login_view');
 	}
 

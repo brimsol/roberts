@@ -41,7 +41,40 @@
 $route['default_controller'] = "backend/admin";
 /*404*/
 $route['404_override'] = '';
-
+/*Login*/
+$route['admin'] = "backend/admin";
+/*Login*/
+$route['dashboard'] = "backend/dashboard";
+/*Admin Logout*/
+$route['admin/logout'] = "backend/admin/logout";
+/*Admin Change Pass*/
+$route['admin/change_password'] = "backend/admin/change_password";
+/*List All Testimonial*/
+$route['admin/testimonials'] = "backend/testimonials/index";
+$route['admin/testimonials/(:num)'] = "backend/testimonials/index";
+/*Add New Testimonial*/
+$route['admin/testimonial/add'] = "backend/testimonials/add";
+/*Edit Testimonial*/
+$route['admin/testimonial/edit/(:num)'] = "backend/testimonials/edit/$1";
+/*Delete Testimonial*/
+$route['admin/testimonial/delete/(:num)/(:any)'] = "backend/testimonials/delete/$1/$2";
+/*List All Slider*/
+$route['admin/slider'] = "backend/slider";
+/*Add New Slider*/
+$route['admin/slider/add'] = "backend/slider/add";
+/*Edit Slider*/
+$route['admin/slider/edit/(:num)'] = "backend/slider/edit/$1";
+/*Delete Slider*/
+$route['admin/slider/delete/(:num)/(:any)'] = "backend/slider/delete/$1/$2";
+/*Add New Online Store*/
+$route['admin/video/add'] = "backend/videos/add";
+/*Edit Online Store*/
+$route['admin/video/edit/(:num)'] = "backend/videos/edit/$1";
+/*Delete Online Store*/
+$route['admin/video/delete/(:num)'] = "backend/videos/delete/$1";
+/*List All Online Stores*/
+$route['admin/videos'] = "backend/videos";
+$route['admin/video'] = "backend/videos";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
