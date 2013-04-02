@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		
 		<?php echo $this -> load -> view('backend/slice/header'); ?>
 	</head>
 

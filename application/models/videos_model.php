@@ -62,6 +62,11 @@ class Videos_model extends CI_Model {
 		return $this -> db -> where('id', $id)->order_by('name','ASC') -> limit(1) -> get('videos')->result();
 
 	}
+	function GetAllHome() {
+
+		return $this -> db -> order_by('name', 'ASC') -> limit(1) -> get('videos') -> result();
+
+	}
 
 }
 /* End of file onlinestore_model.php */ 

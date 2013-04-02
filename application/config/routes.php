@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "backend/admin";
+$route['default_controller'] = "home";
 /*404*/
 $route['404_override'] = '';
 /*Login*/
@@ -49,6 +49,15 @@ $route['dashboard'] = "backend/dashboard";
 $route['admin/logout'] = "backend/admin/logout";
 /*Admin Change Pass*/
 $route['admin/change_password'] = "backend/admin/change_password";
+/*List All Client of the month*/
+$route['admin/clients'] = "backend/clients/index";
+$route['admin/clients/(:num)'] = "backend/clients/index";
+/*Add New Client of the month*/
+$route['admin/client/add'] = "backend/clients/add";
+/*Edit Client of the month*/
+$route['admin/client/edit/(:num)'] = "backend/clients/edit/$1";
+/*Delete Client of the month*/
+$route['admin/client/delete/(:num)/(:any)'] = "backend/clients/delete/$1/$2";
 /*List All Testimonial*/
 $route['admin/testimonials'] = "backend/testimonials/index";
 $route['admin/testimonials/(:num)'] = "backend/testimonials/index";
@@ -58,6 +67,42 @@ $route['admin/testimonial/add'] = "backend/testimonials/add";
 $route['admin/testimonial/edit/(:num)'] = "backend/testimonials/edit/$1";
 /*Delete Testimonial*/
 $route['admin/testimonial/delete/(:num)/(:any)'] = "backend/testimonials/delete/$1/$2";
+/*List All Products*/
+$route['admin/products'] = "backend/products/index";
+$route['admin/products/(:num)'] = "backend/products/index";
+/*Add New Products*/
+$route['admin/product/add'] = "backend/products/add";
+/*Edit Products*/
+$route['admin/product/edit/(:num)'] = "backend/products/edit/$1";
+/*Delete Products*/
+$route['admin/product/delete/(:num)/(:any)'] = "backend/products/delete/$1/$2";
+/*List All Categories*/
+$route['admin/ourworks/categories'] = "backend/ourworks/categories";
+$route['admin/ourworks/categories/(:num)'] = "backend/ourworks/categories";
+/*Add New Categories*/
+$route['admin/ourworks/category/add'] = "backend/ourworks/add_category";
+/*Edit Categories*/
+$route['admin/ourworks/category/edit/(:num)'] = "backend/ourworks/edit_category/$1";
+/*Delete Categories*/
+$route['admin/ourworks/category/delete/(:num)'] = "backend/ourworks/delete_category/$1";
+/*List All Categories*/
+$route['admin/ourworks'] = "backend/ourworks/index";
+$route['admin/ourworks/(:num)'] = "backend/ourworks/index";
+/*Add New Categories*/
+$route['admin/ourworks/add'] = "backend/ourworks/add";
+/*Edit Categories*/
+$route['admin/ourworks/edit/(:num)'] = "backend/ourworks/edit/$1";
+/*Delete Categories*/
+$route['admin/ourworks/delete/(:num)/(:any)'] = "backend/ourworks/delete/$1/$2";
+/*List All Spotlights*/
+$route['admin/spotlights'] = "backend/spotlights/index";
+$route['admin/spotlights/(:num)'] = "backend/spotlights/index";
+/*Add New Testimonial*/
+$route['admin/spotlight/add'] = "backend/spotlights/add";
+/*Edit Testimonial*/
+$route['admin/spotlight/edit/(:num)'] = "backend/spotlights/edit/$1";
+/*Delete Testimonial*/
+$route['admin/spotlight/delete/(:num)/(:any)'] = "backend/spotlights/delete/$1/$2";
 /*List All Slider*/
 $route['admin/slider'] = "backend/slider";
 /*Add New Slider*/
@@ -75,6 +120,20 @@ $route['admin/video/delete/(:num)'] = "backend/videos/delete/$1";
 /*List All Online Stores*/
 $route['admin/videos'] = "backend/videos";
 $route['admin/video'] = "backend/videos";
-
+/*Add New Page*/
+$route['admin/page/add'] = "backend/pages/add";
+/*Edit Page*/
+$route['admin/page/edit/(:num)'] = "backend/pages/edit/$1";
+/*List All Pages*/
+$route['admin/pages'] = "backend/pages";
+$route['admin/page'] = "backend/pages";
+/*Delete Page*/
+$route['admin/page/delete/(:num)'] = "backend/pages/delete/$1";
+/*About us*/
+$route['about'] = "home/about";
+/*FAQ*/
+$route['faq'] = "home/contact";
+/*Contact Us*/
+$route['contact'] = "home/contact";
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

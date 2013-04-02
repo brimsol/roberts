@@ -182,30 +182,27 @@ Class Testimonials extends CI_Controller {
 
 		if ($id == '' || $id == null) {
 
-			redirect('admin/collections/');
+			redirect('admin/testimonials/');
 
 		} elseif ($filename != null) {
-			$this -> db -> delete('collections', array('id' => $id));
-			$tables = array('products', 'swatches');
-			$this -> db -> where('category', $id);
-			$this -> db -> delete($tables);
+			$this -> db -> delete('testimonials', array('id' => $id));
 			$full_path = './uploads/' . $filename;
 			//echo $full_path;
 			if (file_exists($full_path)) {
 				if (unlink($full_path)) {
 
 					$this -> ci_alerts -> set('success', 'Collection deleted successfully');
-					redirect('admin/collections/');
+					redirect('admin/testimonials/');
 
 				} else {
 
 					$this -> ci_alerts -> set('success', 'Collection delected from database,but image files are not removed');
-					redirect('admin/collections/');
+					redirect('admin/testimonials/');
 				}
 			} else {
 
 				$this -> ci_alerts -> set('success', 'Collection deleted successfully');
-				redirect('admin/collections/');
+				redirect('admin/testimonials/');
 			}
 		}
 

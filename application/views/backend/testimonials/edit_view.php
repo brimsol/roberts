@@ -28,7 +28,7 @@
 										}
 									?>
 									<legend class="">
-										Add Testimonial
+										Update Testimonial
 									</legend>
 								</div>
 								<?php if(isset($testimonials) && count($testimonials)){

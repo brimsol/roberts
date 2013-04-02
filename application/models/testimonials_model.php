@@ -53,10 +53,16 @@ class Testimonials_model extends CI_Model {
 	function GetAll($offset = null, $limit = null) {
 
 		if ($offset != null) {
-			return $this -> db -> order_by('created_at', 'DESC') -> limit($offset, $limit) -> get('testimonials')->result();
+			return $this -> db -> order_by('created_at', 'DESC') -> limit($offset, $limit) -> get('testimonials') -> result();
 		} else {
-			return $this -> db -> order_by('created_at', 'DESC') -> get('testimonials')->result();
+			return $this -> db -> order_by('created_at', 'DESC') -> get('testimonials') -> result();
 		}
+
+	}
+
+	function GetAllHome() {
+
+		return $this -> db -> order_by('name', 'ASC') -> get('testimonials') -> result();
 
 	}
 
@@ -102,11 +108,6 @@ class Testimonials_model extends CI_Model {
 
 	 }*/
 
-	function GetAllHome() {
-
-		return $this -> db -> select('id,image,name') -> order_by('name', 'ASC') -> get('collections') -> result();
-
-	}
 
 	function GetSimilar($id) {
 

@@ -45,7 +45,7 @@ class Slider extends CI_Controller {
 
 			if ($this -> upload -> do_upload()) {
 				$data = $this -> upload -> data();
-				$form_data = array('description' => set_value('description'), 'image' => $data['file_name'], 'category' => set_value('category'));
+				$form_data = array('name' => $this -> input -> post('name'),'description' => $this -> input -> post('description'), 'image' => $data['file_name'], 'category' => set_value('category'));
 				if ($this -> slider_model -> save_slides($form_data) == TRUE)// the information has therefore been successfully saved in the db
 				{
 					$this -> ci_alerts -> set('success', 'Saved Successfully');
@@ -90,7 +90,7 @@ class Slider extends CI_Controller {
 
 				if ($this -> upload -> do_upload()) {
 					$data = $this -> upload -> data();
-					$form_data = array('description' => $this -> input -> post('description'), 'image' => $data['file_name'], 'category' => set_value('category'));
+					$form_data = array('name' => $this -> input -> post('name'),'description' => $this -> input -> post('description'), 'image' => $data['file_name'], 'category' => set_value('category'));
 
 					// print_r($form_data) ;
 
@@ -114,7 +114,7 @@ class Slider extends CI_Controller {
 
 			} else {
 
-				$form_data = array('description' => $this -> input -> post('description'), 'category' => set_value('category'));
+				$form_data = array('name' => $this -> input -> post('name'),'description' => $this -> input -> post('description'), 'category' => set_value('category'));
 
 				//print_r($form_data);
 

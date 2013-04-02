@@ -33,6 +33,15 @@
 <?php if(isset($slider) && count($slider)){
           		
 			foreach($slider as $slide){?>
+					<div class="control-group">
+
+									<!-- Text input-->
+									<label class="control-label" for="input01">Title</label>
+									<div class="controls">
+										<input placeholder="Title" class="input-large" id="name" type="text" name="name" value="<?php echo $slide-> name; ?>">
+										
+									</div>
+								</div>
 								<div class="control-group">
 									<label class="control-label">Image</label>
 
