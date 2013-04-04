@@ -10,7 +10,23 @@
 <head>
 	
 <?php echo $this -> load -> view('slice/head'); ?>
+<style>
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
 
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}	
+</style>
 </head>
 
 <!--=============================================================================
@@ -57,7 +73,7 @@
             </label>-->
             
             
-  	    	    <img src="<?php echo base_url();?>uploads/<?php echo $slide->image;?>" />
+  	    	    <img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $slide -> image; ?>&h=581&w=1349&q=90" />
                 
              	</li>
                 
@@ -109,6 +125,7 @@ $url = $video->url;
 parse_str(parse_url($url, PHP_URL_QUERY), $qstring);
 
 echo <<<EOF
+<div class="video-container">
 <object width="282" height="184">
 	<param name="movie" value="http://www.youtube.com/v/{$qstring['v']}&hl=en&fs=1"></param>
 	<param name="allowFullScreen" value="true"></param>
@@ -120,6 +137,7 @@ echo <<<EOF
 	       width="282"
 	       height="184"></embed>
 </object>
+</div>
 EOF;
 ?>
 <?php }}?>

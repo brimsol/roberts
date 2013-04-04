@@ -28,27 +28,36 @@
 										}
 									?>
 									<legend class="">
-										Update Product
+										Update Our Work
 									</legend>
 								</div>
-								<?php if(isset($products) && count($products)){
+								<?php if(isset($ourworks) && count($ourworks)){
           		
-			foreach($products as $product){?>
+			foreach($ourworks as $ourwork){?>
 								<div class="control-group">
 
 									<!-- Text input-->
-									<label class="control-label" for="input01">Product Name</label>
+									<label class="control-label" for="input01">Title</label>
 									<div class="controls">
-										<input placeholder="Name" class="input-large" id="name" type="text" name="name" value="<?php echo $product-> name; ?>">
+										<input placeholder="Name" class="input-large" id="name" type="text" name="name" value="<?php echo $ourwork-> name; ?>">
 										
 									</div>
 								</div>
 								<div class="control-group">
 
 									<!-- Text input-->
-									<label class="control-label" for="input01">Secription</label>
+									<label class="control-label" for="input01">Category</label>
 									<div class="controls">
-										<textarea name="description" id="description"><?php echo $product-> description; ?></textarea>
+									<select  name="category" id="category">
+											<?php if(isset($categories)&&count($categories)){?>
+												<?php foreach($categories as $categorie){?>
+												<option value="<?php echo $categorie -> id; ?>" <?php if($categorie -> id == $ourwork -> category){echo "selected='TRUE'";}?> ><?php echo $categorie -> name; ?></option>
+												<?php } ?>
+											<?php } ?>
+											
+										</select>
+									
+									
 									</div>
 								</div>
 
@@ -58,7 +67,7 @@
 									<!-- File Upload -->
 									<div class="controls">
 										<div class="fileupload fileupload-new" data-provides="fileupload">
-											<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="<?php echo base_url();?>uploads/<?php echo $product-> image; ?>" />
+											<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="<?php echo base_url();?>uploads/<?php echo $ourwork-> image; ?>" />
 											</div>
 											<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
 											<div>

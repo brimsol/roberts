@@ -39,7 +39,7 @@
 							<td><?php echo $page -> title; ?></td>
 							<td><?php echo $page -> created_at; ?></td>
 							<td>
-							<a rel="tooltip" data-original-title="View Details" class="btn btn-mini" href="<?php if($page -> id==2){echo site_url('about');}else{echo site_url('contact');} ?>" ><i class="icon-eye-open"></i></a>
+							<a rel="tooltip" data-original-title="View Details" class="btn btn-mini" href="" ><i class="icon-eye-open"></i></a>
 							<a rel="tooltip" data-original-title="Edit profile" class="btn btn-mini" href="<?php echo site_url('admin/page/edit'); ?>/<?php echo $page -> id; ?>" ><i class="icon-edit"></i></a>
 							<!--<?php echo anchor('admin/page/delete/'.$page->id,'<i class="icon-trash icon-white"></i>',
 							array('onclick'=>"return confirm('You are about to delete ".$page-> title.",\\n\\n   Do you want to continue ?')",'data-original-title'=>"Remove",'rel'=>"tooltip",'class'=>"btn btn-mini btn-danger"))?>-->

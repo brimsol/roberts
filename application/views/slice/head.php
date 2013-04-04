@@ -21,3 +21,8 @@
 
 <script src="<?php echo base_url('assets');?>/js/jquery.bxslider.js"></script>
 <script src="<?php echo base_url('assets');?>/js/jquery.bxslider.min.js"></script>
+<!-- Add jQuery library -->
+
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="<?php echo base_url('assets');?>/fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="<?php echo base_url('assets');?>/fancybox/source/jquery.fancybox.pack.js"></script>

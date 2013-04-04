@@ -65,7 +65,7 @@ class Videos extends CI_Controller {
 			// build array for the model
 			
 					$form_data = array('name' => set_value('name'), 'url' => set_value('url'));
-					if ($this -> video_model -> UpdateVideo($id, $form_data) == TRUE)// the information has therefore been successfully saved in the db
+					if ($this -> videos_model -> UpdateVideo($id, $form_data) == TRUE)// the information has therefore been successfully saved in the db
 					{
 						$this -> ci_alerts -> set('success', 'Saved Successfully');
 						redirect('admin/video/edit/' . $id);

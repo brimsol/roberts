@@ -11,3 +11,5 @@
 	<!-- jQuery -->
 	<script src="<?php echo base_url();?>assets/backend/js/jquery-1.8.3.min.js"></script>
 	<script src="<?php echo base_url();?>assets/backend/js/bootstrap.js"></script>
+
+	

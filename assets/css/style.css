@@ -554,9 +554,32 @@ products portion starts here
 .main_product_image_content{float:left; width:55%; margin:0px 0px 0px 15px;}
 .main_product_image_content h4{font-family: 'Conv_futuralc'; font-size:25px; }
 .main_product_image_content p{}
-.product_temp{ width:97%;}
-.product_temp li{ list-style:none; border:2px solid #fff; height:80px; width:112px; float:left; margin:0px 20px 20px 0px; }
-
+.product_temp h8 {
+	border-bottom: 1px solid #CA3133;
+    color: #5F5F5F;
+    display: block;
+    font-family: 'Conv_futuralc';
+    font-size: 24px;
+    margin: 0px 0;
+}
+.product_temp {
+    width: 97%;
+}
+.product_temp li {
+    border: 2px solid #FFFFFF;
+    float: left;
+    height: 160px;
+    list-style: none outside none;
+    margin: 26px 20px 20px 0;
+    width: 271px;
+}
+.product_temp li a {
+  text-decoration:none;
+}
+.product_temp li img {
+    height: 100%;
+	width: 100%;
+}
 /*=================================
 gallery portion starts here
 =================================*/

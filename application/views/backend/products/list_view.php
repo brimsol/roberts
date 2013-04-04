@@ -42,7 +42,7 @@
 							<td>
 						    <a rel="tooltip" data-original-title="View Details" data-toggle="modal" class="btn btn-mini" href="<?php echo site_url('admin/product/view'); ?>/<?php echo $product -> id; ?>" ><i class="icon-eye-open"></i></a>
 							<a rel="tooltip" data-original-title="Edit Store" class="btn btn-mini" href="<?php echo site_url('admin/product/edit'); ?>/<?php echo $product -> id; ?>" ><i class="icon-edit"></i></a>
-							<?php echo anchor('admin/product/delete/'.$product->id,'<i class="icon-trash icon-white"></i>',
+							<?php echo anchor('admin/product/delete/'.$product->id.'/'.$product->image,'<i class="icon-trash icon-white"></i>',
 							array('onclick'=>"return confirm('You are about to delete ".$product-> name.",\\n\\n   Do you want to continue ?')",'data-original-title'=>"Remove",'rel'=>"tooltip",'class'=>"btn btn-mini btn-danger"))?>
 						
 							</td>

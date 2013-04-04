@@ -176,7 +176,7 @@ Class Ourworks extends CI_Controller {
 		if ($this -> form_validation -> run() == FALSE)// validation hasn't been passed
 		{
 			$data['ourworks'] = $this -> ourworks_model -> GetOne($id);
-			$this -> load -> view('backend/spotlights/edit_view', $data);
+			$this -> load -> view('backend/ourworks/edit_view', $data);
 		} else {// passed validation proceed to post success logic
 
 			// build array for the model
@@ -202,11 +202,11 @@ Class Ourworks extends CI_Controller {
 					if ($this -> ourworks_model -> Update($id, $form_data) == TRUE)// the information has therefore been successfully saved in the db
 					{
 						$this -> ci_alerts -> set('success', 'Saved Successfully');
-						redirect('admin/spotlight/edit/' . $id);
+						redirect('admin/ourwork/edit/' . $id);
 						// or whatever logic needs to occur
 					} else {
 						$this -> ci_alerts -> set('success', 'An error occurred saving your information. Please try again later');
-						redirect('admin/spotlight/edit/' . $id);
+						redirect('admin/ourwork/edit/' . $id);
 
 					}
 				} else {
@@ -214,7 +214,7 @@ Class Ourworks extends CI_Controller {
 					$data['upload_error'] = $this -> upload -> display_errors();
 					$data['testimonials'] = $this -> spotlights_model -> GetOne($id);
 					//$data['collections'] = $this -> collections_model -> get_all_collection_names();
-					$this -> load -> view('backend/spotlights/edit_view', $data);
+					$this -> load -> view('backend/ourworks/edit_view', $data);
 				}
 			} else {
 
@@ -222,11 +222,11 @@ Class Ourworks extends CI_Controller {
 				if ($this -> ourworks_model -> Update($id, $form_data) == TRUE)// the information has therefore been successfully saved in the db
 				{
 					$this -> ci_alerts -> set('success', 'Saved Successfully');
-					redirect('admin/spotlight/edit/' . $id);
+					redirect('admin/ourwork/edit/' . $id);
 					// or whatever logic needs to occur
 				} else {
 					$this -> ci_alerts -> set('success', 'Nothing to Update');
-					redirect('admin/spotlight/edit/' . $id);
+					redirect('admin/ourwork/edit/' . $id);
 
 				}
 

@@ -30,7 +30,7 @@ Class Clients extends CI_Controller {
 		$config['num_links'] = 9;
 		$this -> pagination -> initialize($config);
 		$page = ($this -> uri -> segment(3)) ? $this -> uri -> segment(3) : 0;
-		$data['clients'] = $this -> testimonials_model -> GetAll($config["per_page"], $page);
+		$data['clients'] = $this -> clients_model -> GetAll($config["per_page"], $page);
 		$data['links'] = $this -> pagination -> create_links();
 		$this -> load -> view('backend/client/list_view',$data);
 

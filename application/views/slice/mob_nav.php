@@ -1,19 +1,17 @@
 <div id="mob_nav">
 <div id="mob_nav_toggle">
 <div id="mob_nav_toggle_link">
-  <label><a  id="mob_nav_menu"><img src="images/mb-menu.png"  alt="menu"></a></label>
-  <label style="float:left;"><a  id="mob_nav_home"><img src="images/mb-home.png" alt="home"></a></label>
+  <label><a  id="mob_nav_menu"><img src="<?php echo base_url();?>assets/images/mb-menu.png"  alt="menu"></a></label>
+  <label style="float:left;"><a  id="mob_nav_home"><img src="<?php echo base_url();?>assets/images/mb-home.png" alt="home"></a></label>
  </div>
 <div id="mob_nav_inner">
 
 
 
-<label class="mob_nav_inner_li" id="mobbmenu_a"><a href="index.html">Home</a></label>
-<label class="mob_nav_inner_li" id="mobbmenu_b"><a>About Us</a></label>
-<label class="mob_nav_inner_li" id="mobbmenu_c"><a>Products</a></label>
-
-<label class="mob_nav_inner_li" id="mobbmenu_d"><a>Classes</a></label>
-<label class="mob_nav_inner_li" id="mobbmenu_e"><a>Contact Us</a></label>
+<label class="mob_nav_inner_li" id="mobbmenu_a"><a href="<?php echo site_url();?>">Home</a></label>
+<label class="mob_nav_inner_li" id="mobbmenu_c"><a href="<?php echo site_url('products');?>">Products</a></label>
+<label class="mob_nav_inner_li" id="mobbmenu_b"><a href="<?php echo site_url('about');?>">About Us</a></label>
+<label class="mob_nav_inner_li" id="mobbmenu_e"><a href="<?php echo site_url('contact');?>">Contact Us</a></label>
 
 
 

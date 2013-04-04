@@ -94,6 +94,15 @@ $route['admin/ourworks/add'] = "backend/ourworks/add";
 $route['admin/ourworks/edit/(:num)'] = "backend/ourworks/edit/$1";
 /*Delete Categories*/
 $route['admin/ourworks/delete/(:num)/(:any)'] = "backend/ourworks/delete/$1/$2";
+/*List All Categories*/
+$route['admin/ourwork'] = "backend/ourworks/index";
+$route['admin/ourwork/(:num)'] = "backend/ourworks/index";
+/*Add New Categories*/
+$route['admin/ourwork/add'] = "backend/ourworks/add";
+/*Edit Categories*/
+$route['admin/ourwork/edit/(:num)'] = "backend/ourworks/edit/$1";
+/*Delete Categories*/
+$route['admin/ourwork/delete/(:num)/(:any)'] = "backend/ourworks/delete/$1/$2";
 /*List All Spotlights*/
 $route['admin/spotlights'] = "backend/spotlights/index";
 $route['admin/spotlights/(:num)'] = "backend/spotlights/index";
@@ -135,5 +144,11 @@ $route['about'] = "home/about";
 $route['faq'] = "home/contact";
 /*Contact Us*/
 $route['contact'] = "home/contact";
+/*Frontend Product View*/
+$route['products/view/(:num)'] = "home/products_view/$1";
+/*Frontend Product list*/
+$route['products'] = "home/products/";
+/*Frontend Our work list*/
+$route['ourworks'] = "home/ourworks/";
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

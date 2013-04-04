@@ -47,27 +47,19 @@
 <!-- aside_left start -->
 <div id="aside_left">
 <!---about us here -->
-<h1>Gallery</h1>
+<h1>Our Works</h1>
 
 
 
 
 <div class="gallery_image">
 <ul>
-<li><a href="images/banner_image1.png" rel="lightbox[album4]" title=""><img src="images/productimgtemp1.png"  alt=""></a></li>
-<li><a href="images/banner_image2.png" rel="lightbox[album4]" title=""><img src="images/productimgtemp2.png"  alt=""></a></li>
-<li><a href="images/banner_image1.png" rel="lightbox[album4]" title=""><img src="images/productimgtemp1.png"  alt=""></a></li>
-<li><a href="images/banner_image2.png" rel="lightbox[album4]" title=""><img src="images/productimgtemp2.png"  alt=""></a></li>
-<li><a href="images/banner_image1.png" rel="lightbox[album4]" title=""><img src="images/productimgtemp1.png"  alt=""></a></li>
-<li><a href="images/banner_image1.png" rel="lightbox[album4]" title=""><img src="images/productimgtemp1.png"  alt=""></a></li>
-<li><a href="images/banner_image1.png" rel="lightbox[album4]" title=""><img src="images/productimgtemp2.png"  alt=""></a></li>
-<li><a href="images/banner_image1.png" rel="lightbox[album4]" title=""><img src="images/productimgtemp1.png"  alt=""></a></li>
-<li><a href="images/banner_image2.png" rel="lightbox[album4]" title=""><img src="images/productimgtemp2.png"  alt=""></a></li>
-<li><a href="images/banner_image1.png" rel="lightbox[album4]" title=""><img src="images/productimgtemp1.png"  alt=""></a></li>
-<li><a href="images/banner_image1.png" rel="lightbox[album4]" title=""><img src="images/productimgtemp2.png"  alt=""></a></li>
-<li><a href="images/banner_image1.png" rel="lightbox[album4]" title=""><img src="images/productimgtemp1.png"  alt=""></a></li>
-<li><a href="images/banner_image1.png" rel="lightbox[album4]" title=""><img src="images/productimgtemp2.png"  alt=""></a></li>
+<?php if(isset($ourworks) && count($ourworks)){?>
+<?php	foreach ($ourworks as $ourwork){?>
+<li><a href="<?php echo base_url(); ?>uploads/<?php echo $ourwork -> image; ?>" rel="lightbox[album4]" title=""><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $ourwork -> image; ?>&h=192&w=257&q=90"  alt=""></a></li>
 
+<?php }
+}else{ echo "No Works found";}?>
 
 <div class="clear"></div>
 </ul>

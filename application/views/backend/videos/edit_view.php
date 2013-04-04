@@ -31,15 +31,15 @@
 										Update Video
 									</legend>
 								</div>
-								<?php if(isset($stores) && count($stores)){
+								<?php if(isset($videos) && count($videos)){
 								
-								foreach ($stores as $store){?>
+								foreach ($videos as $video){?>
 								<div class="control-group">
 
 									<!-- Text input-->
-									<label class="control-label" for="input01">Store Title</label>
+									<label class="control-label" for="input01">Title</label>
 									<div class="controls">
-										<input placeholder="Video Title" class="input-large" type="text" id="name" name="name" value="<?php echo $store -> name; ?>">
+										<input placeholder="Video Title" class="input-large" type="text" id="name" name="name" value="<?php echo $video -> name; ?>">
 										
 									</div>
 								</div>
@@ -49,7 +49,7 @@
 									<!-- Text input-->
 									<label class="control-label" for="input01">URL</label>
 									<div class="controls">
-										<input placeholder="Video URL" id="url" class="input-large" type="text" name="url" value="<?php echo $store -> url; ?>">
+										<input placeholder="Video URL" id="url" class="input-large" type="text" name="url" value="<?php echo $video -> url; ?>">
 										<p class="help-block">
 											Youtube URL <em>(eg:url_youtube_here)</em>
 										</p>

@@ -30,9 +30,8 @@
 
 <ul>
 	<li ><a href="<?php echo site_url();?>">HOME</a></li>
-	<li ><a href="#">PRODUCTS</a></li>
-	<li><a href="#">HOW WE MAKE IT</a></li>
-	<li><a href="#">OUR WORK</a></li>
+	<li ><a href="<?php echo site_url('products');?>">PRODUCTS</a></li>
+	<li><a href="<?php echo site_url('ourworks');?>">OUR WORK</a></li>
     <li><a href="#">BLOG</a></li>
 	<li><a href="<?php echo site_url('about');?>">ABOUT US</a></li>
     <li><a href="<?php echo site_url('contact');?>">CONTACT US</a></li>

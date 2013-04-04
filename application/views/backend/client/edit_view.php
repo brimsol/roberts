@@ -28,7 +28,7 @@
 										}
 									?>
 									<legend class="">
-										Update Testimonial
+										Update Client of Month
 									</legend>
 								</div>
 								<?php if(isset($clients) && count($clients)){
@@ -37,7 +37,7 @@
 								<div class="control-group">
 
 									<!-- Text input-->
-									<label class="control-label" for="input01">Author Name</label>
+									<label class="control-label" for="input01">Client Name</label>
 									<div class="controls">
 										<input placeholder="Name" class="input-large" id="name" type="text" name="name" value="<?php echo $client-> name; ?>">
 										
@@ -46,14 +46,14 @@
 								<div class="control-group">
 
 									<!-- Text input-->
-									<label class="control-label" for="input01">Testimonial</label>
+									<label class="control-label" for="input01">Description</label>
 									<div class="controls">
 										<textarea name="description" id="description"><?php echo $client-> description; ?></textarea>
 									</div>
 								</div>
 
 								<div class="control-group">
-									<label class="control-label">Image of Author</label>
+									<label class="control-label">Image</label>
 
 									<!-- File Upload -->
 									<div class="controls">

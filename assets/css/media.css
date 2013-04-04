@@ -398,10 +398,22 @@ padding: 15px 0 0;
 .product_temp li {
     border: 2px solid #FFFFFF;
     float: left;
-    height: 80px;
+    height: 176px;
     list-style: none outside none;
-    margin: 0 4px 20px 4px;
-    width: 112px;
+    margin: 9px 8px 41px;
+	width: 472px;
+}
+.product_temp li img {
+    height: 100%;
+	width: 100%;
+}
+.product_temp h8 {
+	border-bottom: 1px solid #CA3133;
+    color: #5F5F5F;
+    display: block;
+    font-family: 'Conv_futuralc';
+    font-size: 24px;
+    margin: 4px 0;
 }
 
 #product {
@@ -635,10 +647,22 @@ padding: 15px 0 0;
 .product_temp li {
     border: 2px solid #FFFFFF;
     float: left;
-    height: 80px;
+    height: 140px;
     list-style: none outside none;
-    margin: 0 10px 20px;
-    width: 112px;
+    margin: 9px 8px 41px;
+	width: 320px;
+}
+.product_temp li img {
+    height: 100%;
+	width: 100%;
+}
+.product_temp h8 {
+	border-bottom: 1px solid #CA3133;
+    color: #5F5F5F;
+    display: block;
+    font-family: 'Conv_futuralc';
+    font-size: 24px;
+    margin: 2px 0;
 }
 
 
@@ -872,10 +896,22 @@ padding: 15px 0 0;
 .product_temp li {
     border: 2px solid #FFFFFF;
     float: left;
-    height: 80px;
+    height: 140px;
     list-style: none outside none;
-    margin: 0 8px 20px;
-    width: 112px;
+    margin: 9px 8px 41px;
+    width: 248px;
+}
+.product_temp li img {
+    height: 100%;
+	width: 100%;
+}
+.product_temp h8 {
+	border-bottom: 1px solid #CA3133;
+    color: #5F5F5F;
+    display: block;
+    font-family: 'Conv_futuralc';
+    font-size: 24px;
+    margin: 0px 0;
 }
 #product {
     padding: 25px 0 25px;
@@ -1166,11 +1202,23 @@ padding: 15px 0 0;
 
 .product_temp li {
     border: 2px solid #FFFFFF;
-    float: none;
-    height: 80px;
+    float: right;
+    height: 82px;
     list-style: none outside none;
-    margin: 0px 0px 20px 0px;
-    width: 112px;
+    margin: 8px 2px 28px;
+    width: 114px;
+}
+.product_temp li img {
+    height: 100%;
+	width: 100%;
+}
+.product_temp h8 {
+	border-bottom: 1px solid #CA3133;
+    color: #5F5F5F;
+    display: block;
+    font-family: 'Conv_futuralc';
+    font-size: 24px;
+    margin: 0 0;
 }
 #footer_inner_contact h4{ font-size:14px;}
 .gallery_image li {
