@@ -39,6 +39,7 @@
 							<td><?php echo $video -> name; ?></td>
 							<td width="60%"><a href="<?php echo $video -> url; ?>" target="_blank" ><?php echo $video -> url; ?></a></td>
 							<td>
+								<a rel="tooltip" data-original-title="Show in Home"  class="btn btn-mini" href="<?php echo site_url('admin/video/featured'); ?>/<?php echo $video -> id; ?>" ><i class="icon-flag"></i></a>
 							<a rel="tooltip" data-original-title="Edit Store" class="btn btn-mini" href="<?php echo site_url('admin/video/edit'); ?>/<?php echo $video -> id; ?>" ><i class="icon-edit"></i></a>
 							<?php echo anchor('admin/video/delete/'.$video->id,'<i class="icon-trash icon-white"></i>',
 							array('onclick'=>"return confirm('You are about to delete ".$video-> name.",\\n\\n   Do you want to continue ?')",'data-original-title'=>"Remove",'rel'=>"tooltip",'class'=>"btn btn-mini btn-danger"))?>

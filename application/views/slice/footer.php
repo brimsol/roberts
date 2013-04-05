@@ -4,10 +4,11 @@
 <div id="footer_inner_menu">
 <h2>Menu</h2>
 <ul>
-<li><a href="">Home </a></li>
-<li><a href="">About US</a></li>
-<li><a href="">Products</a></li>
-<li><a href="">Gallery</a></li>
+<li><a href="<?php echo site_url();?>">Home </a></li>
+<li><a href="<?php echo site_url('products');?>">Products</a></li>
+<li><a href="<?php echo site_url('ourworks');?>">Our Works</a></li>
+<li><a href="<?php echo site_url('about');?>">About US</a></li>
+<li><a href="<?php echo site_url('admin');?>">Admin</a></li>
 </ul>
 </div>
 

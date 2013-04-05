@@ -51,7 +51,7 @@
 <div id="product">
 <?php if(isset($products) && count($products)){?>
 <?php	foreach ($products as $product){?>
-<div class="main_product_image"><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $product -> image; ?>&h=192&w=257&q=90" alt="product"></div>
+<div class="main_product_image"><a class="fancybox" href="<?php echo base_url(); ?>uploads/<?php echo $product -> image; ?>"><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $product -> image; ?>&h=192&w=257&q=90" alt="product"></a></div>
 <div class="main_product_image_content">
 
 <h4><?php echo $product -> name; ?></h4>

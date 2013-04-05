@@ -33,12 +33,13 @@
 						<li><a class="ajax-link" href="<?php echo site_url('admin/spotlights');?>"><i class="icon-random"></i><span class="hidden-tablet"> Update</span></a></li>
 						
 						<li class="nav-header hidden-tablet">Client of Month</li>
-						<li><a class="ajax-link" href="<?php echo site_url('admin/spotlight/add');?>"><i class="icon-comment"></i><span class="hidden-tablet"> Add New</span></a></li>
-						<li><a class="ajax-link" href="<?php echo site_url('admin/spotlights');?>"><i class="icon-random"></i><span class="hidden-tablet"> Update</span></a></li>
+						<li><a class="ajax-link" href="<?php echo site_url('admin/client/add');?>"><i class="icon-comment"></i><span class="hidden-tablet"> Add New</span></a></li>
+						<li><a class="ajax-link" href="<?php echo site_url('admin/clients');?>"><i class="icon-random"></i><span class="hidden-tablet"> Update</span></a></li>
 					
+					    <li class="nav-header hidden-tablet">Pages</li>
+						<li><a class="ajax-link" href="<?php echo site_url('admin/pages');?>"><i class="icon-random"></i><span class="hidden-tablet"> Update</span></a></li>
 					</ul>
 
 				</div><!--/.well -->
-				
-				
+			 
 			</div><!--/span-->

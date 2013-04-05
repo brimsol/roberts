@@ -65,7 +65,7 @@
             <li>
             <label class="banner_link">
             <h1><?php echo $slide->name;?></h1>
-            <p><?php echo $slide->description;?></p>
+            <p><?php echo ellipsis($slide->description,160); ?></p>
             </label>
             
             
@@ -109,6 +109,15 @@
 
 
 <!-- content start -->
+<?php
+function ellipsis($text, $max=100, $append='&hellip;')
+{
+    if (strlen($text) <= $max) return $text;
+    $out = substr($text,0,$max);
+    if (strpos($text,' ') === FALSE) return $out.$append;
+    return preg_replace('/\w+$/','',$out).$append;
+}
+?>
 <div id="content">
 <div id="content_inner">
 <!-- welcome start -->
@@ -166,7 +175,7 @@ EOF;
 
 	
   <li class="spotlight_slide_li"><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $spotlight -> image; ?>&h=135&w=295&q=90"  alt="Spotlight">
-  <p> <span class="qtn"></span><?php echo $spotlight->description;?>
+  <p> <span class="qtn"></span><?php echo ellipsis($spotlight->description,100); ?>
 <span class="qtn_b"></span>
 </p>
 
@@ -237,7 +246,7 @@ EOF;
 
  <div class="client_month_li"><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $client -> image; ?>&h=135&w=295&q=90"  alt="collections">
  <h3><?php echo $client->name;?></h3>
-  <p> <span class="qtn"></span><?php echo $client->description;?>
+  <p> <span class="qtn"></span><?php echo ellipsis($client->description,100); ?>
 <span class="qtn_b"></span>
 </p>
 
@@ -277,7 +286,7 @@ EOF;
 <div class="clear"></div>
 </label>
 <span class="testimonials_slide_li_head_image"></span>
-<span class="testimonial_image_main"><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $testimonial -> image; ?>&h=55&w=55&q=90"  alt="testimage" class="testimonial_image"><p>“<?php echo $testimonial -> description; ?>”<p></span>
+<span class="testimonial_image_main"><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $testimonial -> image; ?>&h=55&w=55&q=90"  alt="testimage" class="testimonial_image"><p>“<?php echo ellipsis($testimonial->description,200); ?>”<p></span>
 
 
   </li>

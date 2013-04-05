@@ -62,8 +62,34 @@ class Spotlights_model extends CI_Model {
 
 	function GetAllHome() {
 
-		return $this -> db -> select('id,image,description') -> order_by('created_at', 'DESC') -> get('spotlights') -> result();
+		return $this -> db -> select('id,image,description')-> where('flag', 'hm') -> limit(100) -> order_by('created_at', 'DESC')-> get('spotlights') -> result();
 
+	}
+
+	function Featured($id) {
+
+		$data = array('flag' => 'hm');
+		$this -> db -> where('id', $id);
+		$this -> db -> update('spotlights', $data);
+
+		if ($this -> db -> affected_rows() == '1') {
+			return TRUE;
+		}
+
+		return FALSE;
+	}
+
+	function UnFeatured($id) {
+
+		$data = array('flag' => '');
+		$this -> db -> where('id', $id);
+		$this -> db -> update('spotlights', $data);
+
+		if ($this -> db -> affected_rows() == '1') {
+			return TRUE;
+		}
+
+		return FALSE;
 	}
 
 	function get_all_collection_names() {

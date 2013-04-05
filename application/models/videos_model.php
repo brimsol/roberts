@@ -43,6 +43,32 @@ class Videos_model extends CI_Model {
 
 		return FALSE;
 	}
+	
+	function Featured($id) {
+
+		$data = array('flag' => 'hm');
+		$this -> db -> where('id', $id);
+		$this -> db -> update('videos', $data);
+
+		if ($this -> db -> affected_rows() == '1') {
+			return TRUE;
+		}
+
+		return FALSE;
+	}
+
+	function UnFeatured($id) {
+
+		$data = array('flag' => '');
+		$this -> db -> where('id', $id);
+		$this -> db -> update('videos', $data);
+
+		if ($this -> db -> affected_rows() == '1') {
+			return TRUE;
+		}
+
+		return FALSE;
+	}
 
 
 	function GetAll($filter = null) {
@@ -64,7 +90,7 @@ class Videos_model extends CI_Model {
 	}
 	function GetAllHome() {
 
-		return $this -> db -> order_by('name', 'ASC') -> limit(1) -> get('videos') -> result();
+		return $this -> db -> where('flag', 'hm') -> limit(1) -> order_by('created_at', 'DESC') -> limit(1) -> get('videos') -> result();
 
 	}
 

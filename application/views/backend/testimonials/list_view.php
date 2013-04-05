@@ -17,6 +17,7 @@
 					
 					
 						<div class="span10">
+							<?php echo $this -> ci_alerts -> display('success'); ?>
 <legend>Testimonials</legend>
 								<?php if(isset($testimonials) && count($testimonials)){
           		
@@ -28,6 +29,7 @@
 	<?php }else{ ?><img class="pull-left thumbnail" src="http://placehold.it/60x60"/><?php } ?>
 <p class="testimonial"><?php echo $testimonial -> description; ?></p><p class="testimonial"><small>-- <?php echo $testimonial -> name; ?></small></p>
 <p class="pull-right" >
+	<a rel="tooltip" data-original-title="Show in Home" class="btn btn-mini" href="<?php echo site_url('admin/testimonial/featured'); ?>/<?php echo $testimonial -> id; ?>" ><i class="icon-flag"></i></a>
 	<a rel="tooltip" data-original-title="Edit" class="btn btn-mini" href="<?php echo site_url('admin/testimonial/edit'); ?>/<?php echo $testimonial -> id; ?>" ><i class="icon-edit"></i></a>
 	<?php echo anchor('admin/testimonial/delete/'.$testimonial->id.'/'.$testimonial->image,'<i class="icon-trash icon-white"></i>',
 							array('onclick'=>"return confirm('You are about to delete this,\\n\\n   Do you want to continue ?')",'data-original-title'=>"Remove",'rel'=>"tooltip",'class'=>"btn btn-mini btn-danger"))?></p>

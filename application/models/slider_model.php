@@ -39,7 +39,7 @@ class Slider_model extends CI_Model {
 		return FALSE;
 	}
 
-	function GetHomeSlider() {
+	function GetAllHome() {
 
 		return $this -> db -> where('category', 'hm') -> limit(4) -> get('slider') -> result();
 

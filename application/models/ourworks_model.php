@@ -105,9 +105,9 @@ class Ourworks_model extends CI_Model {
 
 	}
 
-	function GetAllCollectionId() {
+	function GetAllInProduct($id) {
 
-		return $this -> db -> select('id') -> order_by('name', 'ASC') -> get('products');
+		return $this -> db -> where('category',$id) -> order_by('created_at', 'ASC') -> get('ourworks')->result();
 
 	}
 

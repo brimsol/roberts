@@ -22,12 +22,14 @@ class Home extends CI_Controller {
 		$this -> load -> model('clients_model');
 		$this -> load -> model('pages_model');
 		$this -> load -> model('products_model');
+		$this -> load -> model('ourworks_model');
+		
 
 	}
 
 	public function index() {
 
-		$data['slider'] = $this -> slider_model -> GetHomeSlider();
+		$data['slider'] = $this -> slider_model -> GetAllHome();
 		$data['spotlights'] = $this -> spotlights_model -> GetAllHome();
 		$data['testimonials'] = $this -> testimonials_model -> GetAllHome();
 		$data['videos'] = $this -> videos_model -> GetAllHome();
@@ -67,7 +69,7 @@ class Home extends CI_Controller {
 		$data['title'] = 'Products';
 
 		$data['products'] = $this -> products_model -> GetOne($id);
-		$data['ourworks'] = $this -> products_model -> GetAll();
+		$data['ourworks'] = $this -> ourworks_model -> GetAllInProduct($id);
 		$this -> load -> view('product_details_view', $data);
 
 	}

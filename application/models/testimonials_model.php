@@ -62,8 +62,34 @@ class Testimonials_model extends CI_Model {
 
 	function GetAllHome() {
 
-		return $this -> db -> order_by('name', 'ASC') -> get('testimonials') -> result();
+		return $this -> db -> where('flag', 'hm') -> limit(100) -> order_by('created_at', 'DESC') -> get('testimonials') -> result();
 
+	}
+
+	function Featured($id) {
+
+		$data = array('flag' => 'hm');
+		$this -> db -> where('id', $id);
+		$this -> db -> update('testimonials', $data);
+
+		if ($this -> db -> affected_rows() == '1') {
+			return TRUE;
+		}
+
+		return FALSE;
+	}
+
+	function UnFeatured($id) {
+
+		$data = array('flag' => '');
+		$this -> db -> where('id', $id);
+		$this -> db -> update('testimonials', $data);
+
+		if ($this -> db -> affected_rows() == '1') {
+			return TRUE;
+		}
+
+		return FALSE;
 	}
 
 	function get_all_collection_names() {
@@ -107,7 +133,6 @@ class Testimonials_model extends CI_Model {
 	 }
 
 	 }*/
-
 
 	function GetSimilar($id) {
 

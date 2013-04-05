@@ -6,7 +6,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.html"> <span>Roberts Awnings</span></a>
+				<a class="brand" href="<?php echo site_url('dashboard'); ?>"> <span>Roberts Awnings</span></a>
 				
 				<!-- user dropdown starts -->
 				<?php if($this -> session -> userdata('username') != '' ){$username = $this -> session -> userdata('username'); ?>

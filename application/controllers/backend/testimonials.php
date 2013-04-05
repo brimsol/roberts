@@ -175,6 +175,52 @@ Class Testimonials extends CI_Controller {
 		$this -> load -> view('backend/collections/list_ajax_view', $data);
 
 	}
+	
+	function featured($id = null) {
+
+		if ($id == '' || $id == null) {
+
+			$this -> ci_alerts -> set('success', 'Some thing wrong happend we cannot set this us featured');
+			redirect('admin/testimonials/');
+
+		} else {
+
+			if ($this -> testimonials_model -> Featured($id) == TRUE)// the information has therefore been successfully saved in the db
+			{
+				$this -> ci_alerts -> set('success', 'You are done !');
+				redirect('admin/testimonials/');
+				// or whatever logic needs to occur
+			} else {
+				$this -> ci_alerts -> set('success', 'You are done !! But this is already featured !');
+				redirect('admin/testimonials/');
+
+			}
+
+		}
+	}
+
+	function unfeatured($id = null) {
+
+		if ($id == '' || $id == null) {
+
+			$this -> ci_alerts -> set('success', 'Some thing wrong happend try again later');
+			redirect('admin/settings/');
+
+		} else {
+
+			if ($this -> testimonials_model -> UnFeatured($id) == TRUE)// the information has therefore been successfully saved in the db
+			{
+				$this -> ci_alerts -> set('success', 'You are done !');
+				redirect('admin/settings/');
+				// or whatever logic needs to occur
+			} else {
+				$this -> ci_alerts -> set('success', 'You are done !!');
+				redirect('admin/settings/');
+
+			}
+
+		}
+	}
 
 	//oops,deleted from db and unlink the related image
 

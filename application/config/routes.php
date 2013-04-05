@@ -150,5 +150,17 @@ $route['products/view/(:num)'] = "home/products_view/$1";
 $route['products'] = "home/products/";
 /*Frontend Our work list*/
 $route['ourworks'] = "home/ourworks/";
+
+$route['admin/settings'] = "backend/settings/index/";
+
+$route['admin/client/featured/(:num)'] = "backend/clients/featured/$1";
+$route['admin/video/featured/(:num)'] = "backend/videos/featured/$1";
+$route['admin/testimonial/featured/(:num)'] = "backend/testimonials/featured/$1";
+$route['admin/spotlight/featured/(:num)'] = "backend/spotlights/featured/$1";
+
+$route['admin/client/unfeatured/(:num)'] = "backend/clients/unfeatured/$1";
+$route['admin/video/unfeatured/(:num)'] = "backend/videos/unfeatured/$1";
+$route['admin/testimonial/unfeatured/(:num)'] = "backend/testimonials/unfeatured/$1";
+$route['admin/spotlight/unfeatured/(:num)'] = "backend/spotlights/unfeatured/$1";
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -2,12 +2,12 @@
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 /**
- * Online video Class 
- * @package Glenna Jean 
- * @subpackage Backend 
- * @category Controller 
- * @author AMI 
- * @link ami@bandyworks.com 
+ * Online video Class
+ * @package Glenna Jean
+ * @subpackage Backend
+ * @category Controller
+ * @author AMI
+ * @link ami@bandyworks.com
  * */
 class Videos extends CI_Controller {
 
@@ -16,7 +16,7 @@ class Videos extends CI_Controller {
 		if ($this -> session -> userdata('username') == '') {
 			redirect('admin');
 		}
-		
+
 		$this -> load -> model('videos_model');
 	}
 
@@ -25,37 +25,35 @@ class Videos extends CI_Controller {
 		$this -> load -> view('backend/videos/list_view', $data);
 	}
 
-	
 	function add() {
 		$this -> form_validation -> set_rules('name', 'Video Title', 'required|trim|xss_clean|max_length[100]');
 		$this -> form_validation -> set_rules('url', 'URL', 'required|trim|xss_clean');
-		
-		
+
 		if ($this -> form_validation -> run() == FALSE)// validation hasn't been passed
 		{
 			$this -> load -> view('backend/videos/add_view');
 		} else// passed validation proceed to post success logic
 		{
-				$form_data = array('name' => set_value('name'), 'url' => set_value('url'));
-				if ($this -> videos_model -> SaveVideo($form_data) == TRUE)// the information has therefore been successfully saved in the db
-				{
-					$this -> ci_alerts -> set('success', 'Saved Successfully');
-					redirect('admin/video/add');
-					// or whatever logic needs to occur
-				} else {
-					$this -> ci_alerts -> set('success', 'An error occurred saving your information. Please try again later');
-					redirect('admin/video/add');
+			$form_data = array('name' => set_value('name'), 'url' => set_value('url'));
+			if ($this -> videos_model -> SaveVideo($form_data) == TRUE)// the information has therefore been successfully saved in the db
+			{
+				$this -> ci_alerts -> set('success', 'Saved Successfully');
+				redirect('admin/video/add');
+				// or whatever logic needs to occur
+			} else {
+				$this -> ci_alerts -> set('success', 'An error occurred saving your information. Please try again later');
+				redirect('admin/video/add');
 
-				}
-		
+			}
+
 		}
-	
+
 	}
 
 	function edit($id) {
 		$this -> form_validation -> set_rules('name', 'video Name', 'required|trim|xss_clean|max_length[100]');
 		$this -> form_validation -> set_rules('url', 'URL', 'required|trim|xss_clean');
-		
+
 		if ($this -> form_validation -> run() == FALSE)// validation hasn't been passed
 		{
 			$data['videos'] = $this -> videos_model -> GetOne($id);
@@ -63,18 +61,64 @@ class Videos extends CI_Controller {
 		} else// passed validation proceed to post success logic
 		{
 			// build array for the model
-			
-					$form_data = array('name' => set_value('name'), 'url' => set_value('url'));
-					if ($this -> videos_model -> UpdateVideo($id, $form_data) == TRUE)// the information has therefore been successfully saved in the db
-					{
-						$this -> ci_alerts -> set('success', 'Saved Successfully');
-						redirect('admin/video/edit/' . $id);
-						// or whatever logic needs to occur
-					} else {
-						$this -> ci_alerts -> set('success', 'Nothing Changed');
-						redirect('admin/video/edit/' . $id);
 
-					}
+			$form_data = array('name' => set_value('name'), 'url' => set_value('url'));
+			if ($this -> videos_model -> UpdateVideo($id, $form_data) == TRUE)// the information has therefore been successfully saved in the db
+			{
+				$this -> ci_alerts -> set('success', 'Saved Successfully');
+				redirect('admin/video/edit/' . $id);
+				// or whatever logic needs to occur
+			} else {
+				$this -> ci_alerts -> set('success', 'Nothing Changed');
+				redirect('admin/video/edit/' . $id);
+
+			}
+		}
+	}
+
+	function featured($id = null) {
+
+		if ($id == '' || $id == null) {
+
+			$this -> ci_alerts -> set('success', 'Some thing wrong happend we cannot set this us featured');
+			redirect('admin/videos/');
+
+		} else {
+
+			if ($this -> videos_model -> Featured($id) == TRUE)// the information has therefore been successfully saved in the db
+			{
+				$this -> ci_alerts -> set('success', 'You are done !');
+				redirect('admin/videos/');
+				// or whatever logic needs to occur
+			} else {
+				$this -> ci_alerts -> set('success', 'You are done !! But this is already featured !');
+				redirect('admin/videos/');
+
+			}
+
+		}
+	}
+
+	function unfeatured($id = null) {
+
+		if ($id == '' || $id == null) {
+
+			$this -> ci_alerts -> set('success', 'Some thing wrong happend try again later');
+			redirect('admin/settings/');
+
+		} else {
+
+			if ($this -> videos_model -> UnFeatured($id) == TRUE)// the information has therefore been successfully saved in the db
+			{
+				$this -> ci_alerts -> set('success', 'You are done !');
+				redirect('admin/settings/');
+				// or whatever logic needs to occur
+			} else {
+				$this -> ci_alerts -> set('success', 'You are done !!');
+				redirect('admin/settings/');
+
+			}
+
 		}
 	}
 
@@ -97,4 +141,5 @@ class Videos extends CI_Controller {
 	}
 
 }
+
 /* End of file video.php */

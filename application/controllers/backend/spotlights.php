@@ -32,17 +32,16 @@ Class Spotlights extends CI_Controller {
 		$page = ($this -> uri -> segment(3)) ? $this -> uri -> segment(3) : 0;
 		$data['spotlights'] = $this -> spotlights_model -> GetAll($config["per_page"], $page);
 		$data['links'] = $this -> pagination -> create_links();
-		$this -> load -> view('backend/spotlights/list_view',$data);
+		$this -> load -> view('backend/spotlights/list_view', $data);
 
 	}
 
-	
 	//add new spotlight->upload image->get encrypted name -> add everything to db
 
 	function add() {
 		//$this -> form_validation -> set_rules('name', 'Author', 'required|trim|xss_clean|max_length[200]');
 		$this -> form_validation -> set_rules('description', 'Description', 'required|trim|xss_clean|max_length[500]');
-		
+
 		if ($this -> form_validation -> run() == FALSE)// validation hasn't been passed
 		{
 			$this -> load -> view('backend/spotlights/add_view');
@@ -59,33 +58,33 @@ Class Spotlights extends CI_Controller {
 			}
 			// build array for the model
 			if (strlen($fileUpload) > 0) {
-			$config['upload_path'] = './uploads/';
-			$config['allowed_types'] = 'gif|jpg|png';
-			$config['max_size'] = '500';
-			$config['encrypt_name'] = TRUE;
-			$this -> load -> library('upload', $config);
+				$config['upload_path'] = './uploads/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['max_size'] = '500';
+				$config['encrypt_name'] = TRUE;
+				$this -> load -> library('upload', $config);
 
-			if ($this -> upload -> do_upload()) {
-				$data = $this -> upload -> data();
-				$form_data = array('description' => set_value('description'), 'image' => $data['file_name']);
-				if ($this -> spotlights_model -> Save($form_data) == TRUE)// the information has therefore been successfully saved in the db
-				{
-					$this -> ci_alerts -> set('success', 'Saved Successfully');
-					redirect('admin/spotlight/add');
-					// or whatever logic needs to occur
+				if ($this -> upload -> do_upload()) {
+					$data = $this -> upload -> data();
+					$form_data = array('description' => set_value('description'), 'image' => $data['file_name']);
+					if ($this -> spotlights_model -> Save($form_data) == TRUE)// the information has therefore been successfully saved in the db
+					{
+						$this -> ci_alerts -> set('success', 'Saved Successfully');
+						redirect('admin/spotlight/add');
+						// or whatever logic needs to occur
+					} else {
+						$this -> ci_alerts -> set('success', 'An error occurred saving your information. Please try again later');
+						redirect('admin/spotlight/add');
+
+					}
 				} else {
-					$this -> ci_alerts -> set('success', 'An error occurred saving your information. Please try again later');
-					redirect('admin/spotlight/add');
-
+					//Failed to upload file.
+					$data['upload_error'] = $this -> upload -> display_errors();
+					$this -> load -> view('backend/spotlights/add_view', $data);
 				}
+
 			} else {
-				//Failed to upload file.
-				$data['upload_error'] = $this -> upload -> display_errors();
-				$this -> load -> view('backend/spotlights/add_view', $data);
-			}
-            
-			} else {
-				
+
 				$form_data = array('description' => set_value('description'));
 				if ($this -> spotlights_model -> Save($form_data) == TRUE)// the information has therefore been successfully saved in the db
 				{
@@ -110,7 +109,7 @@ Class Spotlights extends CI_Controller {
 		if ($this -> form_validation -> run() == FALSE)// validation hasn't been passed
 		{
 			$data['spotlights'] = $this -> spotlights_model -> GetOne($id);
-			$this -> load -> view('backend/spotlights/edit_view',$data);
+			$this -> load -> view('backend/spotlights/edit_view', $data);
 		} else {// passed validation proceed to post success logic
 
 			// build array for the model
@@ -165,6 +164,52 @@ Class Spotlights extends CI_Controller {
 				}
 
 			}
+		}
+	}
+
+	function featured($id = null) {
+
+		if ($id == '' || $id == null) {
+
+			$this -> ci_alerts -> set('success', 'Some thing wrong happend we cannot set this product us featured');
+			redirect('admin/spotlights/');
+
+		} else {
+
+			if ($this -> spotlights_model -> Featured($id) == TRUE)// the information has therefore been successfully saved in the db
+			{
+				$this -> ci_alerts -> set('success', 'You are done !');
+				redirect('admin/spotlights/');
+				// or whatever logic needs to occur
+			} else {
+				$this -> ci_alerts -> set('success', 'You are done !! But this is already featured !');
+				redirect('admin/spotlights/');
+
+			}
+
+		}
+	}
+
+	function unfeatured($id = null) {
+
+		if ($id == '' || $id == null) {
+
+			$this -> ci_alerts -> set('success', 'Some thing wrong happend try again later');
+			redirect('admin/settings/');
+
+		} else {
+
+			if ($this -> spotlights_model -> UnFeatured($id) == TRUE)// the information has therefore been successfully saved in the db
+			{
+				$this -> ci_alerts -> set('success', 'You are done !');
+				redirect('admin/settings/');
+				// or whatever logic needs to occur
+			} else {
+				$this -> ci_alerts -> set('success', 'You are done !!');
+				redirect('admin/settings/');
+
+			}
+
 		}
 	}
 

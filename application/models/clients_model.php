@@ -43,6 +43,34 @@ class Clients_model extends CI_Model {
 
 		return FALSE;
 	}
+	
+	function Featured($id) {
+		
+		
+		$data = array('flag' =>'hm');
+		$this -> db -> where('id', $id);
+		$this -> db -> update('clientofmonth', $data);
+
+		if ($this -> db -> affected_rows() == '1') {
+			return TRUE;
+		}
+
+		return FALSE;
+	}
+	
+	function UnFeatured($id) {
+		
+		
+		$data = array('flag' =>'');
+		$this -> db -> where('id', $id);
+		$this -> db -> update('clientofmonth', $data);
+
+		if ($this -> db -> affected_rows() == '1') {
+			return TRUE;
+		}
+
+		return FALSE;
+	}
 
 	function GetOne($id) {
 
@@ -62,7 +90,7 @@ class Clients_model extends CI_Model {
 
 	function GetAllHome() {
 
-		return $this -> db -> select('id,image,name,description') -> order_by('name', 'ASC') -> get('clientofmonth') -> result();
+		return $this -> db -> select('id,image,name,description')-> where('flag', 'hm') -> limit(1) -> order_by('created_at', 'DESC') -> get('clientofmonth') -> result();
 
 	}
 
