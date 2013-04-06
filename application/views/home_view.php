@@ -175,12 +175,9 @@ EOF;
 
 	
   <li class="spotlight_slide_li"><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $spotlight -> image; ?>&h=135&w=295&q=90"  alt="Spotlight">
-  <p> <span class="qtn"></span><?php echo ellipsis($spotlight->description,100); ?>
-<span class="qtn_b"></span>
-</p>
+  <p> <span class="qtn"></span><?php echo $spotlight->description; ?><span class="qtn_b">
 
-<span class="more"><a href=""></a></span>
-<span class="spotlight_slide_li_shadow"><img src="<?php echo base_url();?>assets/images/shadowslide.png" alt="shadow"></span>
+</p>
   </li>
   
  <?php }	
@@ -246,12 +243,10 @@ EOF;
 
  <div class="client_month_li"><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $client -> image; ?>&h=135&w=295&q=90"  alt="collections">
  <h3><?php echo $client->name;?></h3>
-  <p> <span class="qtn"></span><?php echo ellipsis($client->description,100); ?>
+  <p> <span class="qtn"></span><?php echo $client->description; ?>
 <span class="qtn_b"></span>
 </p>
 
-<span class="more"><a href=""></a></span>
-<span class="client_month_li_shadow"><img src="<?php echo base_url();?>assets/images/shadowslide.png" alt="shadow"></span>
   </div>
 
 <?php } } ?>

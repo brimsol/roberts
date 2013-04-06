@@ -15,7 +15,7 @@
 				
 					<div class="span10 well">
 
-						Melcow !!!
+						Welcome !!!
 
 					</div>
 

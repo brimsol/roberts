@@ -148,6 +148,8 @@ $route['contact'] = "home/contact";
 $route['products/view/(:num)'] = "home/products_view/$1";
 /*Frontend Product list*/
 $route['products'] = "home/products/";
+/*Frontend Spotlight more list*/
+$route['spotlights'] = "home/spotlights/";
 /*Frontend Our work list*/
 $route['ourworks'] = "home/ourworks/";
 

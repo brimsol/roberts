@@ -1,7 +1,7 @@
 <?php
 /**
- * Collections_model Class
- * @package Glenna Jean
+ * Ourworks_model Class
+ * @package Roberts
  * @category Models
  * @author AMI
  * @link ami@bandyworks.com
@@ -89,6 +89,17 @@ class Ourworks_model extends CI_Model {
 		}
 
 	}
+	
+	function GetAllFiltered($filter = null) {
+		if ($filter == null && $filter == '') {
+			return $this -> db ->order_by('created_at','DESC') -> get('ourworks') -> result();
+		} else {
+			$filter[] = "'" . implode("','", $filter) . "'";
+			//$category = $filter;
+			return $this -> db -> where_in('category', $filter)->order_by('created_at','DESC') -> get('ourworks')-> result();
+		}
+
+	}
 	function GetAllCategories($offset = null, $limit = null) {
 
 		if ($offset != null) {
@@ -99,11 +110,6 @@ class Ourworks_model extends CI_Model {
 
 	}
 
-	function get_all_collection_names() {
-
-		return $this -> db -> select('id,name') -> order_by('name', 'ASC') -> get('products');
-
-	}
 
 	function GetAllInProduct($id) {
 
@@ -111,61 +117,7 @@ class Ourworks_model extends CI_Model {
 
 	}
 
-	function GetAllCollectionNames($filter = null) {
 
-		if ($filter == null || $filter == '') {
-
-			return $this -> db -> select('id,name') -> order_by('name', 'ASC') -> get('products') -> result();
-		} else {
-
-			return $this -> db -> select('id,name') -> order_by('name', 'ASC') -> where('category', $filter) -> get('products') -> result();
-		}
-
-	}
-
-	function get_all() {
-
-		return $this -> db -> order_by('name', 'ASC') -> get('collections');
-
-	}
-
-	/*
-	 function GetAll($filter = null) {
-	 if ($filter == null && $filter == '') {
-	 return $this -> db ->order_by('name','ASC') -> get('collections') -> result();
-	 } else {
-	 $filter[] = "'" . implode("','", $filter) . "'";
-	 //$category = $filter;
-	 return $this -> db -> where_in('category', $filter)->order_by('name','ASC') -> get('collections')-> result();
-	 }
-
-	 }*/
-
-	function GetAllHome() {
-
-		return $this -> db -> select('id,image,name') -> order_by('name', 'ASC') -> get('collections') -> result();
-
-	}
-
-	function GetSimilar($id) {
-
-		return $this -> db -> select('id,image,name') -> order_by('name', 'ASC') -> where_in('id', $id) -> get('collections') -> result();
-
-	}
-
-	function GetNextId($id) {
-
-		return $this -> db -> select('id') -> where('id >', $id) -> order_by("name", "asc") -> limit(1) -> get('collections') -> row();
-		//return $this -> db -> select('id') -> where_not_in('id', $id)->order_by("name", "ASC") -> limit(1) -> get('collections')->row();
-
-	}
-
-	function GetPrevId($id) {
-
-		return $this -> db -> select('id') -> where('id <', $id) -> order_by("name", "desc") -> limit(1) -> get('collections') -> row();
-		//return $this -> db -> select('id') -> where_not_in('id', $id) ->order_by("name", "DESC") -> limit(1) -> get('collections')->row();
-
-	}
 
 }
 

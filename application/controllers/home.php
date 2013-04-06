@@ -23,7 +23,6 @@ class Home extends CI_Controller {
 		$this -> load -> model('pages_model');
 		$this -> load -> model('products_model');
 		$this -> load -> model('ourworks_model');
-		
 
 	}
 
@@ -58,9 +57,17 @@ class Home extends CI_Controller {
 	public function products() {
 
 		$data['title'] = 'Products';
-
 		$data['products'] = $this -> products_model -> GetAll();
 		$this -> load -> view('product_view', $data);
+
+	}
+
+	public function search() {
+
+		$data['title'] = 'Search Products';
+		$key = $this -> input -> post('term');
+		$data['products'] = $this -> products_model -> GetSearchResult($key);
+		$this -> load -> view('product_search_view', $data);
 
 	}
 
@@ -74,12 +81,30 @@ class Home extends CI_Controller {
 
 	}
 
-	public function ourworks($id) {
+	public function ourworks() {
 
 		$data['title'] = 'Our Works';
 
-		$data['ourworks'] = $this -> products_model -> GetAll();
+		$data['products'] = $this -> products_model -> GetAll();
+		$data['ourworks'] = $this -> ourworks_model -> GetAllFiltered();
 		$this -> load -> view('ourworks_view', $data);
+
+	}
+
+	public function spotlights() {
+
+		$data['title'] = 'Spotlights';
+
+		$data['spotlights'] = $this -> spotlights_model -> GetAll();
+		$this -> load -> view('spotlight_more_view', $data);
+
+	}
+
+	public function ourworks_filtered() {
+
+		$id = $this -> input -> post('filter');
+		$data['ourworks'] = $this -> ourworks_model -> GetAllFiltered($id);
+		$this -> load -> view('ourworks_ajax_view', $data);
 
 	}
 

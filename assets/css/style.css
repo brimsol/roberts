@@ -449,6 +449,10 @@ spotlight portion starts here
 .spotlight_slide_li{ position:relative; width:295px!important; height:290px; background:#FFF; border:#d0d0d0 1px solid; border-bottom:#c93232 3px solid; padding:10px 10px 10px 8px;}
 .spotlight_slide_li img{  border:#d0d0d0 1px solid; margin:0 auto;}
 .spotlight_slide_li p{  margin:20px auto 0px auto; display:block; font-family: 'Conv_futuralc'; font-size:22px; color:#5f5f5f; width:90%;  color:#c93232;}
+.spotlight_slide1_li{ position:relative; width:295px!important; height:100%; background:#FFF; border:#d0d0d0 1px solid; border-bottom:#c93232 3px solid; padding:10px 10px 10px 8px;}
+.spotlight_slide1_li img{  border:#d0d0d0 1px solid; margin:0 auto;}
+.spotlight_slide1_li p{  margin:20px auto 0px auto; display:block; font-family: 'Conv_futuralc'; font-size:22px; color:#5f5f5f; width:90%;  color:#c93232;}
+
 .qtn{ background:url(../images/qtn_a.png) no-repeat; width:10px; height:20px; display:block; float:left; margin:0px 10px 0px 0px;}
 .qtn_b{ background:url(../images/qtn_b.png) no-repeat; width:10px; height:20px; display:block; float:right; margin:0px 0px 0px 10px;}
 .more{ cursor:pointer; background:url(../images/more.png) no-repeat; width:63px; height:63px; display:block; position:absolute; z-index:100; bottom:-33px; right:22px;}
@@ -517,7 +521,7 @@ about us portion starts here
 .banner_image{ width:1000px; height:215px; border:3px solid #FFF;}
 .banner_image img{ width:100%;}
 #aside_left{ width:71%; float:left;  padding:30px 0px 30px 0px;}
-#aside_left h1{font-family: 'Conv_futuralc'; color:#5f5f5f; font-size:30px; margin:0px 0px 0px 0px; width:80%; border-bottom:1px solid #ca3133; text-transform:uppercase; }
+#aside_left h1{font-family: 'Conv_futuralc'; color:#5f5f5f; font-size:30px; margin:0px 0px 0px 0px; width:93%; border-bottom:1px solid #ca3133; text-transform:uppercase; }
 #aside_left p{ margin:20px 0px 0px 0px; width:95%; line-height:22px;}
 
 #aside_left h3{font-family: 'Conv_futuralc'; color:#5f5f5f; font-size:24px; margin:20px 0px 20px 0px; width:80%; }
@@ -667,6 +671,10 @@ color:#959595; font-size:11px;
 }
 
 
+#aside_left select {
+    border: 5px solid #CCCCCC;
+    float: right;
+}
 
 
 

@@ -1098,6 +1098,11 @@ padding: 15px 0 0;
     width: 100%;
 }
 
+#aside_left select {
+    border: 5px solid #CCCCCC;
+    float: right;
+    margin: 17px;
+}
 
 #aside_left p {
     line-height: 22px;

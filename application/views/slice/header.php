@@ -4,11 +4,12 @@
 <div id="header_right">
 <div id="contact_search">
 
-
+ <form method="post" id="search" action="<?php echo site_url('home/search');?>">
 <div id="searchhead">
-<input type="text" class="textboxhead" value="Search" onblur="if (this.value=='') this.value='Search'; " onfocus="if (this.value=='Search') this.value='';" name="">
-<a href="" ><img src="<?php echo base_url('assets');?>/images/search.png" class="search_icon" alt="search"></a>
-   </div>
+<input type="text" class="textboxhead" value="Search" onblur="if (this.value=='') this.value='Search'; " onfocus="if (this.value=='Search') this.value='';" name="term">
+<a href="#" onclick="document.getElementById('search').submit();"><img src="<?php echo base_url('assets');?>/images/search.png" class="search_icon" alt="search"></a>
+  </form> 
+</div>
   
    
 
@@ -65,8 +66,10 @@
   
   
   <div id="mob_searchhead">
-<input type="text" class="mob_textboxhead" value="Search" onblur="if (this.value=='') this.value='Search'; " onfocus="if (this.value=='Search') this.value='';" name="">
-<a href="" ><img src="<?php echo base_url('assets');?>/images/search.png" class="mob_search_icon" alt="search"></a>
+   <form method="post" id="search_mob" action="<?php echo site_url('home/search');?>">
+<input type="text" class="mob_textboxhead" value="Search" onblur="if (this.value=='') this.value='Search'; " onfocus="if (this.value=='Search') this.value='';" name="term">
+<a href="#" onclick="document.getElementById('search_mob').submit();"><img src="<?php echo base_url('assets');?>/images/search.png" class="mob_search_icon" alt="search"></a>
+   </form>
    </div> 
 
   

@@ -47,42 +47,26 @@
 <!-- aside_left start -->
 <div id="aside_left">
 <!---about us here -->
-<h1>Our Works <img src="<?php echo base_url()?>assets/images/al.gif" id="preloader"/>
-	
-<select id="ourworks_filter">
-	
-	<option value="All">All</option>
-	
-	
+<h1>Search Result</h1>
+<div class="product_temp">
+<ul>
 <?php if(isset($products) && count($products)){?>
 <?php	foreach ($products as $product){?>
-<option value="<?php echo $product -> id; ?>"><?php echo $product -> name; ?></option>	
-
-
+<li><a href="<?php echo site_url('products/view')?>/<?php echo $product -> id; ?>"><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $product -> image; ?>&h=155&w=265&q=90" title="<?php echo $product -> name; ?>"  alt="<?php echo $product -> name; ?>"><h8><?php echo $product -> name; ?></h8></a></li>
 <?php }
-}?>	
-	
-	</select></h1>
-
-
-
-
-<div class="gallery_image">
-<ul id="ajax_ourworks">
-
-<?php if(isset($ourworks) && count($ourworks)){?>
-<?php	foreach ($ourworks as $ourwork){?>
-<li><a class="fancybox" href="<?php echo base_url(); ?>uploads/<?php echo $ourwork -> image; ?>" rel="lightbox[album4]" title=""><img src="<?php echo base_url(); ?>uploads/<?php echo $ourwork -> image; ?>"  alt=""></a></li>
-
-<?php }
-}else{ echo "No Works found";}?>
+}else{echo 'No result found for your query,plese try again';}?>
 
 <div class="clear"></div>
 </ul>
 
 <div class="clear"></div>
-<!--about us end here-->
 </div>
+
+
+
+
+
+<!--about us end here-->
 </div>
 <!-- aside_left close -->
 

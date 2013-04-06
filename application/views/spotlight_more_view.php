@@ -47,42 +47,16 @@
 <!-- aside_left start -->
 <div id="aside_left">
 <!---about us here -->
-<h1>Our Works <img src="<?php echo base_url()?>assets/images/al.gif" id="preloader"/>
-	
-<select id="ourworks_filter">
-	
-	<option value="All">All</option>
-	
-	
-<?php if(isset($products) && count($products)){?>
-<?php	foreach ($products as $product){?>
-<option value="<?php echo $product -> id; ?>"><?php echo $product -> name; ?></option>	
-
-
-<?php }
-}?>	
-	
-	</select></h1>
-
-
-
-
-<div class="gallery_image">
-<ul id="ajax_ourworks">
-
-<?php if(isset($ourworks) && count($ourworks)){?>
-<?php	foreach ($ourworks as $ourwork){?>
-<li><a class="fancybox" href="<?php echo base_url(); ?>uploads/<?php echo $ourwork -> image; ?>" rel="lightbox[album4]" title=""><img src="<?php echo base_url(); ?>uploads/<?php echo $ourwork -> image; ?>"  alt=""></a></li>
-
-<?php }
-}else{ echo "No Works found";}?>
-
+<h1>Spotlights</h1>
 <div class="clear"></div>
-</ul>
-
-<div class="clear"></div>
+<p>&nbsp;</p>
+<?php if(isset($spotlights)&&count($spotlights)){ ?>
+ <?php foreach($spotlights as $spotlight){?>
+  </li><li style="float: left; list-style: none outside none; width: 315px; margin-right: 10px;" class="spotlight_slide1_li bx-clone"><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $spotlight -> image; ?>&h=135&w=295&q=90" alt="Spotlight">
+  <p><?php echo $spotlight->description; ?></p>
+<p>&nbsp;</p>
+	<?php } }?>
 <!--about us end here-->
-</div>
 </div>
 <!-- aside_left close -->
 
