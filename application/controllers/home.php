@@ -74,10 +74,20 @@ class Home extends CI_Controller {
 	public function products_view($id) {
 
 		$data['title'] = 'Products';
-
+       
 		$data['products'] = $this -> products_model -> GetOne($id);
+		$data['products_list'] = $this -> products_model -> GetAll();
+		$data['pid'] = $id;
 		$data['ourworks'] = $this -> ourworks_model -> GetAllInProduct($id);
 		$this -> load -> view('product_details_view', $data);
+
+	}
+	public function products_view_ajax() {
+
+        $id = $this -> input -> post('filter');
+		$data['products'] = $this -> products_model -> GetOne($id);
+		$data['ourworks'] = $this -> ourworks_model -> GetAllInProduct($id);
+		$this -> load -> view('product_details_ajax_view', $data);
 
 	}
 

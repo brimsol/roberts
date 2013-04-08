@@ -47,8 +47,24 @@
 <!-- aside_left start -->
 <div id="aside_left">
 <!---about us here -->
-<h1>Products</h1>
+<h1>Products <img src="<?php echo base_url()?>assets/images/al.gif" id="preloader"/>
+<select id="products_filter">
+	
+	<option value="All">All</option>
+	
+	
+<?php if(isset($products_list) && count($products_list)){?>
+<?php	foreach ($products_list as $product){?>
+<option value="<?php echo $product -> id; ?>" <?php if($product -> id == $pid){echo "selected='TRUE'";}?>><?php echo $product -> name; ?></option>	
+
+
+<?php }
+}?>	
+	
+	</select>		
+</h1>
 <div id="product">
+	<div id="product_view">
 <?php if(isset($products) && count($products)){?>
 <?php	foreach ($products as $product){?>
 <div class="main_product_image"><a class="fancybox" href="<?php echo base_url(); ?>uploads/<?php echo $product -> image; ?>"><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $product -> image; ?>&h=192&w=257&q=90" alt="product"></a></div>
@@ -60,8 +76,9 @@
 <?php }
 }else{ echo "No product found";}?>
 <div class="clear"></div>
-</div>
-<h1>Our Works</h1>
+<div class="clear">&nbsp;</div>
+<div class="clear">&nbsp;</div>
+<h1>Our Work</h1>
 <div class="gallery_image">
 <ul>
 <?php if(isset($ourworks) && count($ourworks)){?>
@@ -70,7 +87,8 @@
 
 <?php }
 }else{ echo "No Works found";}?>
-
+</div>
+</div>
 <div class="clear"></div>
 </ul>
 

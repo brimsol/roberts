@@ -47,7 +47,9 @@
 <!-- aside_left start -->
 <div id="aside_left">
 <!---about us here -->
-<h1>Products</h1>
+<h1>Products
+
+</h1>
 <div class="product_temp">
 <ul>
 <?php if(isset($products) && count($products)){?>
