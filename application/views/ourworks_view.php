@@ -47,7 +47,7 @@
 <!-- aside_left start -->
 <div id="aside_left">
 <!---about us here -->
-<h1>Our Works <img src="<?php echo base_url()?>assets/images/al.gif" id="preloader"/>
+<h1>Our Work <img src="<?php echo base_url()?>assets/images/al.gif" id="preloader"/>
 	
 <select id="ourworks_filter">
 	

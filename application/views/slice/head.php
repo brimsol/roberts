@@ -10,7 +10,7 @@
 <!--[if lt IE 9]> <html lang="en" class="ie9">    <![endif]-->
 <!--[if lt IE 9]>
 	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-
+<![endif]-->
 
 <!-- commen juery -->
 <script src="<?php echo base_url('assets');?>/js/jquery-1.8.3.min.js"></script>
