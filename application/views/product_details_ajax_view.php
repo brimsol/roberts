@@ -12,7 +12,7 @@
 <div class="clear"></div>
 <div class="clear">&nbsp;</div>
 <div class="clear">&nbsp;</div>
-<h1>Our Work</h1>
+<h1></h1>
 <div class="gallery_image">
 <ul>
 <?php if(isset($ourworks) && count($ourworks)){?>

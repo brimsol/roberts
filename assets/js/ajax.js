@@ -55,6 +55,8 @@ $(document).ready(function() {
 		/* Send the data using post */
 		//alert('show');
 		var array = $('#products_filter').val();
+		var name=$('#products_filter option:selected').text();
+		$("ht").empty().append(name);
 		var reload = $('#products_filter').val();
 		if (reload != 'All') {
 			var posting = $.post(url_products, {

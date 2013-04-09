@@ -49,6 +49,12 @@ class Products_model extends CI_Model {
 		return $this -> db -> where('id', $id) -> limit(1) -> get('products') -> result();
 
 	}
+	
+	function GetOne_row($id) {
+
+		return $this -> db -> where('id', $id) -> limit(1) -> get('products');
+
+	}
 	function GetSearchResult($key){
 		
 		return $this -> db -> like('name', $key, 'after')->order_by('name','ASC') -> get('products') -> result();

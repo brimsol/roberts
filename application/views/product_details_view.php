@@ -47,7 +47,7 @@
 <!-- aside_left start -->
 <div id="aside_left">
 <!---about us here -->
-<h1>Products <img src="<?php echo base_url()?>assets/images/al.gif" id="preloader"/>
+<h1><ht></ht><?php echo $name;?></ht> <img src="<?php echo base_url()?>assets/images/al.gif" id="preloader"/>
 <select id="products_filter">
 	
 	<option value="All">All</option>
@@ -78,7 +78,7 @@
 <div class="clear"></div>
 <div class="clear">&nbsp;</div>
 <div class="clear">&nbsp;</div>
-<h1>Our Work</h1>
+<h1></h1>
 <div class="gallery_image">
 <ul>
 <?php if(isset($ourworks) && count($ourworks)){?>
