@@ -125,6 +125,14 @@ class Home extends CI_Controller {
 		$this -> load -> view('ourworks_ajax_view', $data);
 
 	}
+	
+	public function survey() {
+
+		//$id = $this -> input -> post('filter');
+		//$data['ourworks'] = $this -> ourworks_model -> GetAllFiltered($id);
+		$this -> load -> view('survey_view');
+
+	}
 
 }
 
