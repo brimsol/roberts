@@ -12,6 +12,7 @@
 	  }
 	</style>
 	<link href="<?php echo base_url();?>assets/backend/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="<?php echo base_url();?>assets/backend/css/vallenato.css" rel="stylesheet">
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
 	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

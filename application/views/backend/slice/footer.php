@@ -1,7 +1,8 @@
 <footer>
+	<p>&nbsp;</p>
 			<p class="pull-left">&copy; Roberts Awnings  2013</p>
 			
-		</footer>
+</footer>
 </div><!--/.fluid-container-->
 
 	<!-- external javascript
@@ -11,5 +12,5 @@
 	<!-- jQuery -->
 	<script src="<?php echo base_url();?>assets/backend/js/jquery-1.8.3.min.js"></script>
 	<script src="<?php echo base_url();?>assets/backend/js/bootstrap.js"></script>
-
+    <script src="<?php echo base_url();?>assets/backend/js/vallenato.js" type="text/javascript"></script>
 	
