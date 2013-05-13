@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 08, 2013 at 01:30 PM
+-- Generation Time: May 13, 2013 at 01:44 PM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -191,16 +191,50 @@ CREATE TABLE IF NOT EXISTS `spotlights` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `spotlights`
 --
 
 INSERT INTO `spotlights` (`id`, `image`, `flag`, `description`, `created_at`, `updated_at`) VALUES
-(1, '5defcbe0458633b31ab82dfd32c5563c.png', 'hm', 'Dominion Independent living center provides shelter between living spaces...Dominionj Independent living center provides shelter between living spaces...Dominionj Independent living center provides shelter between living spaces...', '2013-04-01 05:35:23', '0000-00-00 00:00:00'),
-(2, 'de758c5ee51395db9ee2dbc6b09d4a62.jpg', 'hm', 'Dominionj Independent living center provides shelter between living spaces...Dominionj Independent living center provides shelter between living spaces...Dominionj Independent living center provides shelter between living spaces...', '2013-04-02 11:00:31', '0000-00-00 00:00:00'),
-(3, '1eba7d93b5db65de67441d2d792c60a8.jpg', 'hm', 'Dominion Independent living center provides shelter between living spaces...Dominionj Independent living center provides shelter between living spaces...Dominionj Independent living center provides shelter between living spaces...', '2013-04-02 11:00:38', '0000-00-00 00:00:00');
+(1, '5defcbe0458633b31ab82dfd32c5563c.png', '', 'Dominion Independent living center provides shelter between living spaces...Dominionj Independent living center provides shelter between living spaces...Dominionj Independent living center provides shelter between living spaces...', '2013-04-01 05:35:23', '0000-00-00 00:00:00'),
+(2, 'de758c5ee51395db9ee2dbc6b09d4a62.jpg', '', 'Dominionj Independent living center provides shelter between living spaces...Dominionj Independent living center provides shelter between living spaces...Dominionj Independent living center provides shelter between living spaces...', '2013-04-02 11:00:31', '0000-00-00 00:00:00'),
+(3, '1eba7d93b5db65de67441d2d792c60a8.jpg', 'hm', 'Dominion Independent living center provides shelter between living spaces...Dominionj Independent living center provides shelter between living spaces...Dominionj Independent living center provides shelter between living spaces...', '2013-04-02 11:00:38', '0000-00-00 00:00:00'),
+(4, '', '', '&lt;b&gt;sdfsdfsdfsd&lt;/b&gt;&lt;table&gt;&lt;tr&gt;dsfsdfsdfsdfsdfsdfsdfsdfsdf', '2013-05-09 11:34:16', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sub_categories`
+--
+
+CREATE TABLE IF NOT EXISTS `sub_categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(200) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sub_categories_child`
+--
+
+CREATE TABLE IF NOT EXISTS `sub_categories_child` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(200) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `sub_category_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -224,8 +258,8 @@ CREATE TABLE IF NOT EXISTS `testimonials` (
 --
 
 INSERT INTO `testimonials` (`id`, `name`, `description`, `image`, `flag`, `created_at`, `updated_at`) VALUES
-(2, 'John', 'Any proposed actions by you or your agents, which are inconsistent in any manner with this ‘Confidentiality’, will require the prior written consent of Tim Murphy will require the prior written.', 'c0c40a511efbeb8c4dcb1d974d73ed11.png', 'hm', '2013-03-30 10:26:28', '0000-00-00 00:00:00'),
-(12, 'John John', 'Any proposed actions by you or your agents, which are inconsistent in any manner with this ‘Confidentiality’, will require the prior written consent of Tim Murphy will require the prior written.', '598f61f4e4d1038623a70dc0e8c9b312.png', 'hm', '2013-04-02 10:59:19', '0000-00-00 00:00:00'),
+(2, 'John', 'Any proposed actions by you or your agents, which are inconsistent in any manner with this ‘Confidentiality’, will require the prior written consent of Tim Murphy will require the prior written.', 'c0c40a511efbeb8c4dcb1d974d73ed11.png', '', '2013-03-30 10:26:28', '0000-00-00 00:00:00'),
+(12, 'John John', 'Any proposed actions by you or your agents, which are inconsistent in any manner with this ‘Confidentiality’, will require the prior written consent of Tim Murphy will require the prior written.', '598f61f4e4d1038623a70dc0e8c9b312.png', '', '2013-04-02 10:59:19', '0000-00-00 00:00:00'),
 (13, 'John Samuel', 'Any pproposed actions by you or your agents, which are inconsistent in any manner with this ‘Confidentiality’, will require the prior written consent of Tim Murphy will require the prior written.', 'fc594c4f706008af2111f3e843a42ea3.jpg', 'hm', '2013-04-02 10:59:35', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
