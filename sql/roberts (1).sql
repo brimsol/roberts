@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 13, 2013 at 01:44 PM
+-- Generation Time: May 14, 2013 at 01:41 PM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -65,6 +65,30 @@ CREATE TABLE IF NOT EXISTS `clientofmonth` (
 
 INSERT INTO `clientofmonth` (`id`, `name`, `description`, `image`, `flag`, `created_at`, `updated_at`) VALUES
 (1, 'Dominionj', 'Dominionj Independent living center provides shelter between living spaces...Dominionj Independent living center provides shelter between living spaces...Dominionj Independent living center provides shelter between living spaces...', 'e5a671df397ea7d35d88edf695633708.jpg', 'hm', '2013-04-02 10:29:31', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gifts`
+--
+
+CREATE TABLE IF NOT EXISTS `gifts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL COMMENT 'Testimonial - Author Name',
+  `description` varchar(700) NOT NULL,
+  `image` varchar(200) NOT NULL,
+  `flag` varchar(2) NOT NULL COMMENT 'hm-to show in home page',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+
+--
+-- Dumping data for table `gifts`
+--
+
+INSERT INTO `gifts` (`id`, `name`, `description`, `image`, `flag`, `created_at`, `updated_at`) VALUES
+(14, 'sdfsd', 'sdfsdfsd', '', '', '2013-05-14 10:32:30', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -202,6 +226,31 @@ INSERT INTO `spotlights` (`id`, `image`, `flag`, `description`, `created_at`, `u
 (2, 'de758c5ee51395db9ee2dbc6b09d4a62.jpg', '', 'Dominionj Independent living center provides shelter between living spaces...Dominionj Independent living center provides shelter between living spaces...Dominionj Independent living center provides shelter between living spaces...', '2013-04-02 11:00:31', '0000-00-00 00:00:00'),
 (3, '1eba7d93b5db65de67441d2d792c60a8.jpg', 'hm', 'Dominion Independent living center provides shelter between living spaces...Dominionj Independent living center provides shelter between living spaces...Dominionj Independent living center provides shelter between living spaces...', '2013-04-02 11:00:38', '0000-00-00 00:00:00'),
 (4, '', '', '&lt;b&gt;sdfsdfsdfsd&lt;/b&gt;&lt;table&gt;&lt;tr&gt;dsfsdfsdfsdfsdfsdfsdfsdfsdf', '2013-05-09 11:34:16', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `staffs`
+--
+
+CREATE TABLE IF NOT EXISTS `staffs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `designation` varchar(200) NOT NULL,
+  `description` varchar(700) NOT NULL,
+  `image` varchar(200) NOT NULL,
+  `flag` varchar(2) NOT NULL COMMENT 'hm-to show in home page',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+
+--
+-- Dumping data for table `staffs`
+--
+
+INSERT INTO `staffs` (`id`, `name`, `designation`, `description`, `image`, `flag`, `created_at`, `updated_at`) VALUES
+(14, 'sdsds', 'sdsd', 'sdsdsds', '33170ef69cea198ddd8ad63aa26cf6d2.PNG', '', '2013-05-14 07:54:55', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 

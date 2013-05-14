@@ -164,5 +164,34 @@ $route['admin/client/unfeatured/(:num)'] = "backend/clients/unfeatured/$1";
 $route['admin/video/unfeatured/(:num)'] = "backend/videos/unfeatured/$1";
 $route['admin/testimonial/unfeatured/(:num)'] = "backend/testimonials/unfeatured/$1";
 $route['admin/spotlight/unfeatured/(:num)'] = "backend/spotlights/unfeatured/$1";
+
+/*List All Officials*/
+$route['admin/staffs'] = "backend/staffs/index";
+$route['admin/staffs/(:num)'] = "backend/staffs/index";
+/*Add New Officials*/
+$route['admin/staffs/add'] = "backend/staffs/add";
+/*Edit Officials*/
+$route['admin/staffs/edit/(:num)'] = "backend/staffs/edit/$1";
+/*View Officials*/
+$route['admin/staffs/view/(:num)'] = "backend/staffs/view/$1";
+/*Delete Officials*/
+$route['admin/staffs/delete/(:num)/(:any)'] = "backend/staffs/delete/$1/$2";
+/*Delete Officials*/
+$route['admin/staffs/delete/(:num)'] = "backend/staffs/delete/$1";
+
+
+/*List All Officials*/
+$route['admin/gifts'] = "backend/gifts/index";
+$route['admin/gifts/(:num)'] = "backend/gifts/index";
+/*Add New Officials*/
+$route['admin/gifts/add'] = "backend/gifts/add";
+/*Edit Officials*/
+$route['admin/gifts/edit/(:num)'] = "backend/gifts/edit/$1";
+/*View Officials*/
+$route['admin/gifts/view/(:num)'] = "backend/gifts/view/$1";
+/*Delete Officials*/
+$route['admin/gifts/delete/(:num)/(:any)'] = "backend/gifts/delete/$1/$2";
+/*Delete Officials*/
+$route['admin/gifts/delete/(:num)'] = "backend/gifts/delete/$1";
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

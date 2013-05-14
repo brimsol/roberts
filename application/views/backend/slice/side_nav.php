@@ -88,6 +88,26 @@
 			</p>
 
 		</div>
+		<h2 class="accordion-header">Staffs</h2>
+		<div class="accordion-content">
+			<p>
+				<a class="ajax-link" href="<?php echo site_url('admin/staffs/add'); ?>"><i class="icon-comment"></i><span class="hidden-tablet"> Add New</span></a>
+			</p>
+			<p>
+				<a class="ajax-link" href="<?php echo site_url('admin/staffs'); ?>"><i class="icon-random"></i><span class="hidden-tablet"> Update</span></a>
+			</p>
+
+		</div>
+		<h2 class="accordion-header">Survey Gifts</h2>
+		<div class="accordion-content">
+			<p>
+				<a class="ajax-link" href="<?php echo site_url('admin/gifts/add'); ?>"><i class="icon-comment"></i><span class="hidden-tablet"> Add New</span></a>
+			</p>
+			<p>
+				<a class="ajax-link" href="<?php echo site_url('admin/gifts'); ?>"><i class="icon-random"></i><span class="hidden-tablet"> Update</span></a>
+			</p>
+
+		</div>
 		<h2 class="accordion-header">Pages</h2>
 		<div class="accordion-content">
 			<p>

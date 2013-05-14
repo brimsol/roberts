@@ -12,5 +12,6 @@
 	<!-- jQuery -->
 	<script src="<?php echo base_url();?>assets/backend/js/jquery-1.8.3.min.js"></script>
 	<script src="<?php echo base_url();?>assets/backend/js/bootstrap.js"></script>
+		<script src="<?php echo base_url();?>assets/backend/js/custom.js"></script>
     <script src="<?php echo base_url();?>assets/backend/js/vallenato.js" type="text/javascript"></script>
 	
