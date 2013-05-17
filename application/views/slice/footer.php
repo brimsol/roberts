@@ -61,59 +61,7 @@
 				<label class="abc" ><a href="#" ><img src="<?php echo base_url(); ?>assets/images/tumblr_32.png"  alt="penterest"></a></label>
 				<label class="abc" ><a href="#" ><img src="<?php echo base_url(); ?>assets/images/linkedin_32.png"  alt="penterest"></a></label>
 			</div>
-			<script type="text/javascript">
-								$(document).ready(function() {
-				$(".fancybox").fancybox();
-				$(".spotlight_slide_li").dotdotdot({
-
-				ellipsis : '...',
-				wrap : 'word',
-				after : '<span class="qtn_b"></span><a><span class="more"></span></a><span class="spotlight_slide_li_shadow"><img src="<?php echo base_url(); ?>assets/images/shadowslide.png" alt="shadow"></span>',
-					watch : false,
-					height : null,
-					tolerance : 0,
-					lastCharacter : {
-
-					/* Remove these characters from the end of the truncated text. */
-					remove : [' ', ',', ';', '.', '!', '?'],
-
-					/* Don't add an ellipsis if this array contains
-					the last character of the truncated text. */
-					noEllipsis : []
-					}
-					});
-
-					$(".more").click(function() {
-					 $('.spotlight_slide_li').css('height' , '100%');	
-					$(".spotlight_slide_li").trigger("destroy");
-					
-					});
-             $(".client_month_li").dotdotdot({
-
-				ellipsis : '...',
-				wrap : 'word',
-				after : '<span class="qtn_b"></span></p><span class="more"><a href=""></a></span><span class="client_month_li_shadow"><img src="<?php echo base_url();?>assets/images/shadowslide.png" alt="shadow"></span>',
-					watch : false,
-					height : null,
-					tolerance : 0,
-					lastCharacter : {
-
-					/* Remove these characters from the end of the truncated text. */
-					remove : [' ', ',', ';', '.', '!', '?'],
-
-					/* Don't add an ellipsis if this array contains
-					the last character of the truncated text. */
-					noEllipsis : []
-					}
-					});
-
-					$(".more").click(function() {
-					 $('.client_month_li').css('height' , '100%');	
-					$(".client_month_li").trigger("destroy");
-					
-					});
-					});
-			</script>
+			
 		</div>
 
 		<div class="clear"></div>	</div>

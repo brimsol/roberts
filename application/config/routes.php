@@ -77,6 +77,18 @@ $route['admin/product/edit/(:num)'] = "backend/products/edit/$1";
 /*Delete Products*/
 $route['admin/product/delete/(:num)/(:any)'] = "backend/products/delete/$1/$2";
 /*List All Categories*/
+
+/*List All Products*/
+$route['admin/signs'] = "backend/signs/index";
+$route['admin/signs/(:num)'] = "backend/signs/index";
+/*Add New Products*/
+$route['admin/sign/add'] = "backend/signs/add";
+/*Edit Products*/
+$route['admin/sign/edit/(:num)'] = "backend/signs/edit/$1";
+/*Delete Products*/
+$route['admin/sign/delete/(:num)/(:any)'] = "backend/signs/delete/$1/$2";
+/*List All Categories*/
+
 $route['admin/ourworks/categories'] = "backend/ourworks/categories";
 $route['admin/ourworks/categories/(:num)'] = "backend/ourworks/categories";
 /*Add New Categories*/

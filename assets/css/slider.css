@@ -99,23 +99,23 @@ height: 0;
 }
 .flex-direction-nav .flex-next {
 	background-position: 100%  center;
-	right: 348px;
+	right: 0px;
 }
 .flex-direction-nav .flex-prev {
-	left: 913px;
+	left: 0px;
 }
 .flexslider:hover .flex-next {
 	opacity: 0.8;
-	right: 348px;
+	right: 0px;
 }
 
 .ie7 .flexslider:hover .flex-next {
 	opacity: 0.8;
-	right: 344px;
+	right: 0px;
 }
 .flexslider:hover .flex-prev {
 	opacity: 0.8;
-	left: 913px;
+	left: 0px;
 }
 .flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover {
 	opacity: 1;

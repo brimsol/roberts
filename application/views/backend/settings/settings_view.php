@@ -20,6 +20,7 @@
     <li><a href="#spotlights" data-toggle="tab">Spotlights</a></li>
     <li><a href="#testimonials" data-toggle="tab">Testimonials</a></li>
      <li><a href="#videos" data-toggle="tab">Videos</a></li>
+     <li><a href="#signs" data-toggle="tab">Signs</a></li>
     </ul>
 							
 	<div class="tab-content">						
@@ -126,6 +127,47 @@
 							<?php } }else{echo "No records found";} ?>
 					</tbody>
 			</table>				
+						
+					</div>
+					<div class="tab-pane" id="signs">
+
+						<?php if(isset($signs) && count($signs)){
+							$c=$this->uri->segment(3, 0)+1; ?>
+          		
+			<table class="table table-hover table-striped table-bordered" id="members_result_table">
+						<thead>
+						<tr>
+							<th>#</th>
+							<!--<th>Image</th>-->
+							<th>Name</th>
+							<th>Description</th>
+							<th>Action</th>
+						</tr>
+						</thead>
+						<tbody>
+						
+					<?php	foreach ($signs as $sign){?>
+						<tr>
+							<td><?php echo $c; ?></td>
+							<!--<td><a href="#"><img src="http://placehold.it/64x64" alt="<?php echo $collection -> name; ?>"></a></td>-->
+							<td><?php echo $sign -> name; ?></td>
+							<td><?php echo $sign -> description; ?></td>
+							<td>
+							<a rel="tooltip" data-original-title="Remove from Home" class="btn btn-mini" href="<?php echo site_url('admin/sign/unfeatured'); ?>/<?php echo $sign -> id; ?>" ><i class="icon-ban-circle"></i></a>
+						    <a rel="tooltip" data-original-title="View Details" data-toggle="modal" class="btn btn-mini" href="<?php echo site_url('admin/sign/view'); ?>/<?php echo $sign -> id; ?>" ><i class="icon-eye-open"></i></a>
+							<a rel="tooltip" data-original-title="Edit Store" class="btn btn-mini" href="<?php echo site_url('admin/sign/edit'); ?>/<?php echo $sign -> id; ?>" ><i class="icon-edit"></i></a>
+							<?php echo anchor('admin/sign/delete/'.$sign->id.'/'.$sign->image,'<i class="icon-trash icon-white"></i>',
+							array('onclick'=>"return confirm('You are about to delete ".$sign-> name.",\\n\\n   Do you want to continue ?')",'data-original-title'=>"Remove",'rel'=>"tooltip",'class'=>"btn btn-mini btn-danger"))?>
+						
+							</td>
+						</tr>
+				
+                
+							<?php $c++; ?>
+							<?php } ?>
+					</tbody>
+</table>
+<?php }else{echo "No records found";} ?>
 						
 					</div>
                  </div>

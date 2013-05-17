@@ -109,6 +109,15 @@
 
 
 <!-- content start -->
+<?php
+function ellipsis($text, $max=100, $append='&hellip;')
+{
+    if (strlen($text) <= $max) return $text;
+    $out = substr($text,0,$max);
+    if (strpos($text,' ') === FALSE) return $out.$append;
+    return preg_replace('/\w+$/','',$out).$append;
+}
+?>
 <div id="content">
 <div id="content_inner">
 <!-- welcome start -->
@@ -153,108 +162,185 @@ EOF;
 </div>
 <!-- welcome close -->
 
-<!--==========================MIDDLE SECTION STARTS=============================-->
 
+<!-- spotlight start -->
+<div id="spotlight">
+<div id="spotlight_slide">
+<h1>Spotlight</h1>
+<?php if(isset($spotlights) && count($spotlights)){?>
+          		
+			
+<ul class="bxslider">
+          <?php foreach($spotlights as $spotlight){?>
 
-<div id="middle_section">
+	
+  <li class="spotlight_slide_li"><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $spotlight -> image; ?>&h=135&w=295&q=90"  alt="Spotlight">
+  <p> <span class="qtn"></span><?php echo $spotlight->description; ?><span class="qtn_b">
 
+</p>
+  </li>
+  
+ <?php }	
 
-	<!--==========TESTIMONIAL STARTS==========-->
+          	}?>
 
-    <div id="testimonial">
-    
-        <h1>Testimonial</h1>
-        <?php if(isset($testimonials) && count($testimonials)){?>
-        <div class="box">
-         <?php foreach($testimonials as $testimonial){?>
-            <img alt="collections" src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $testimonial -> image; ?>&h=135&w=295&q=90" class="boximg">
-            <p>
-            <img src="<?php echo base_url();?>assets/images/qtn_a.png">
-            <?php echo ellipsis($testimonial->description,150); ?>
-            <img src="<?php echo base_url();?>assets/images/qtn_b.png" class="qtn_b">
-            </p>
-        <?php } ?>
-        </div><!--box-->
-<?php } ?>        
-    	<div class="more">
-        <a href="<?php echo site_url('testimonials');?>"></a>
-        </div>
-    
-    </div><!--testimonial-->
-
-	<!--==========TESTIMONIAL ENDS==========-->
-    
-    
-    <!--==========SIGNS STARTS==========-->
-
-    <div id="signs">
-    
-        <h1>SIGNS</h1>
-        
-        <?php if(isset($signs) && count($signs)){?>
-        <div class="box">
-         <?php foreach($signs as $signs){?>
-            <img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $signs -> image; ?>&h=135&w=295&q=90" class="boximg">
-            <p>
-            <img src="<?php echo base_url();?>assets/images/qtn_a.png">
-            <?php echo ellipsis($signs->description,150); ?>
-            <img src="<?php echo base_url();?>assets/images/qtn_b.png" class="qtn_b">
-            </p>
-        <?php } ?>
-        </div><!--box-->
-<?php } ?>        
-    	<div class="more">
-        <a href="<?php echo site_url('signs');?>"></a>
-        </div>
-    
-    
-    </div><!--signs-->
-
-	<!--==========SIGNS ENDS==========-->
-    
-    
-    <!--==========CLIENT STARTS==========-->
-
-    <div id="client">
-    
-        <h1>CLIENT OF THE MONTH</h1>
-
-        <?php if(isset($client) && count($client)){?>
-        <div class="box">
-         <?php foreach($client as $client){?>
-            <img alt="collections" src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $client -> image; ?>&h=135&w=295&q=90" class="boximg">
-            
-            <h4><?php echo $client -> name; ?></h4>
-            <p>
-            <img src="<?php echo base_url();?>assets/images/qtn_a.png">
-            <?php echo ellipsis($client->description,96); ?>
-            <img src="<?php echo base_url();?>assets/images/qtn_b.png" class="qtn_b">
-            </p>
-        <?php } ?>
-        </div><!--box-->
-<?php } ?>        
-    	
-        
-        <div class="more">
-        <a href="<?php echo site_url('clients');?>"></a>
-        </div>
-    
-    
-    </div><!--client-->
-
-	<!--==========CLIENT ENDS==========-->
+</ul>
 
 <div class="clear"></div>
-</div><!--middle_section-->
 
 
-<!--==========================MIDDLE SECTION ENDS=============================-->
+</div>
 
-<!--topshadow start -->
+<script type="text/javascript">
 
-<div id="middle_section_shadow"><img src="<?php echo base_url();?>assets/images/bottomshadowb.png" alt="topshadow"></div>
+	if($(window).width () < 480)
+	{
+		$('.bxslider').bxSlider({
+		  minSlides: 1,
+		  maxSlides: 1,
+		  slideWidth: 311,
+		  slideMargin: 10
+		});
+	}
 
-<!--topshadow close -->
+
+	else if($(window).width () > 480 && $(window).width () < 800)
+	{
+		$('.bxslider').bxSlider({
+		  minSlides: 1,
+		  maxSlides: 1,
+		  slideWidth: 311,
+		  slideMargin: 10
+		});
+	}
+
+
+	else
+	{
+			$('.bxslider').bxSlider({
+		  minSlides: 2,
+		  maxSlides: 2,
+		  slideWidth: 311,
+		  slideMargin: 10
+		});
+	}
+ 
+
+</script>
+
+
+
+<!-- client_month start-->
+<div id="client_month">
+<h1>Client of the month</h1>
+
+
+<?php if(isset($clients) && count($clients)){?>
+          		
+			
+
+          <?php foreach($clients as $client){?>
+
+ <div class="client_month_li"><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $client -> image; ?>&h=135&w=295&q=90"  alt="collections">
+ <h3><?php echo $client->name;?></h3>
+  <p> <span class="qtn"></span><?php echo $client->description; ?>
+<span class="qtn_b"></span>
+</p>
+
+  </div>
+
+<?php } } ?>
+
+</div>
+<!-- client_month close-->
+
+
+<div class="clear"></div>
+
+</div>
+<!-- spotlight close -->
+
+<!-- testimonials_topshadow start -->
+<div class="testimonials_topshadow_top"><img src="<?php echo base_url();?>assets/images/bottomshadow.png" alt="topshadow"></div>
+
+
+<div id="testimonials">
+
+
+
+
+<div id="testimonials_slide">
+<h1>Testimonials</h1>
+  <?php if(isset($testimonials) && count($testimonials)){?>
+<ul class="bxslider" style="height:150px;" >
+
+          <?php foreach($testimonials as $testimonial){?>
+ <li class="testimonials_slide_li">
+<label class="testimonials_slide_li_head"><span class="spanleft"><?php echo $testimonial -> name; ?></span><span class="spanright"><?php echo date("M d,Y", strtotime($testimonial->created_at));?></span>
+
+<div class="clear"></div>
+</label>
+<span class="testimonials_slide_li_head_image"></span>
+<span class="testimonial_image_main"><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $testimonial -> image; ?>&h=135&w=295&q=90"  alt="testimage" class="testimonial_image"><p>“<?php echo ellipsis($testimonial->description,200); ?>”<p></span>
+
+
+  </li>
+
+<?php } }?>
+ 
+</ul>
+
+
+<div class="clear"></div>
+
+</div>
+
+<script type="text/javascript">
+
+	if($(window).width () < 480)
+	{
+		$('.bxslider').bxSlider({
+		  minSlides: 1,
+		  maxSlides: 1,
+		  slideWidth: 311,
+		  slideMargin: 10
+		});
+	}
+
+
+	else if($(window).width () > 480 && $(window).width () < 800)
+	{
+		$('.bxslider').bxSlider({
+		  minSlides: 1,
+		  maxSlides: 1,
+		  slideWidth: 311,
+		  slideMargin: 10
+		});
+	}
+
+
+	else
+	{
+			$('.bxslider').bxSlider({
+		  minSlides: 2,
+		  maxSlides: 2,
+		  slideWidth: 311,
+		  slideMargin: 10
+		});
+	}
+ 
+
+</script>
+
+
+
+
+
+</div>
+
+
+<div class="testimonials_topshadow"><img src="<?php echo base_url();?>assets/images/bottomshadowb.png" alt="topshadow"></div>
+<!-- testimonials_topshadow close -->
 
 <div class="clear"></div>
 </div>

@@ -23,6 +23,7 @@ class Settings extends CI_Controller {
 		$this -> load -> model('pages_model');
 		$this -> load -> model('products_model');
 		$this -> load -> model('ourworks_model');
+		$this -> load -> model('signs_model');
 
 	}
 
@@ -31,6 +32,7 @@ class Settings extends CI_Controller {
 		
 		$data['spotlights'] = $this -> spotlights_model -> GetAllHome();
 		$data['testimonials'] = $this -> testimonials_model -> GetAllHome();
+		$data['signs'] = $this -> signs_model -> GetAllHome();
 		$data['videos'] = $this -> videos_model -> GetAllHome();
 		$data['clients'] = $this -> clients_model -> GetAllHome();
 		$this -> load -> view('backend/settings/settings_view',$data);

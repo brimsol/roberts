@@ -19,6 +19,15 @@
 				<a class="ajax-link" href="<?php echo site_url('admin/products'); ?>"><i class="icon-random"></i><span class="hidden-tablet"> Update</span></a>
 			</p>
 		</div>
+		<h2 class="accordion-header">Signs</h2>
+		<div class="accordion-content">
+			<p>
+				<a class="ajax-link" href="<?php echo site_url('admin/sign/add'); ?>"><i class="icon-leaf"></i><span class="hidden-tablet"> Add New</span></a>
+			</p>
+			<p>
+				<a class="ajax-link" href="<?php echo site_url('admin/signs'); ?>"><i class="icon-random"></i><span class="hidden-tablet"> Update</span></a>
+			</p>
+		</div>
 		<h2 class="accordion-header">Our Work</h2>
 		<div class="accordion-content">
 			<p>

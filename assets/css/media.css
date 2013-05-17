@@ -3,12 +3,14 @@
 
 
 @media screen and (max-width:768px) {
-	#header_inner {
+#header_inner {
     height: auto;
     margin: 0 auto;
     width: 100%;
 }
-
+#client{
+	margin-top:50px;
+}
 
 #logo {
     background: none repeat scroll 0 0;
@@ -176,19 +178,130 @@
 .gallery_image {
     width: 101%;
 }	
-	}
-@media screen and (max-width:600px) {}
+
+#work_heading{
+	width:100%;
+}
+#accordion-container{
+	width:100%;
+	float: none;
+}
+.active-header{
+	background-position: 1% 50%;
+}
+.active-header:hover{
+	background-position: 1% 50%;
+}
+.inactive-header{
+	background-position: 1% 50%;
+}
+.inactive-header:hover{
+	background-position: 1% 50%;
+}
+#work_pagination{
+	width:100%!important;
+}
+
+/*===============
+our work
+================*/
+.gallery_image{
+	width:100%!important;
+}
+
+
+}
+@media screen and (max-width:600px) {
+#middle_section{
+	margin: 0 auto 60px;
+    width: 57%!important;
+}
+/*=================================
+STAFF PORTION
+=================================*/
+
+.staff_details {
+    width: 62%;
+}
+/*=================================
+TESTIMONIAL PORTION
+=================================*/
+.testimonial_about{
+	width:50%!important;
+}
+.testimonial_person {
+    margin-top: 10px;
+}
+
+}
 @media screen and (max-width:515px) {}	
 	
 @media screen and (max-width:568px) {
 	
-	}
+#middle_section{
+	width:60%!important;
+	margin:0 auto 60px auto;
+}
+#testimonial,#signs,#client{
+	float:none;
+	margin-right:0px;
+	margin-top:40px;
+}
+#work_heading{
+	width:100%;
+}
+#accordion-container{
+	width:100%;
+	float: none;
+}
+.active-header{
+	background-position: 1% 50%;
+}
+.active-header:hover{
+	background-position: 1% 50%;
+}
+.inactive-header{
+	background-position: 1% 50%;
+}
+.inactive-header:hover{
+	background-position: 1% 50%;
+}
+.gallery_image{
+	width:101%;
+}
+#work_pagination{
+	width:100%!important;
+}
+
+}
 	
 @media screen and (max-width:685px) {
-	#header_inner {
+#work_heading{
+	width:100%;
+}
+#accordion-container{
+	width:100%;
+	float: none;
+}
+.active-header{
+	background-position: 1% 50%;
+}
+.active-header:hover{
+	background-position: 1% 50%;
+}
+.inactive-header{
+	background-position: 1% 50%;
+}
+.inactive-header:hover{
+	background-position: 1% 50%;
+}
+#header_inner {
     height: auto;
     margin: 0 auto;
     width: 100%;
+}
+.testimonial_about{
+    width: 58%;
 }
 
 
@@ -301,42 +414,23 @@ padding: 15px 0 0;
     margin: 15px 0;
 }
 
-#spotlight_slide {
-    float: none;
-    width: 520px;
-	margin:0 auto;
+#middle_section{
+	width:50%;
+	margin:0 auto 60px auto;
 }
-.spotlight_slide_li{ width:500px!important; height:355px;}
-
-#client_month {
-    float: none;
-    margin: 0;
+#testimonial,#signs,#client{
+	float:none;
+	margin-right:0px;
+	margin-top:40px;
 }
-.client_month_li{ width:93%;}
-.testimonials_topshadow_top {
-    margin-top: 40px;
-}
-#testimonials {
-    margin: 65px 0px 30px 0px;
+#work_pagination{
+	width:100%!important;
 }
 
 
-#testimonials_slide {
-    margin: 0 auto;
-    padding-top: 1px;
-    width:511px;
-}
-
-.testimonials_slide_li {
-    margin-right: 20px !important;
-    width: 510px !important;
-}
 .banner_link{ display:none;}
 .welcome_note{ float:none; }
-.client_month_li{ height:415px; width:95%;}    
-.spotlight_slide_li_shadow{ width:100%;}
-.client_month_li_shadow{width:100%;}
-#testimonials h1{ margin:10px 0px 15px 0px;}
+
 
 
 /*------about us-------*/
@@ -398,22 +492,10 @@ padding: 15px 0 0;
 .product_temp li {
     border: 2px solid #FFFFFF;
     float: left;
-    height: 176px;
+    height: 80px;
     list-style: none outside none;
-    margin: 9px 8px 41px;
-	width: 472px;
-}
-.product_temp li img {
-    height: 100%;
-	width: 100%;
-}
-.product_temp h8 {
-	border-bottom: 1px solid #CA3133;
-    color: #5F5F5F;
-    display: block;
-    font-family: 'Conv_futuralc';
-    font-size: 24px;
-    margin: 4px 0;
+    margin: 0 4px 20px 4px;
+    width: 112px;
 }
 
 #product {
@@ -436,29 +518,59 @@ padding: 15px 0 0;
 	}
   
 @media screen and (max-width:480px) {
-	#header_inner {
+#work_heading{
+	width:100%;
+}
+#accordion-container{
+	width:100%;
+	float: none;
+}
+.active-header{
+	background-position: 1% 50%;
+}
+.active-header:hover{
+	background-position: 1% 50%;
+}
+.inactive-header{
+	background-position: 1% 50%;
+}
+.inactive-header:hover{
+	background-position: 1% 50%;
+}
+.staff_details {
+    width: 54%;
+}
+#testimonial_container{
+	width:100%;
+}
+.testimonial_photo{
+	float:none;
+}
+.testimonial_about {
+    width: 100%!important;
+	float:none;
+	margin-top:20px;
+}
+
+#header_inner{
     height: auto;
     margin: 0 auto;
     width: 100%;
 }
-
-
-#logo {
+#logo{
     background: none repeat scroll 0 0;
     float: none;
     margin: 10px auto;
     width: 172px;
 }
-
-#header_right{ display:none;}
-
-
-
+#header_right{
+	display:none;
+}
 #footer_inner {
     margin: 0 auto;
     width: 100%;
 }
-#footer_inner_menu {
+#footer_inner_menu{
     float: none;
     padding: 0;
     width: 90%;
@@ -539,7 +651,6 @@ padding: 15px 0 0;
 #content_inner{ width:95%;
 padding: 15px 0 0;
 }
-
 .welcome_video {
     float: none;
     width: 100%;
@@ -551,41 +662,21 @@ padding: 15px 0 0;
     font-size: 27px;
     margin: 15px 0;
 }
-
-#spotlight_slide {
-    float: none;
-    width: 440px;
+#middle_section{
+	margin:0 auto 60px auto;
+	width:70%!important;
 }
-.spotlight_slide_li{ width:420px!important;}
-
-#client_month {
-    float: none;
-    margin: 0;
+#testimonial,#signs,#client{
+	float:none;
+	margin-right:0px;
+	margin-top:40px;
 }
-.client_month_li{ width:93%;}
-.testimonials_topshadow_top {
-    margin-top: 40px;
-}
-#testimonials {
-    margin: 65px 0px 30px 0px;
+#middle_section_shadow{
+	display:none;
 }
 
-
-#testimonials_slide {
-    margin: 0 auto;
-    padding-top: 1px;
-    width: 440px;
-}
-
-.testimonials_slide_li {
-    margin-right: 20px !important;
-    width: 435px !important;
-}
 .banner_link{ display:none;}
 .welcome_note{ float:none; }
-.client_month_li{ height:350px; width:95%;}    
-.spotlight_slide_li_shadow{ width:100%;}
-.client_month_li_shadow{width:100%;}
 
 
 /*------about us-------*/
@@ -647,22 +738,10 @@ padding: 15px 0 0;
 .product_temp li {
     border: 2px solid #FFFFFF;
     float: left;
-    height: 140px;
+    height: 80px;
     list-style: none outside none;
-    margin: 9px 8px 41px;
-	width: 320px;
-}
-.product_temp li img {
-    height: 100%;
-	width: 100%;
-}
-.product_temp h8 {
-	border-bottom: 1px solid #CA3133;
-    color: #5F5F5F;
-    display: block;
-    font-family: 'Conv_futuralc';
-    font-size: 24px;
-    margin: 2px 0;
+    margin: 0 10px 20px;
+    width: 112px;
 }
 
 
@@ -670,7 +749,7 @@ padding: 15px 0 0;
     padding: 25px 0 25px;
 }
 .gallery_image {
-    width: 100%;
+    width: 83%;
 }
 
 .gallery_image li {
@@ -686,33 +765,37 @@ padding: 15px 0 0;
 	}
   
 @media screen and (max-width:320px) {
-	#header_inner {
+#header_inner{
     height: auto;
     margin: 0 auto;
     width: 100%;
 }
-
-
-#logo {
+#logo{
     background: none repeat scroll 0 0;
     float: none;
     margin: 10px auto;
     width: 172px;
 }
-
-#header_right{ display:none;}
-
-
-
-#footer_inner {
+#header_right{
+	display:none;
+}
+#footer_inner{
     margin: 0 auto;
     width: 100%;
 }
-#footer_inner_menu {
+#footer_inner_menu{
     float: none;
     padding: 0;
     width: 90%;
     margin:0 auto;
+}
+.staff_photo{
+	float:none;
+}
+.staff_details {
+    width: 100%;
+	float:none;
+	margin-top:20px;
 }
 
 #footer_inner_menu li a{ display:block; background:#962428; margin:2px 0px;  text-align: center; color:#fff; }
@@ -787,9 +870,8 @@ padding: 15px 0 0;
 #mob_searchhead{ display:none;}
 
 #content_inner{ width:95%;
-padding: 15px 0 0;
+	padding: 15px 0 0;
 }
-
 .welcome_video {
     float: none;
     width: 100%;
@@ -800,37 +882,21 @@ padding: 15px 0 0;
     font-size: 27px;
     margin: 15px 0;
 }
-
-#spotlight_slide {
-    float: none;
-    width: 290px;
+#middle_section{
+	width:auto!important;
+	margin-bottom:60px;
 }
-.spotlight_slide_li{ width:270px!important; height:270px;}
-
-#client_month {
-    float: none;
-    margin: 0;
+.box{
+	width:267px;
 }
-.testimonials_topshadow_top {
-    margin-top: 40px;
+#testimonial,#signs,#client{
+	float:none;
+	margin-right:0px;
+	margin-top:40px;
 }
-#testimonials {
-    margin: 65px 0px 30px 0px;
+#middle_section_shadow{
+	display:none;
 }
-
-.testimonials_slide_li {
-    margin-right: 20px !important;
-    width: 278px !important;
-}
-.banner_link{ display:none;}
-.client_month_li {
-    height: 290px;
-	margin:0 auto;
-	width:92%;
-	
-}
-
-
 
 
 
@@ -896,25 +962,22 @@ padding: 15px 0 0;
 .product_temp li {
     border: 2px solid #FFFFFF;
     float: left;
-    height: 140px;
+    height: 80px;
     list-style: none outside none;
-    margin: 9px 8px 41px;
-    width: 248px;
-}
-.product_temp li img {
-    height: 100%;
-	width: 100%;
-}
-.product_temp h8 {
-	border-bottom: 1px solid #CA3133;
-    color: #5F5F5F;
-    display: block;
-    font-family: 'Conv_futuralc';
-    font-size: 24px;
-    margin: 0px 0;
+    margin: 0 8px 20px;
+    width: 112px;
 }
 #product {
     padding: 25px 0 25px;
+}
+
+/*============GALLERY================*/
+#work_heading{
+	width:100%;
+}
+#accordion-container{
+	width:100%;
+	float: none;
 }
 .gallery_image li {
     border: 2px solid #FFFFFF;
@@ -927,9 +990,16 @@ padding: 15px 0 0;
 .gallery_image {
     width: 100%;
 }
-	}
+#testimonial_container{
+	width:100%;
+}
+
+
+}
+
+
 @media screen and (max-width:380px) {
-		#header_inner {
+#header_inner {
     height: auto;
     margin: 0 auto;
     width: 100%;
@@ -945,6 +1015,18 @@ padding: 15px 0 0;
 
 #header_right{ display:none;}
 
+.staff_photo{
+	float:none;
+}
+.staff_details {
+    width: 100%;
+	float:none;
+	margin-top:20px;
+}
+.testimonial_about {
+    width: 100%!important;
+	margin-top:20px;
+}
 
 
 #footer_inner {
@@ -1043,40 +1125,12 @@ padding: 15px 0 0;
     font-size: 27px;
     margin: 15px 0;
 }
-
-#spotlight_slide {
-    float: none;
-    width: 290px;
-	margin:0 auto;
-}
-.spotlight_slide_li{ width:270px!important; height:285px;}
-
-#client_month {
-    float: none;
-    margin: 0;
-}
-.testimonials_topshadow_top {
-    margin-top: 40px;
-}
-#testimonials {
-    margin: 65px 0px 30px 0px;
+#middle_section{
+	width:91%;
 }
 
-.testimonials_slide_li {
-    margin-right: 20px !important;
-    width: 278px !important;
-}
 .banner_link{ display:none;}
-.client_month_li {
-    height: 290px;
-	margin:0 auto;
-	width:92%;
-	
-}
-#testimonials_slide {
-    margin: 0 auto;
-    width: 290px;
-}
+
 
 
 /*------about us-------*/
@@ -1098,11 +1152,6 @@ padding: 15px 0 0;
     width: 100%;
 }
 
-#aside_left select {
-    border: 5px solid #CCCCCC;
-    float: right;
-    margin: 17px;
-}
 
 #aside_left p {
     line-height: 22px;
@@ -1118,32 +1167,25 @@ padding: 15px 0 0;
     width: 100%;
 	margin-top:20px;
 }
+/*===============
+our work
+================*/
+.gallery_image{
+	width:100%!important;
+}
+
+}
 
 
-
-	}
   
 @media screen and (max-width:295px) {}
 
 
 @media screen and (max-width:240px) {
 	
-.spotlight_slide_li {
-    width: 190px !important;
+.box{
+	width:192px;
 }
-
-
-
-#spotlight_slide {
-    float: none;
-    margin: 0 auto;
-    width: 210px;
-}
-	
-.testimonials_slide_li {
-    margin-right: 20px !important;
-    width: 200px !important;
-}	
 
 
 .spanright {
@@ -1207,23 +1249,11 @@ padding: 15px 0 0;
 
 .product_temp li {
     border: 2px solid #FFFFFF;
-    float: right;
-    height: 82px;
+    float: none;
+    height: 80px;
     list-style: none outside none;
-    margin: 8px 2px 28px;
-    width: 114px;
-}
-.product_temp li img {
-    height: 100%;
-	width: 100%;
-}
-.product_temp h8 {
-	border-bottom: 1px solid #CA3133;
-    color: #5F5F5F;
-    display: block;
-    font-family: 'Conv_futuralc';
-    font-size: 24px;
-    margin: 0 0;
+    margin: 0px 0px 20px 0px;
+    width: 112px;
 }
 #footer_inner_contact h4{ font-size:14px;}
 .gallery_image li {
@@ -1238,9 +1268,34 @@ padding: 15px 0 0;
     width: 50%;
 	margin:20px auto 0px auto;
 }
+#testimonial_container{
+	width:100%;
+}
+.testimonial_photo {
+    float: none;
+    height: auto;
+    width: auto;
+}
+.testimonial_photo img {
+    width: 98%;
+}
+/*===============
+our work
+================*/
+.gallery_image{
+	width:78%!important;
+}
+#work_dropdown{
+	float:none;
+}
+
+}
+
+@media screen and (min-width:380px) and (max-width:380px){
+	#middle_section{
+		width:91%!important;
 	}
-
-
+}
 
 @media screen and (max-width:1000px) {}
   
