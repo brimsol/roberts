@@ -10,6 +10,7 @@
 <!--flexslider css-->
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/slider.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/jquery.bxslider.css" type="text/css" media="screen" />
+<link href='http://fonts.googleapis.com/css?family=Oxygen:400,300' rel='stylesheet' type='text/css'>
 
 <!--[if IE 7 ]> <html lang="en" class="ie7">    <![endif]-->
 <!--[if IE 8 ]> <html lang="en" class="ie8">    <![endif]-->
@@ -23,17 +24,14 @@
 <script src="<?php echo base_url();?>assets/js/mobile.js"></script>
 <script src="<?php echo base_url();?>assets/js/jquery.easing.1.3.js"></script>
 <script src="<?php echo base_url();?>assets/js/commen.js"></script>
-
 <script src="<?php echo base_url();?>assets/js/jquery.bxslider.js"></script>
 <script src="<?php echo base_url();?>assets/js/jquery.bxslider.min.js"></script>
-
-<script src="<?php echo base_url();?>assets/js/jquery.dotdotdot.js" ></script>
 <script src="<?php echo base_url();?>assets/js/ajax.js"></script>
 <!-- Add jQuery library -->
 
 <!-- Add fancyBox -->
-<link rel="stylesheet" href="<?php echo base_url('assets');?>fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
-<script type="text/javascript" src="<?php echo base_url('assets');?>fancybox/source/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="<?php echo base_url('assets');?>/fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="<?php echo base_url('assets');?>/fancybox/source/jquery.fancybox.pack.js"></script>
 <?php
 function ellipsis($text, $max=100, $append='&hellip;')
 {

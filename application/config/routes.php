@@ -152,6 +152,10 @@ $route['admin/page'] = "backend/pages";
 $route['admin/page/delete/(:num)'] = "backend/pages/delete/$1";
 /*About us*/
 $route['about'] = "home/about";
+
+$route['testimonials'] = "home/testimonials";
+$route['testimonials/(:num)'] = "home/testimonials/$1";
+
 /*FAQ*/
 $route['faq'] = "home/contact";
 /*Contact Us*/

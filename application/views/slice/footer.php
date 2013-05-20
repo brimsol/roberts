@@ -61,13 +61,19 @@
 				<label class="abc" ><a href="#" ><img src="<?php echo base_url(); ?>assets/images/tumblr_32.png"  alt="penterest"></a></label>
 				<label class="abc" ><a href="#" ><img src="<?php echo base_url(); ?>assets/images/linkedin_32.png"  alt="penterest"></a></label>
 			</div>
-			
+
 		</div>
 
-		<div class="clear"></div>	</div>
+		<div class="clear"></div>
+	</div>
 
 	<div class="copyright">
 		© Roberts Awning & Sign; All Rights Reserved
 	</div>
 
 </div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".fancybox").fancybox();
+	}); 
+</script>

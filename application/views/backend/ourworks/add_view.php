@@ -57,6 +57,52 @@
 									</div>
 
 								</div>
+								<div class="control-group">
+
+									<!-- Select Basic -->
+									<label class="control-label">Sub Category(A)</label>
+									<div class="controls">
+										<select class="input-large" name="category" id="category">
+											<option value="Window">Window</option>
+											<option value="Door">Door</option>
+											<option value="Deck/Pation">Deck/Pation</option>
+										
+										</select>
+									</div>
+
+								</div>
+								<div class="control-group">
+
+									<!-- Select Basic -->
+									<label class="control-label">Sub Category(A)</label>
+									<div class="controls">
+										<select class="input-large" name="category" id="category">
+											<option value="">Select</option>
+											<?php if(isset($categories)&&count($categories)){?>
+												<?php foreach($categories as $category){?>
+												<option value="<?php echo $category->id;?>"><?php echo $category->name;?></option>
+												<?php } ?>
+											<?php }?>
+										</select>
+									</div>
+
+								</div>
+								<div class="control-group">
+
+									<!-- Select Basic -->
+									<label class="control-label">Sub Category(C)/label>
+									<div class="controls">
+										<select class="input-large" name="category" id="category">
+											<option value="">Select</option>
+											<?php if(isset($categories)&&count($categories)){?>
+												<?php foreach($categories as $category){?>
+												<option value="<?php echo $category->id;?>"><?php echo $category->name;?></option>
+												<?php } ?>
+											<?php }?>
+										</select>
+									</div>
+
+								</div>
 
 								<div class="control-group">
 									<label class="control-label">Image</label>

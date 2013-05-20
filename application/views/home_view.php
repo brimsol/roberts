@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Roberts Awning and Sign | <?php echo $title;?></title>
+<title><?php if(isset($title)){echo "Roberts Awning and Sign |"."".$title;}else{ echo "Roberts Awning and Sign";}?></title>
 
 <!--=============================================================================
                head Starts here
@@ -170,7 +170,7 @@ EOF;
             <img alt="collections" src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $testimonial -> image; ?>&h=135&w=295&q=90" class="boximg">
             <p>
             <img src="<?php echo base_url();?>assets/images/qtn_a.png">
-            <?php echo ellipsis($testimonial->description,150); ?>
+            <?php echo ellipsis($testimonial->description,100); ?>
             <img src="<?php echo base_url();?>assets/images/qtn_b.png" class="qtn_b">
             </p>
         <?php } ?>
@@ -197,7 +197,7 @@ EOF;
             <img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $signs -> image; ?>&h=135&w=295&q=90" class="boximg">
             <p>
             <img src="<?php echo base_url();?>assets/images/qtn_a.png">
-            <?php echo ellipsis($signs->description,150); ?>
+            <?php echo ellipsis($signs->description,100); ?>
             <img src="<?php echo base_url();?>assets/images/qtn_b.png" class="qtn_b">
             </p>
         <?php } ?>
@@ -227,7 +227,7 @@ EOF;
             <h4><?php echo $client -> name; ?></h4>
             <p>
             <img src="<?php echo base_url();?>assets/images/qtn_a.png">
-            <?php echo ellipsis($client->description,96); ?>
+            <?php echo ellipsis($client->description,74); ?>
             <img src="<?php echo base_url();?>assets/images/qtn_b.png" class="qtn_b">
             </p>
         <?php } ?>

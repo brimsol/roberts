@@ -208,7 +208,24 @@ our work
 .gallery_image{
 	width:100%!important;
 }
+/*===============
+contact us
+================*/
+#contact_sub_container{
+    float: none;
+    width: 100%;
+}
 
+#contact_address{
+    color: #5F5F5F;
+    float: none;
+    font-size: 20px;
+	margin:0 auto;
+    width: 30%;
+}
+.main_product li{
+	width:39%;
+}
 
 }
 @media screen and (max-width:600px) {
@@ -231,6 +248,19 @@ TESTIMONIAL PORTION
 }
 .testimonial_person {
     margin-top: 10px;
+}
+
+#contact_sub_container{
+    float: none;
+    width: 100%;
+}
+
+#contact_address{
+    color: #5F5F5F;
+    float: none;
+    font-size: 20px;
+	margin:0 auto;
+    width: 30%;
 }
 
 }
@@ -272,6 +302,15 @@ TESTIMONIAL PORTION
 #work_pagination{
 	width:100%!important;
 }
+.main_product li{
+	width:50%!important;
+	margin:30px auto 0 auto;
+	float:none;
+}
+.main_product li:last-child {
+    margin-right: auto;
+}
+
 
 }
 	
@@ -514,8 +553,12 @@ padding: 15px 0 0;
     margin: 0 4px 20px 4px;
     width: 112px;
 }
+.main_product li{
+	width:35%;
+}
+
 	
-	}
+}
   
 @media screen and (max-width:480px) {
 #work_heading{
@@ -762,7 +805,8 @@ padding: 15px 0 0;
 }
 
 
-	}
+
+}
   
 @media screen and (max-width:320px) {
 #header_inner{
@@ -994,6 +1038,21 @@ padding: 15px 0 0;
 	width:100%;
 }
 
+/*===============
+contact us
+================*/
+#contact_sub_container{
+    float: none;
+    width: 100%;
+}
+
+#contact_address{
+    color: #5F5F5F;
+    float: none;
+    font-size: 20px;
+	margin:0 auto;
+    width: 100%;
+}
 
 }
 
@@ -1174,6 +1233,10 @@ our work
 	width:100%!important;
 }
 
+.main_product li{
+	width:69%!important;
+}
+
 }
 
 
@@ -1288,6 +1351,10 @@ our work
 #work_dropdown{
 	float:none;
 }
+.main_product li{
+	width:100%!important;
+}	
+
 
 }
 

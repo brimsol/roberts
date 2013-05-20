@@ -82,7 +82,7 @@ class Home extends CI_Controller {
 		if ($query -> num_rows() > 0) {
 			$row = $query -> row_array();
 
-			$data['name']=$row['name'];
+			$data['name'] = $row['name'];
 
 		}
 		$data['products_list'] = $this -> products_model -> GetAll();
@@ -127,12 +127,37 @@ class Home extends CI_Controller {
 		$this -> load -> view('ourworks_ajax_view', $data);
 
 	}
-	
+
 	public function survey() {
 
 		//$id = $this -> input -> post('filter');
 		//$data['ourworks'] = $this -> ourworks_model -> GetAllFiltered($id);
 		$this -> load -> view('survey_view');
+
+	}
+
+	public function testimonials() {
+		$config = array();
+		$config["base_url"] = site_url('testimonials/');
+		$config["total_rows"] = $this -> db -> count_all('testimonials');
+		$config["per_page"] = 2;
+		$config["uri_segment"] = 2;
+		$config['num_links'] = 9;
+		$config['full_tag_open'] = '<div id="work_pagination"><div id="pages_link">PAGES ►';
+		
+		$config['full_tag_close'] = '</div><div class="clear"></div></div>';
+$config['num_tag_open'] = '
+<a class="inactive_page">
+	';
+	$config['num_tag_close'] = '
+</a>
+';
+
+		$this -> pagination -> initialize($config);
+		$page = ($this -> uri -> segment(3)) ? $this -> uri -> segment(3) : 0;
+		$data['testimonials'] = $this -> testimonials_model -> GetAll($config["per_page"], $page);
+		$data['links'] = $this -> pagination -> create_links();
+		$this -> load -> view('testimonials_view',$data);
 
 	}
 

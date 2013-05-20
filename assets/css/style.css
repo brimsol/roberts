@@ -607,8 +607,8 @@ middle section starts here
 .box p {
 	color: #C93232;
 	display: block;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 20px;
+	font-family: 'Oxygen', sans-serif;
+	font-size: 17px;
 	margin-top: 20px;
 	width: 90%;
 }
@@ -1005,12 +1005,23 @@ gallery portion starts here
 	color: #CA3133;
 	font-size: 12px;
 }
+#work_pagination ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+#work_pagination ul li{
+	display:inline-block;
+}
+#work_pagination ul li a{
+	color: #CA3133;
+	text-decoration: none;
+}
 #pages_link {
 	float: right;
 }
 .active_page {
-	color: #CA3133;
-	text-decoration: none;
+	
 	display: inline-block;
 	width: 12px;
 	margin-right: 2px;
@@ -1144,6 +1155,40 @@ contact us page
 	font-family:'Open Sans Condensed';
 	line-height:28px;
 }
+
+/*=============================
+Products main
+=============================*/
+.product_list{
+	width:97%;
+}
+.main_product{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.main_product li{
+	display:block;
+	width:271px;
+	float:left;
+	margin-right:70px;
+	margin-top:30px;
+}
+.main_product li:last-child{
+	margin-right:0;
+}
+.main_product img{
+	width:100%;
+	border:2px solid #FFF;
+}
+.main_product h1{
+	color: #5F5F5F;
+    font-family: 'Open Sans Condensed';
+    font-size: 25px!important;
+    text-transform: none!important;
+	border-bottom: 1px solid #CA3133;
+}
+
 
 
 
