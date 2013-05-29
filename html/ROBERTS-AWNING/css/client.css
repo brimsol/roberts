@@ -1,0 +1,48 @@
+/* CSS Document */
+
+
+
+
+@media screen and (max-width:768px){
+
+
+
+
+
+}
+@media screen and (max-width:685px){
+
+
+
+}
+@media screen and (max-width:600px){
+	
+/*inherits from 685px*/
+
+}
+@media screen and (max-width:568px){
+
+
+	
+}
+@media screen and (max-width:480px){
+	
+/*inherits from 568px*/
+
+}
+@media screen and (max-width:380px){
+	
+
+	
+}
+@media screen and (max-width:320px){
+	
+/*inherits from 380px*/
+	
+	
+}
+@media screen and (max-width:240px){
+	
+	
+	
+}

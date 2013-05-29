@@ -1,0 +1,90 @@
+/* CSS Document */
+
+/*=============================
+Products main
+=============================*/
+.product_list{
+	width:97%;
+}
+.main_product{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.main_product li{
+	display:block;
+	width:271px;
+	float:left;
+	margin-right:70px;
+	margin-top:30px;
+}
+.main_product li:last-child{
+	margin-right:0;
+}
+.main_product img{
+	width:100%;
+	border:2px solid #FFF;
+}
+.main_product h1{
+	color: #5F5F5F;
+    font-family: 'Open Sans Condensed';
+    font-size: 25px!important;
+    text-transform: none!important;
+	border-bottom: 1px solid #CA3133;
+}
+
+@media screen and (max-width:768px){
+
+.main_product li{
+	width:39%;
+}
+
+}
+@media screen and (max-width:685px){
+
+.main_product li{
+	width:35%;
+}
+
+}
+@media screen and (max-width:600px){
+	
+/*inherits from 685px*/
+
+}
+@media screen and (max-width:568px){
+
+.main_product li{
+	width:50%!important;
+	margin:30px auto 0 auto;
+	float:none;
+}
+.main_product li:last-child {
+    margin-right: auto;
+}
+	
+}
+@media screen and (max-width:480px){
+	
+/*inherits from 568px*/
+
+}
+@media screen and (max-width:380px){
+	
+.main_product li{
+	width:69%!important;
+}
+	
+}
+@media screen and (max-width:320px){
+	
+/*inherits from 380px*/	
+	
+}
+@media screen and (max-width:240px){
+	
+.main_product li{
+	width:100%!important;
+}	
+	
+}

@@ -54,8 +54,11 @@ class Categories_model extends CI_Model {
 
 	function get_all_sub_a() {
 
-		return $this -> db -> select('aid as id,name as name') -> get('sub_category_a') -> result();
-
+		//return $this -> db -> select('aid as id,name as name') -> get('sub_category_a') -> result();
+		return $this -> db -> select('subcata.aid as id,subcata.product_id,subcata.name as name,p.name as pname') 
+					 -> join('products p', 'subcata.product_id = p.id', 'INNER') 
+					 -> order_by('created_at', 'DESC') 
+					 -> get('sub_category_a subcata') -> result();
 	}
 
 	function get_all_sub_b() {

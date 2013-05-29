@@ -27,6 +27,7 @@
 							<th>#</th>
 							<!--<th>Image</th>-->
 							<th>Name</th>
+							<th>Parent</th>
 							<th>Action</th>
 						</tr>
 						</thead>
@@ -37,6 +38,7 @@
 							<td><?php echo $c; ?></td>
 							<!--<td><a href="#"><img src="http://placehold.it/64x64" alt="<?php echo $collection -> name; ?>"></a></td>-->
 							<td><?php echo $category -> name; ?></td>
+							<td><?php echo $category -> pname; ?></td>
 							<td>
 						    <!--<a rel="tooltip" data-original-title="View Details" data-toggle="modal" class="btn btn-mini" href="<?php echo site_url('admin/ourworks/category/view'); ?>/<?php echo $category -> id; ?>" ><i class="icon-eye-open"></i></a>-->
 							<a rel="tooltip" data-original-title="Edit Store" class="btn btn-mini" href="<?php echo site_url('backend/categories'); ?>/<?php echo $action_link;?>/<?php echo $category -> id; ?>" ><i class="icon-edit"></i></a>
