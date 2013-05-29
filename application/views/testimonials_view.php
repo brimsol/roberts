@@ -94,17 +94,7 @@
 
 
 <div id="work_pagination">
-	<div id="pages_link">PAGES ►
-    <a href="#" class="active_page">1</a>
-    <a href="#" class="inactive_page">2</a>
-    <a href="#" class="inactive_page">3</a>
-    <a href="#" class="inactive_page">4</a>
-    <a href="#" class="inactive_page">5</a>
-    <?php
-						if (isset($links)) {echo $links;
-						}
- ?>
-    </div><div class="clear"></div>
+<?php if (isset($links)) {echo $links;}?>
 </div>
 
 </div>

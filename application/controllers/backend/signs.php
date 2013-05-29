@@ -2,7 +2,7 @@
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 /**
- * signs Class
+ * Signs Class
  * @package Roberts
  * @subpackage Backend
  * @category Controller
@@ -32,17 +32,16 @@ Class Signs extends CI_Controller {
 		$page = ($this -> uri -> segment(3)) ? $this -> uri -> segment(3) : 0;
 		$data['signs'] = $this -> signs_model -> GetAll($config["per_page"], $page);
 		$data['links'] = $this -> pagination -> create_links();
-		$this -> load -> view('backend/signs/list_view',$data);
+		$this -> load -> view('backend/signs/list_view', $data);
 
 	}
 
-	
 	//add new collection->upload image->get encrypted name -> add everything to db
 
 	function add() {
 		$this -> form_validation -> set_rules('name', 'sign Name', 'required|trim|xss_clean|max_length[200]');
 		$this -> form_validation -> set_rules('description', 'Description', 'required|trim|xss_clean|max_length[500]');
-		
+
 		if ($this -> form_validation -> run() == FALSE)// validation hasn't been passed
 		{
 			$this -> load -> view('backend/signs/add_view');
@@ -59,33 +58,33 @@ Class Signs extends CI_Controller {
 			}
 			// build array for the model
 			if (strlen($fileUpload) > 0) {
-			$config['upload_path'] = './uploads/';
-			$config['allowed_types'] = 'gif|jpg|png';
-			$config['max_size'] = '500';
-			$config['encrypt_name'] = TRUE;
-			$this -> load -> library('upload', $config);
+				$config['upload_path'] = './uploads/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['max_size'] = '500';
+				$config['encrypt_name'] = TRUE;
+				$this -> load -> library('upload', $config);
 
-			if ($this -> upload -> do_upload()) {
-				$data = $this -> upload -> data();
-				$form_data = array('name' => set_value('name'), 'description' => set_value('description'), 'image' => $data['file_name']);
-				if ($this -> signs_model -> Save($form_data) == TRUE)// the information has therefore been successfully saved in the db
-				{
-					$this -> ci_alerts -> set('success', 'Saved Successfully');
-					redirect('admin/sign/add');
-					// or whatever logic needs to occur
+				if ($this -> upload -> do_upload()) {
+					$data = $this -> upload -> data();
+					$form_data = array('name' => set_value('name'), 'description' => set_value('description'), 'image' => $data['file_name']);
+					if ($this -> signs_model -> Save($form_data) == TRUE)// the information has therefore been successfully saved in the db
+					{
+						$this -> ci_alerts -> set('success', 'Saved Successfully');
+						redirect('admin/sign/add');
+						// or whatever logic needs to occur
+					} else {
+						$this -> ci_alerts -> set('success', 'An error occurred saving your information. Please try again later');
+						redirect('admin/sign/add');
+
+					}
 				} else {
-					$this -> ci_alerts -> set('success', 'An error occurred saving your information. Please try again later');
-					redirect('admin/sign/add');
-
+					//Failed to upload file.
+					$data['upload_error'] = $this -> upload -> display_errors();
+					$this -> load -> view('backend/signs/add_view', $data);
 				}
+
 			} else {
-				//Failed to upload file.
-				$data['upload_error'] = $this -> upload -> display_errors();
-				$this -> load -> view('backend/signs/add_view', $data);
-			}
-            
-			} else {
-				
+
 				$form_data = array('name' => set_value('name'), 'description' => set_value('description'));
 				if ($this -> signs_model -> Save($form_data) == TRUE)// the information has therefore been successfully saved in the db
 				{
@@ -110,7 +109,7 @@ Class Signs extends CI_Controller {
 		if ($this -> form_validation -> run() == FALSE)// validation hasn't been passed
 		{
 			$data['signs'] = $this -> signs_model -> GetOne($id);
-			$this -> load -> view('backend/signs/edit_view',$data);
+			$this -> load -> view('backend/signs/edit_view', $data);
 		} else {// passed validation proceed to post success logic
 
 			// build array for the model
@@ -175,7 +174,8 @@ Class Signs extends CI_Controller {
 		$this -> load -> view('backend/collections/list_ajax_view', $data);
 
 	}
-function featured($id = null) {
+
+	function featured($id = null) {
 
 		if ($id == '' || $id == null) {
 
@@ -220,6 +220,7 @@ function featured($id = null) {
 
 		}
 	}
+
 	//oops,deleted from db and unlink the related image
 
 	function delete($id = null, $filename = null) {

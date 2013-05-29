@@ -213,14 +213,7 @@ Class Spotlights extends CI_Controller {
 		}
 	}
 
-	public function filter() {
-
-		$filter = $this -> input -> post('filter');
-		$data['collections'] = $this -> collections_model -> GetAll($filter);
-		$this -> load -> view('backend/collections/list_ajax_view', $data);
-
-	}
-
+	
 	//oops,deleted from db and unlink the related image
 
 	function delete($id = null, $filename = null) {

@@ -1,4 +1,4 @@
-<div class="span2">
+<div class="span3">
 
 	<div id="accordion-container">
 		<h2 class="accordion-header">Dashboard</h2>
@@ -26,6 +26,27 @@
 			</p>
 			<p>
 				<a class="ajax-link" href="<?php echo site_url('admin/signs'); ?>"><i class="icon-random"></i><span class="hidden-tablet"> Update</span></a>
+			</p>
+		</div>
+		<h2 class="accordion-header">Categories</h2>
+		<div class="accordion-content">
+			<p>
+				<a class="ajax-link" href="<?php echo site_url('backend/categories/add_sub_category_a'); ?>"><i class="icon-leaf"></i><span class="hidden-tablet"> Add Category(A)</span></a>
+			</p>
+			<p>
+				<a class="ajax-link" href="<?php echo site_url('backend/categories/add_sub_category_b'); ?>"><i class="icon-leaf"></i><span class="hidden-tablet"> Add Category(B)</span></a>
+			</p>
+			<p>
+				<a class="ajax-link" href="<?php echo site_url('backend/categories/add_sub_category_c'); ?>"><i class="icon-leaf"></i><span class="hidden-tablet"> Add Category(C)</span></a>
+			</p>
+			<p>
+				<a class="ajax-link" href="<?php echo site_url('backend/categories/list_sub_category_a'); ?>"><i class="icon-random"></i><span class="hidden-tablet"> Update Category(A)</span></a>
+			</p>
+			<p>
+				<a class="ajax-link" href="<?php echo site_url('backend/categories/list_sub_category_b'); ?>"><i class="icon-random"></i><span class="hidden-tablet"> Update Category(B)</span></a>
+			</p>
+			<p>
+				<a class="ajax-link" href="<?php echo site_url('backend/categories/list_sub_category_c'); ?>"><i class="icon-random"></i><span class="hidden-tablet"> Update Category(C)</span></a>
 			</p>
 		</div>
 		<h2 class="accordion-header">Our Work</h2>

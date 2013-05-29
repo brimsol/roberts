@@ -16,7 +16,7 @@
 			
 					
 					
-						<div class="span10">
+						<div class="span9">
 <legend>signs</legend>
 							<?php if(isset($signs) && count($signs)){
 							$c=$this->uri->segment(3, 0)+1; ?>

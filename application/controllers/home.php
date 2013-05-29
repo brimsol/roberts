@@ -3,7 +3,7 @@ if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 /**
  * Home Class
- * @package Glenna Jean
+ * @package Roberts
  * @subpackage Front End
  * @category Controller
  * @author AMI
@@ -48,6 +48,14 @@ class Home extends CI_Controller {
 
 	}
 
+	public function client() {
+
+		$data['title'] = 'Client';
+		$data['clients'] = $this -> clients_model -> GetAllHome();
+		$this -> load -> view('client_view', $data);
+
+	}
+
 	public function contact() {
 
 		$data['title'] = 'Contact Us';
@@ -61,6 +69,14 @@ class Home extends CI_Controller {
 		$data['title'] = 'Products';
 		$data['products'] = $this -> products_model -> GetAll();
 		$this -> load -> view('product_view', $data);
+
+	}
+
+	public function signs() {
+
+		$data['title'] = 'Products';
+		$data['signs'] = $this -> signs_model -> GetAll();
+		$this -> load -> view('sign_view', $data);
 
 	}
 
@@ -106,7 +122,27 @@ class Home extends CI_Controller {
 		$data['title'] = 'Our Works';
 
 		$data['products'] = $this -> products_model -> GetAll();
-		$data['ourworks'] = $this -> ourworks_model -> GetAllFiltered();
+		//$data['ourworks'] = $this -> ourworks_model -> GetAllFiltered();
+		//$this -> load -> view('ourworks_view', $data);
+
+		$config = array();
+		$config["base_url"] = site_url('ourworks/');
+		$config["total_rows"] = $this -> db -> count_all('ourworks');
+		$config["per_page"] = 25;
+		$config["uri_segment"] = 2;
+		$config['num_links'] = 9;
+		$config['full_tag_open'] = '<div id="pages_link"><ul><li>PAGES ► </li>';
+		$config['full_tag_close'] = '</ul></div><div class="clear"></div>';
+		$config['num_tag_open'] = '<li class="inactive_page">';
+		$config['num_tag_close'] = '</li>';
+		$config['cur_tag_open'] = '<li class="active_page">';
+		$config['cur_tag_close'] = '</li>';
+		$config['next_link'] = FALSE;
+		$config['prev_link'] = FALSE;
+		$this -> pagination -> initialize($config);
+		$page = ($this -> uri -> segment(2)) ? $this -> uri -> segment(2) : 0;
+		$data['ourworks'] = $this -> ourworks_model -> GetAll($config["per_page"], $page);
+		$data['links'] = $this -> pagination -> create_links();
 		$this -> load -> view('ourworks_view', $data);
 
 	}
@@ -143,21 +179,19 @@ class Home extends CI_Controller {
 		$config["per_page"] = 2;
 		$config["uri_segment"] = 2;
 		$config['num_links'] = 9;
-		$config['full_tag_open'] = '<div id="work_pagination"><div id="pages_link">PAGES ►';
-		
-		$config['full_tag_close'] = '</div><div class="clear"></div></div>';
-$config['num_tag_open'] = '
-<a class="inactive_page">
-	';
-	$config['num_tag_close'] = '
-</a>
-';
-
+		$config['full_tag_open'] = '<div id="pages_link"><ul><li>PAGES ► </li>';
+		$config['full_tag_close'] = '</ul></div><div class="clear"></div>';
+		$config['num_tag_open'] = '<li class="inactive_page">';
+		$config['num_tag_close'] = '</li>';
+		$config['cur_tag_open'] = '<li class="active_page">';
+		$config['cur_tag_close'] = '</li>';
+		$config['next_link'] = FALSE;
+		$config['prev_link'] = FALSE;
 		$this -> pagination -> initialize($config);
-		$page = ($this -> uri -> segment(3)) ? $this -> uri -> segment(3) : 0;
+		$page = ($this -> uri -> segment(2)) ? $this -> uri -> segment(2) : 0;
 		$data['testimonials'] = $this -> testimonials_model -> GetAll($config["per_page"], $page);
 		$data['links'] = $this -> pagination -> create_links();
-		$this -> load -> view('testimonials_view',$data);
+		$this -> load -> view('testimonials_view', $data);
 
 	}
 

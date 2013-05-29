@@ -2,8 +2,8 @@
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 /**
- * Online video Class
- * @package Glenna Jean
+ * Video Class
+ * @package Roberts
  * @subpackage Backend
  * @category Controller
  * @author AMI
@@ -142,4 +142,4 @@ class Videos extends CI_Controller {
 
 }
 
-/* End of file video.php */
+/* End of file videos.php */

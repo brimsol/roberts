@@ -1,0 +1,167 @@
+/* CSS Document */
+
+#form_container{
+	width:96%;
+	background-color:#E8E8E8;
+	height:auto;
+	color:#727272;
+}
+#form_container ul{
+	list-style-type:none;
+    list-style-position:outside;
+    margin:0px;
+    padding:0px;
+}
+#form_container ul li{
+	line-height:40px;
+}
+.form_label{
+	width:100px;
+	display:inline-block;
+	vertical-align:top;
+}
+.txtbox{
+	border-radius: 3px;
+	border:1px solid #AAAAAA;
+    color: #777777;
+    outline: 0 none;
+    padding: 3px 5px 5px 5px;
+    width: 200px;
+	height:20px;
+}
+.txtbox:required{
+	background:url(../images/red_asterisk.png) no-repeat 98% center #FFF;
+}
+.txtbox:focus{
+	border:1px solid #6BB0E7;
+	background-color:#F2F2F2;
+}
+.dropdown{
+	border:1px solid #AAAAAA;
+	border-radius: 3px;
+    color: #777777;
+	padding: 3px 5px 5px 5px;
+	height:27px;
+	width:100px;
+}
+.dropdown:focus{
+	border:1px solid #6BB0E7;
+	background-color:#F2F2F2;
+}
+.txtarea{
+	border-radius: 3px;
+	border:1px solid #AAAAAA;
+    color: #777777;
+    outline: 0 none;
+    padding: 3px 5px 5px 5px;
+    width: 200px;
+	height:60px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:13px;
+}
+.txtarea:focus{
+	border:1px solid #6BB0E7;
+	background-color:#F2F2F2;
+}
+.button{
+	border:1px solid #77B5B5;
+	border-radius: 3px;
+	background-color:#77BCF3;
+	color:#FFF;
+	height:25px;
+	padding: 3px 5px 5px 5px;
+	cursor:pointer;
+}
+
+
+@media screen and (max-width:768px){
+}
+@media screen and (max-width:600px){
+}
+@media screen and (max-width:568px){
+	
+#form_container{
+	width:100%;
+}
+#form_container ul li{
+	line-height:30px;
+}
+.txtbox{
+	width:77%;
+}
+.txtarea{
+	width:77%;
+}
+
+}
+@media screen and (max-width:685px){
+	
+#form_container{
+	width:100%;
+}
+.txtbox{
+	width:81%;
+}
+.txtarea{
+	width:81%;
+}
+
+}
+@media screen and (max-width:480px){
+	
+#form_container{
+	width:100%;
+}
+.txtbox{
+	width:73%;
+}
+.txtarea{
+	width:73%;
+}
+
+}
+@media screen and (max-width:320px){
+	
+#form_container{
+	width:100%;
+}
+#form_container ul li{
+	line-height:30px;
+}
+.txtbox{
+	width:95%;
+}
+.txtarea{
+	width:95%;
+}
+
+}
+@media screen and (max-width:380px){
+	
+#form_container ul li{
+	line-height:30px;
+}
+.txtbox{
+	width:95%;
+}
+.txtarea{
+	width:95%;
+}
+
+}
+@media screen and (max-width:240px){
+	
+#form_container{
+	width:100%;
+}
+#form_container ul li{
+	line-height:30px;
+}
+.txtbox{
+	width:94%;
+}
+.txtarea{
+	width:94%;
+}
+
+}

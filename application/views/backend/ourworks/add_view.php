@@ -15,7 +15,7 @@
 				
 			
 					
-					<div class="span10 well">
+					<div class="span9 well">
 
 						<form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?php site_url('admin/ourworks/add'); ?>" >
 							<fieldset>
@@ -44,7 +44,7 @@
 								<div class="control-group">
 
 									<!-- Select Basic -->
-									<label class="control-label">Category</label>
+									<label class="control-label">Category (Product)</label>
 									<div class="controls">
 										<select class="input-large" name="category" id="category">
 											<option value="">Select</option>
@@ -60,23 +60,9 @@
 								<div class="control-group">
 
 									<!-- Select Basic -->
-									<label class="control-label">Sub Category(A)</label>
+									<label class="control-label">Sub Category (A)</label>
 									<div class="controls">
-										<select class="input-large" name="category" id="category">
-											<option value="Window">Window</option>
-											<option value="Door">Door</option>
-											<option value="Deck/Pation">Deck/Pation</option>
-										
-										</select>
-									</div>
-
-								</div>
-								<div class="control-group">
-
-									<!-- Select Basic -->
-									<label class="control-label">Sub Category(A)</label>
-									<div class="controls">
-										<select class="input-large" name="category" id="category">
+										<select class="input-large" name="sub_category_a" id="sub_category_a" disabled="disabled">
 											<option value="">Select</option>
 											<?php if(isset($categories)&&count($categories)){?>
 												<?php foreach($categories as $category){?>
@@ -90,9 +76,25 @@
 								<div class="control-group">
 
 									<!-- Select Basic -->
-									<label class="control-label">Sub Category(C)/label>
+									<label class="control-label">Sub Category (B)</label>
 									<div class="controls">
-										<select class="input-large" name="category" id="category">
+										<select class="input-large" name="sub_category_b" id="sub_category_b" disabled="disabled">
+											<option value="">Select</option>
+											<?php if(isset($categories)&&count($categories)){?>
+												<?php foreach($categories as $category){?>
+												<option value="<?php echo $category->id;?>"><?php echo $category->name;?></option>
+												<?php } ?>
+											<?php }?>
+										</select>
+									</div>
+
+								</div>
+								<div class="control-group">
+
+									<!-- Select Basic -->
+									<label class="control-label">Sub Category (C)</label>
+									<div class="controls">
+										<select class="input-large" name="sub_category_c" id="sub_category_c" disabled="disabled">
 											<option value="">Select</option>
 											<?php if(isset($categories)&&count($categories)){?>
 												<?php foreach($categories as $category){?>

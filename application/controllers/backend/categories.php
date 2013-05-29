@@ -2,7 +2,7 @@
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 /**
- * Spotlight Class
+ * Categories Class
  * @package Roberts
  * @subpackage Backend
  * @category Controller
@@ -17,230 +17,200 @@ Class Categories extends CI_Controller {
 			redirect('admin');
 		}
 
-		$this -> load -> model('ourworks_model');
 		$this -> load -> model('products_model');
+		$this -> load -> model('categories_model');
 	}
 
-	//List all collection on backend
-	public function index() {
-		$config = array();
-		$config["base_url"] = site_url('admin/ourworks/');
-		$config["total_rows"] = $this -> db -> count_all('ourworks');
-		$config["per_page"] = 10;
-		$config["uri_segment"] = 3;
-		$config['num_links'] = 9;
-		$this -> pagination -> initialize($config);
-		$page = ($this -> uri -> segment(3)) ? $this -> uri -> segment(3) : 0;
-		$data['ourworks'] = $this -> ourworks_model -> GetAll($config["per_page"], $page);
-		$data['links'] = $this -> pagination -> create_links();
-		$this -> load -> view('backend/ourworks/list_view', $data);
+	
 
-	}
+	function add_sub_category_a() {
 
-	public function categories() {
-		$config = array();
-		$config["base_url"] = site_url('admin/categories/');
-		$config["total_rows"] = $this -> db -> count_all('categories');
-		$config["per_page"] = 10;
-		$config["uri_segment"] = 3;
-		$config['num_links'] = 9;
-		$this -> pagination -> initialize($config);
-		$page = ($this -> uri -> segment(3)) ? $this -> uri -> segment(3) : 0;
-		$data['categories'] = $this -> ourworks_model -> GetAllCategories($config["per_page"], $page);
-		$data['links'] = $this -> pagination -> create_links();
-		$this -> load -> view('backend/ourworks/list_category_view', $data);
-
-	}
-
-	//add new spotlight->upload image->get encrypted name -> add everything to db
-
-	function add() {
+		$this -> form_validation -> set_rules('name', 'Name', 'required|trim|xss_clean|max_length[100]');
 		$this -> form_validation -> set_rules('category', 'Category', 'required|trim|xss_clean');
-		$this -> form_validation -> set_rules('name', 'Title', 'required|trim|xss_clean|max_length[100]');
-		//$this -> form_validation -> set_rules('userfile', 'Image', 'required');
-        $data['categories'] = $this -> products_model -> GetAll();
+		$data['categories'] = $this -> products_model -> GetAll();
+		$data['action_link'] = 'add_sub_category_a';
 		if ($this -> form_validation -> run() == FALSE)// validation hasn't been passed
 		{
-			$this -> load -> view('backend/ourworks/add_view',$data);
+			$this -> load -> view('backend/categories/add_view', $data);
 		} else// passed validation proceed to post success logic
 		{
-			if (isset($_FILES['userfile']['name'])) {
 
-				$fileUpload = $_FILES['userfile']['name'];
-
-			} else {
-
-				$fileUpload = 'test';
-
-			}
-			// build array for the model
-			if (strlen($fileUpload) > 0) {
-				$config['upload_path'] = './uploads/';
-				$config['allowed_types'] = 'gif|jpg|png';
-				$config['max_size'] = '500';
-				$config['encrypt_name'] = TRUE;
-				$this -> load -> library('upload', $config);
-
-				if ($this -> upload -> do_upload()) {
-					$data = $this -> upload -> data();
-					$form_data = array('category' => set_value('category'), 'name' => set_value('name'), 'image' => $data['file_name']);
-					if ($this -> ourworks_model -> Save($form_data) == TRUE)// the information has therefore been successfully saved in the db
-					{
-						$this -> ci_alerts -> set('success', 'Saved Successfully');
-						redirect('admin/ourwork/add');
-						// or whatever logic needs to occur
-					} else {
-						$this -> ci_alerts -> set('success', 'An error occurred saving your information. Please try again later');
-						redirect('admin/ourwork/add');
-
-					}
-				} else {
-					//Failed to upload file.
-					$data['upload_error'] = $this -> upload -> display_errors();
-					$this -> load -> view('backend/ourworks/add_view', $data);
-				}
-
-			} else {
-
-				$form_data = array('category' => set_value('category'), 'name' => set_value('name'));
-				if ($this -> ourworks_model -> Save($form_data) == TRUE)// the information has therefore been successfully saved in the db
-				{
-					$this -> ci_alerts -> set('success', 'Saved Successfully');
-					redirect('admin/ourwork/add');
-					// or whatever logic needs to occur
-				} else {
-					$this -> ci_alerts -> set('success', 'An error occurred saving your information. Please try again later');
-					redirect('admin/ourwork/add');
-
-				}
-			}
-		}
-	}
-
-	function add_category() {
-		$this -> form_validation -> set_rules('description', 'Description', 'required|trim|xss_clean|max_length[500]');
-		$this -> form_validation -> set_rules('name', 'Title', 'required|trim|xss_clean|max_length[100]');
-        
-		if ($this -> form_validation -> run() == FALSE)// validation hasn't been passed
-		{
-			$this -> load -> view('backend/ourworks/add_category_view');
-
-		} else {
-
-			$form_data = array('description' => set_value('description'), 'name' => set_value('name'));
-			if ($this -> ourworks_model -> SaveCategory($form_data) == TRUE)// the information has therefore been successfully saved in the db
+			$form_data = array('product_id' => set_value('category'), 'name' => set_value('name'));
+			if ($this -> categories_model -> save_a($form_data) == TRUE)// the information has therefore been successfully saved in the db
 			{
 				$this -> ci_alerts -> set('success', 'Saved Successfully');
-				redirect('admin/ourworks/category/add');
+				redirect('backend/categories/add_sub_category_a');
 				// or whatever logic needs to occur
 			} else {
 				$this -> ci_alerts -> set('success', 'An error occurred saving your information. Please try again later');
-				redirect('admin/ourworks/category/add');
+				redirect('backend/categories/add_sub_category_a');
 
 			}
 		}
 	}
 
-	function edit_category($id) {
-		$this -> form_validation -> set_rules('description', 'description', 'required|trim|xss_clean|max_length[500]');
-		$this -> form_validation -> set_rules('name', 'Title', 'required|trim|xss_clean|max_length[100]');
+	function add_sub_category_b() {
 
+		$this -> form_validation -> set_rules('name', 'Name', 'required|trim|xss_clean|max_length[100]');
+		$this -> form_validation -> set_rules('category', 'Category', 'required|trim|xss_clean');
+		$data['categories'] = $this -> categories_model -> get_all_sub_a();
+		$data['action_link'] = 'add_sub_category_b';
 		if ($this -> form_validation -> run() == FALSE)// validation hasn't been passed
 		{
-			$data['categories'] = $this -> ourworks_model -> GetOneCategory($id);
-			$this -> load -> view('backend/ourworks/edit_category_view', $data);
-		} else {// passed validation proceed to post success logic
+			$this -> load -> view('backend/categories/add_view', $data);
+		} else// passed validation proceed to post success logic
+		{
 
-			$form_data = array('description' => set_value('description'), 'name' => set_value('name'));
-			if ($this -> ourworks_model -> UpdateCategory($id, $form_data) == TRUE)// the information has therefore been successfully saved in the db
+			$form_data = array('sub_aid' => set_value('category'), 'name' => set_value('name'));
+			if ($this -> categories_model -> save_b($form_data) == TRUE)// the information has therefore been successfully saved in the db
 			{
 				$this -> ci_alerts -> set('success', 'Saved Successfully');
-				redirect('admin/ourworks/category/edit/' . $id);
+				redirect('backend/categories/add_sub_category_b');
 				// or whatever logic needs to occur
 			} else {
-				$this -> ci_alerts -> set('success', 'Nothing to Update');
-				redirect('admin/ourworks/category/edit/' . $id);
+				$this -> ci_alerts -> set('success', 'An error occurred saving your information. Please try again later');
+				redirect('backend/categories/add_sub_category_b');
 
 			}
+		}
+	}
 
+	function add_sub_category_c() {
+
+		$this -> form_validation -> set_rules('name', 'Name', 'required|trim|xss_clean|max_length[100]');
+		$this -> form_validation -> set_rules('category', 'Category', 'required|trim|xss_clean');
+		$data['categories'] = $this -> categories_model -> get_all_sub_b();
+		$data['action_link'] = 'add_sub_category_c';
+		if ($this -> form_validation -> run() == FALSE)// validation hasn't been passed
+		{
+			$this -> load -> view('backend/categories/add_view', $data);
+		} else// passed validation proceed to post success logic
+		{
+
+			$form_data = array('sub_bid' => set_value('category'), 'name' => set_value('name'));
+			if ($this -> categories_model -> save_c($form_data) == TRUE)// the information has therefore been successfully saved in the db
+			{
+				$this -> ci_alerts -> set('success', 'Saved Successfully');
+				redirect('backend/categories/add_sub_category_c');
+				// or whatever logic needs to occur
+			} else {
+				$this -> ci_alerts -> set('success', 'An error occurred saving your information. Please try again later');
+				redirect('backend/categories/add_sub_category_c');
+
+			}
+		}
+	}
+
+	
+
+	function list_sub_category_a() {
+
+		$data['categories'] = $this -> categories_model -> get_all_sub_a();
+		$data['action_link'] = 'edit_sub_category_a';
+		$this -> load -> view('backend/categories/list_view', $data);
+
+	}
+	function list_sub_category_b() {
+
+		$data['categories'] = $this -> categories_model -> get_all_sub_b();
+		$data['action_link'] = 'edit_sub_category_b';
+		$this -> load -> view('backend/categories/list_view', $data);
+
+	}
+	function list_sub_category_c() {
+
+		$data['categories'] = $this -> categories_model -> get_all_sub_c();
+		$data['action_link'] = 'edit_sub_category_c';
+		$this -> load -> view('backend/categories/list_view', $data);
+
+	}
+
+	function edit_sub_category_a($id) {
+
+		$this -> form_validation -> set_rules('name', 'Name', 'required|trim|xss_clean|max_length[100]');
+		$this -> form_validation -> set_rules('category', 'Category', 'required|trim|xss_clean');
+		$data['categories'] = $this -> products_model -> GetAll();
+		$data['categories_editor'] = $this -> categories_model -> get_one_sub_a($id);
+		$data['action_link'] = 'edit_sub_category_a';
+		if ($this -> form_validation -> run() == FALSE)// validation hasn't been passed
+		{  
+			$this -> load -> view('backend/categories/edit_view', $data);
+			
+		} else// passed validation proceed to post success logic
+		{
+
+			$form_data = array('product_id' => set_value('category'), 'name' => set_value('name'));
+			if ($this -> categories_model -> update_a($id,$form_data) == TRUE)// the information has therefore been successfully saved in the db
+			{
+				$this -> ci_alerts -> set('success', 'Saved Successfully');
+				redirect('backend/categories/edit_sub_category_a/' . $id);
+
+				// or whatever logic needs to occur
+			} else {
+				$this -> ci_alerts -> set('success', 'An error occurred saving your information. Please try again later');
+				redirect('backend/categories/edit_sub_category_a/' . $id);
+
+			}
+		}
+	}
+
+	function edit_sub_category_b($id) {
+
+		$this -> form_validation -> set_rules('name', 'Name', 'required|trim|xss_clean|max_length[100]');
+		$this -> form_validation -> set_rules('category', 'Category', 'required|trim|xss_clean');
+		$data['categories'] = $this -> categories_model -> get_all_sub_a();
+		$data['categories_editor'] = $this -> categories_model -> get_one_sub_b($id);
+		$data['action_link'] = 'edit_sub_category_b';
+		if ($this -> form_validation -> run() == FALSE)// validation hasn't been passed
+		{
+			$this -> load -> view('backend/categories/edit_view', $data);
+		} else// passed validation proceed to post success logic
+		{
+
+			$form_data = array('sub_aid' => set_value('category'), 'name' => set_value('name'));
+			if ($this -> categories_model -> update_b($id,$form_data) == TRUE)// the information has therefore been successfully saved in the db
+			{
+				$this -> ci_alerts -> set('success', 'Saved Successfully');
+				redirect('backend/categories/edit_sub_category_b');
+				// or whatever logic needs to occur
+			} else {
+				$this -> ci_alerts -> set('success', 'An error occurred saving your information. Please try again later');
+				redirect('backend/categories/edit_sub_category_b');
+
+			}
+		}
+	}
+
+	function edit_sub_category_c($id) {
+
+		$this -> form_validation -> set_rules('name', 'Name', 'required|trim|xss_clean|max_length[100]');
+		$this -> form_validation -> set_rules('category', 'Category', 'required|trim|xss_clean');
+		$data['categories'] = $this -> categories_model -> get_all_sub_c();
+		$data['categories_editor'] = $this -> categories_model -> get_one_sub_b($id);
+		$data['action_link'] = 'edit_sub_category_c';
+		if ($this -> form_validation -> run() == FALSE)// validation hasn't been passed
+		{
+			$this -> load -> view('backend/categories/edit_view', $data);
+		} else// passed validation proceed to post success logic
+		{
+
+			$form_data = array('sub_bid' => set_value('category'), 'name' => set_value('name'));
+			if ($this -> categories_model -> update_c($id,$form_data) == TRUE)// the information has therefore been successfully saved in the db
+			{
+				$this -> ci_alerts -> set('success', 'Saved Successfully');
+				redirect('backend/categories/edit_sub_category_c');
+				// or whatever logic needs to occur
+			} else {
+				$this -> ci_alerts -> set('success', 'An error occurred saving your information. Please try again later');
+				redirect('backend/categories/edit_sub_category_c');
+
+			}
 		}
 	}
 
 	//Edit collection,little tricky no change if there is no new image
 
-	function edit($id) {
-		
-		$this -> form_validation -> set_rules('category', 'Category', 'required|trim|xss_clean|max_length[500]');
-		$this -> form_validation -> set_rules('name', 'Title', 'required|trim|xss_clean|max_length[200]');
-        $data['categories'] = $this -> products_model -> GetAll();
-		if ($this -> form_validation -> run() == FALSE)// validation hasn't been passed
-		{
-			$data['ourworks'] = $this -> ourworks_model -> GetOne($id);
-			$this -> load -> view('backend/ourworks/edit_view', $data);
-		} else {// passed validation proceed to post success logic
-
-			// build array for the model
-			if (isset($_FILES['userfile']['name'])) {
-
-				$fileUpload = $_FILES['userfile']['name'];
-
-			} else {
-
-				$fileUpload = '';
-
-			}
-			if (strlen($fileUpload) > 0) {
-				$config['upload_path'] = './uploads/';
-				$config['allowed_types'] = 'gif|jpg|png';
-				$config['max_size'] = '500';
-				$config['encrypt_name'] = TRUE;
-				$this -> load -> library('upload', $config);
-
-				if ($this -> upload -> do_upload()) {
-					$data = $this -> upload -> data();
-					$form_data = array('category' => set_value('category'), 'name' => set_value('name'), 'image' => $data['file_name']);
-					if ($this -> ourworks_model -> Update($id, $form_data) == TRUE)// the information has therefore been successfully saved in the db
-					{
-						$this -> ci_alerts -> set('success', 'Saved Successfully');
-						redirect('admin/ourwork/edit/' . $id);
-						// or whatever logic needs to occur
-					} else {
-						$this -> ci_alerts -> set('success', 'An error occurred saving your information. Please try again later');
-						redirect('admin/ourwork/edit/' . $id);
-
-					}
-				} else {
-					//Failed to upload file.
-					$data['upload_error'] = $this -> upload -> display_errors();
-					$data['testimonials'] = $this -> spotlights_model -> GetOne($id);
-					//$data['collections'] = $this -> collections_model -> get_all_collection_names();
-					$this -> load -> view('backend/ourworks/edit_view', $data);
-				}
-			} else {
-
-				$form_data = array('category' => set_value('category'), 'name' => set_value('name'));
-				if ($this -> ourworks_model -> Update($id, $form_data) == TRUE)// the information has therefore been successfully saved in the db
-				{
-					$this -> ci_alerts -> set('success', 'Saved Successfully');
-					redirect('admin/ourwork/edit/' . $id);
-					// or whatever logic needs to occur
-				} else {
-					$this -> ci_alerts -> set('success', 'Nothing to Update');
-					redirect('admin/ourwork/edit/' . $id);
-
-				}
-
-			}
-		}
-	}
-
-	public function filter() {
-
-		$filter = $this -> input -> post('filter');
-		$data['collections'] = $this -> collections_model -> GetAll($filter);
-		$this -> load -> view('backend/collections/list_ajax_view', $data);
-
-	}
+	
 
 	//oops,deleted from db and unlink the related image
 
@@ -272,6 +242,14 @@ Class Categories extends CI_Controller {
 			}
 		}
 
+	}
+	
+	function filter() {
+
+		$data['categories'] = $this -> categories_model -> category_filter();
+		$this -> load -> view('backend/categories/options_view', $data);
+		
+		
 	}
 
 	function delete_category($id = null, $filename = null) {

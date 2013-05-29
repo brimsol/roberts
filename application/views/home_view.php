@@ -146,7 +146,7 @@ EOF;
 <div class="welcome_note">
 <h1>Welcome to Roberts Awning and sign</h1>
 <p>Roberts Awning and Wallpaper was founded in 1912 to provide residents of Petersburg and the surrounding communities with quality awnings and wallpaper. The company remained in the Roberts’ family until the 1990s when John Radcliffe, a local business owner, bought the company and expanded the offerings to include more commercial customers. Roberts’ Awning and Sign has been owned by two different families for four generations and still serves Petersburg 100 years later. two different families for four generations and still serves Petersburg 100 years later.</p>
-<a href="">Read more</a>
+<a href="<?php echo site_url('about');?>">Read more</a>
 <div class="clear"></div>
 </div>
 <div class="clear"></div>
@@ -236,7 +236,7 @@ EOF;
     	
         
         <div class="more">
-        <a href="<?php echo site_url('clients');?>"></a>
+        <a href="<?php echo site_url('client');?>"></a>
         </div>
     
     

@@ -14,7 +14,7 @@
 				
 					<?php echo $this -> load -> view('backend/slice/side_nav'); ?>
 				
-				<div class="span10 well">
+				<div class="span9 well">
 						<form class="form-horizontal" id="welcome_login_form" method="post" accept-charset="utf-8" 
 							action="<?php echo site_url('admin/change_password')?>">
 							<?php echo validation_errors('<div class="alert alert-error fade in">', '</div>'); ?><?php echo $this->ci_alerts->display('success');?><?php echo $this->ci_alerts->display('error');?>

@@ -16,7 +16,7 @@
 			
 					
 					
-						<div class="span10">
+						<div class="span9">
 <legend>Gifts</legend>
 							<?php if(isset($gifts) && count($gifts)){
 							$c=$this->uri->segment(3, 0)+1; ?>

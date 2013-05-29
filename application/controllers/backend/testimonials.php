@@ -2,8 +2,8 @@
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 /**
- * Collections Class
- * @package Glenna Jean
+ * Testimonials Class
+ * @package Roberts
  * @subpackage Backend
  * @category Controller
  * @author AMI

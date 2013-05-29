@@ -14,7 +14,7 @@
 				<?php echo $this -> load -> view('backend/slice/side_nav'); ?>
 				
 			
-					<div class="span10 well">
+					<div class="span9 well">
 
 						<form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?php site_url('admin/slider/edit'); ?>" >
 							<fieldset>

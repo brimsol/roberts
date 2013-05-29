@@ -2,8 +2,8 @@
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 /**
- * Collections Class
- * @package Glenna Jean
+ * Staffs Class
+ * @package Roberts
  * @subpackage Backend
  * @category Controller
  * @author AMI
@@ -169,28 +169,7 @@ Class Staffs extends CI_Controller {
 		}
 	}
 
-	function featured($id = null) {
-
-		if ($id == '' || $id == null) {
-
-			$this -> ci_alerts -> set('success', 'Some thing wrong happend we cannot set this us featured');
-			redirect('admin/testimonials/');
-
-		} else {
-
-			if ($this -> testimonials_model -> Featured($id) == TRUE)// the information has therefore been successfully saved in the db
-			{
-				$this -> ci_alerts -> set('success', 'You are done !');
-				redirect('admin/testimonials/');
-				// or whatever logic needs to occur
-			} else {
-				$this -> ci_alerts -> set('success', 'You are done !! But this is already featured !');
-				redirect('admin/testimonials/');
-
-			}
-
-		}
-	}
+	
 
 	public function view($id) {
 
@@ -199,29 +178,7 @@ Class Staffs extends CI_Controller {
 
 	}
 
-	function unfeatured($id = null) {
-
-		if ($id == '' || $id == null) {
-
-			$this -> ci_alerts -> set('success', 'Some thing wrong happend try again later');
-			redirect('admin/settings/');
-
-		} else {
-
-			if ($this -> testimonials_model -> UnFeatured($id) == TRUE)// the information has therefore been successfully saved in the db
-			{
-				$this -> ci_alerts -> set('success', 'You are done !');
-				redirect('admin/settings/');
-				// or whatever logic needs to occur
-			} else {
-				$this -> ci_alerts -> set('success', 'You are done !!');
-				redirect('admin/settings/');
-
-			}
-
-		}
-	}
-
+	
 	//oops,deleted from db and unlink the related image
 
 	function delete($id = null, $filename = null) {

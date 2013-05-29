@@ -44,9 +44,9 @@
 		</div>
 		<!-- map start -->
 		<div class="map">
-			<!--
+		
 			<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Roberts+Awning+%26+Sign++1791+Midway+Avenue,++Petersburg,+VA+23803&amp;aq=&amp;sll=42.059787,-62.410134&amp;sspn=68.402878,173.144531&amp;t=m&amp;ie=UTF8&amp;hq=Roberts+Awning+%26+Sign++1791+Midway+Avenue,++Petersburg,+VA+23803&amp;hnear=&amp;radius=15000&amp;ll=37.220622,-77.435112&amp;spn=0.071946,0.071946&amp;output=embed"></iframe>
-			-->
+			
 
 		</div>
 		<!-- map close -->

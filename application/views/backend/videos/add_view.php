@@ -14,7 +14,7 @@
 				
 				<?php echo $this -> load -> view('backend/slice/side_nav'); ?>
 				
-					<div class="span10 well">
+					<div class="span9 well">
 
 						<form class="form-horizontal" id="onlinestore_form"  enctype="multipart/form-data" method="post" action="<?php echo site_url('admin/video/add');?>" >
 							<fieldset>

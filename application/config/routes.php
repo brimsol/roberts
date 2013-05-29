@@ -99,7 +99,7 @@ $route['admin/ourworks/category/edit/(:num)'] = "backend/ourworks/edit_category/
 $route['admin/ourworks/category/delete/(:num)'] = "backend/ourworks/delete_category/$1";
 /*List All Categories*/
 $route['admin/ourworks'] = "backend/ourworks/index";
-$route['admin/ourworks/(:num)'] = "backend/ourworks/index";
+$route['admin/ourworks/(:num)'] = "backend/ourworks/index/";
 /*Add New Categories*/
 $route['admin/ourworks/add'] = "backend/ourworks/add";
 /*Edit Categories*/
@@ -168,7 +168,7 @@ $route['products'] = "home/products/";
 $route['spotlights'] = "home/spotlights/";
 /*Frontend Our work list*/
 $route['ourworks'] = "home/ourworks/";
-
+$route['ourworks/(:num)'] = "home/ourworks/$1";
 $route['admin/settings'] = "backend/settings/index/";
 
 $route['admin/client/featured/(:num)'] = "backend/clients/featured/$1";
@@ -209,5 +209,15 @@ $route['admin/gifts/view/(:num)'] = "backend/gifts/view/$1";
 $route['admin/gifts/delete/(:num)/(:any)'] = "backend/gifts/delete/$1/$2";
 /*Delete Officials*/
 $route['admin/gifts/delete/(:num)'] = "backend/gifts/delete/$1";
+
+/*List All Signs*/
+$route['signs'] = "home/signs";
+/*List All Clients*/
+$route['client'] = "home/client";
+
 /* End of file routes.php */
+
+
+
+
 /* Location: ./application/config/routes.php */

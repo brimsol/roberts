@@ -45,29 +45,43 @@
 <!-- content start -->
 <div id="content">
 <!-- aside_left start -->
+<!-- aside_left start -->
 <div id="aside_left">
-<!---about us here -->
-<h1>Search Result</h1>
-<div class="product_temp">
-<ul>
-<?php if(isset($products) && count($products)){?>
-<?php	foreach ($products as $product){?>
-<li><a href="<?php echo site_url('products/view')?>/<?php echo $product -> id; ?>"><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $product -> image; ?>&h=155&w=265&q=90" title="<?php echo $product -> name; ?>"  alt="<?php echo $product -> name; ?>"><h8><?php echo $product -> name; ?></h8></a></li>
-<?php }
-}else{echo 'No result found for your query,plese try again';}?>
+<div id="product_heading">
+    <h1>Products - Search Result</h1>
+</div>
 
-<div class="clear"></div>
-</ul>
+<div id="product">
+	
+    <div class="product_list">
+ <?php if(isset($products) && count($products)){?>    
+        <ul class="main_product">
+ 
+<?php	foreach ($products as $product){?>      
+        <li>
+        <a href="<?php echo site_url('products/view')?>/<?php echo $product -> id; ?>"">
+        	<img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $product -> image; ?>&h=155&w=265&q=90" title="<?php echo $product -> name; ?>"  alt="<?php echo $product -> name; ?>"></a>
+        <h1><?php echo $product -> name; ?></h1>
+        </li>
+        
+ <?php } ?>
 
-<div class="clear"></div>
+       
+        </ul>
+        
+<?php }else{echo 'No result found for your query,plese try again';}?>
+    </div><!--product_list-->
+    <div class="clear"></div>
+    
+</div><!--product-->
+
+<!--<div id="more_button">
+<a href="#">more</a><img src="images/more_button.png">
+</div><div class="clear"></div>-->
+
 </div>
 
 
-
-
-
-<!--about us end here-->
-</div>
 <!-- aside_left close -->
 
 <!-- aside_right start -->

@@ -66,6 +66,14 @@ class Ourworks_model extends CI_Model {
 		return FALSE;
 	}
 
+	function filter() {
+
+		//$table = $this -> input -> post('table');
+		$id = $this -> input -> post('sub_cat_a');
+		$db_field = $this -> input -> post('db_field');
+		return $this -> db->where($db_field, $id) -> get('ourworks') -> result();
+	}
+
 	function GetOneCategory($id) {
 
 		return $this -> db -> where('id', $id) -> limit(1) -> get('categories') -> result();
@@ -82,24 +90,25 @@ class Ourworks_model extends CI_Model {
 
 		if ($offset != null) {
 			//return $this -> db -> order_by('created_at', 'DESC') -> limit($offset, $limit) -> get('ourworks') -> result();
-			return $this -> db -> select('o.id AS id,o.name AS name,o.image AS image,o.category AS categoryid,o.created_at AS created_at,c.id AS cid,c.name AS category') -> join('products c', 'o.category = c.id', 'INNER') -> order_by('created_at', 'DESC') -> limit($offset, $limit) -> get('ourworks o')->result();
+			return $this -> db -> select('o.id AS id,o.name AS name,o.image AS image,o.category AS categoryid,o.created_at AS created_at,c.id AS cid,c.name AS category') -> join('products c', 'o.category = c.id', 'INNER') -> order_by('created_at', 'DESC') -> limit($offset, $limit) -> get('ourworks o') -> result();
 		} else {
 			//return $this -> db -> order_by('created_at', 'DESC') -> get('ourworks') -> result();
-			return $this -> db -> select('o.id AS id,o.name AS name,o.image AS image,o.category AS category,o.created_at AS created_at,c.id AS cid,c.name AS cname') -> join('products c', 'o.category = c.id', 'INNER') -> order_by('created_at', 'DESC')  -> get('ourworks o')->result();
+			return $this -> db -> select('o.id AS id,o.name AS name,o.image AS image,o.category AS category,o.created_at AS created_at,c.id AS cid,c.name AS cname') -> join('products c', 'o.category = c.id', 'INNER') -> order_by('created_at', 'DESC') -> get('ourworks o') -> result();
 		}
 
 	}
-	
+
 	function GetAllFiltered($filter = null) {
 		if ($filter == null && $filter == '') {
-			return $this -> db ->order_by('created_at','DESC') -> get('ourworks') -> result();
+			return $this -> db -> order_by('created_at', 'DESC') -> get('ourworks') -> result();
 		} else {
 			$filter[] = "'" . implode("','", $filter) . "'";
 			//$category = $filter;
-			return $this -> db -> where_in('category', $filter)->order_by('created_at','DESC') -> get('ourworks')-> result();
+			return $this -> db -> where_in('category', $filter) -> order_by('created_at', 'DESC') -> get('ourworks') -> result();
 		}
 
 	}
+
 	function GetAllCategories($offset = null, $limit = null) {
 
 		if ($offset != null) {
@@ -110,14 +119,17 @@ class Ourworks_model extends CI_Model {
 
 	}
 
+	function GetAllInProduct($id, $offset = null, $limit = null) {
 
-	function GetAllInProduct($id) {
+		//return $this -> db -> where('category', $id) -> order_by('created_at', 'ASC') -> get('ourworks') -> result();
+		if ($offset != null) {
+			//return $this -> db -> order_by('created_at', 'DESC') -> limit($offset, $limit) -> get('ourworks') -> result();
+			return $this -> db -> where('category', $id) -> order_by('created_at', 'ASC') -> limit($offset, $limit) -> get('ourworks') -> result();
+		} else {
+			return $this -> db -> where('category', $id) -> order_by('created_at', 'ASC') -> get('ourworks') -> result();
 
-		return $this -> db -> where('category',$id) -> order_by('created_at', 'ASC') -> get('ourworks')->result();
-
+		}
 	}
-
-
 
 }
 

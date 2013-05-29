@@ -63,7 +63,7 @@ Cras tincidunt diam molestie augue sagittis eget.</p>-->
 <!-- aside_left close -->
 
 <!-- aside_right start -->
-<div id="aside_right">
+<div id="aside_right">	
 <?php echo $this -> load -> view('slice/aside_right'); ?>
 </div>
 <div class="clear"></div>

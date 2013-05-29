@@ -64,7 +64,7 @@ Cras tincidunt diam molestie augue sagittis eget.</p>-->
 
 <!-- aside_right start -->
 <div id="aside_right">
-<?php echo $this -> load -> view('slice/aside_right'); ?>
+<?php echo $this -> load -> view('slice/aside_right_contact'); ?>
 </div>
 <div class="clear"></div>
 </div>

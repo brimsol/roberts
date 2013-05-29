@@ -45,14 +45,16 @@
 <!-- content start -->
 <div id="content">
 <!-- aside_left start -->
+
+
+
+
 <div id="aside_left">
-<!---about us here -->
-<h1><ht></ht><?php echo $name;?></ht> <img src="<?php echo base_url()?>assets/images/al.gif" id="preloader"/>
-<select id="products_filter">
-	
-	<option value="All">All</option>
-	
-	
+<div id="product_heading">
+    <h1>PRODUCTS <img src="<?php echo base_url()?>assets/images/al.gif" id="preloader"/></h1>
+    <select id="products_filter">
+    <option value="All">All</option>
+
 <?php if(isset($products_list) && count($products_list)){?>
 <?php	foreach ($products_list as $product){?>
 <option value="<?php echo $product -> id; ?>" <?php if($product -> id == $pid){echo "selected='TRUE'";}?>><?php echo $product -> name; ?></option>	
@@ -60,43 +62,51 @@
 
 <?php }
 }?>	
-	
-	</select>		
-</h1>
-<div id="product">
-	<div id="product_view">
+    </select>
+</div>
+
+
+<div id="product_view">
+
 <?php if(isset($products) && count($products)){?>
 <?php	foreach ($products as $product){?>
-<div class="main_product_image"><a class="fancybox" href="<?php echo base_url(); ?>uploads/<?php echo $product -> image; ?>"><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $product -> image; ?>&h=192&w=257&q=90" alt="product"></a></div>
+<div id="product">
+<div class="main_product_image"><a class="fancybox" href="<?php echo base_url(); ?>uploads/<?php echo $product -> image; ?>"><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $product -> image; ?>&h=186&w=258&q=90" alt="product"></a></div>
 <div class="main_product_image_content">
-
 <h4><?php echo $product -> name; ?></h4>
 <p><?php echo $product -> description; ?></p>
+<?php $pid = $product -> id;?>
+
 </div>
+<div class="clear"></div>
+</div>
+
 <?php }
 }else{ echo "No product found";}?>
-<div class="clear"></div>
-<div class="clear">&nbsp;</div>
-<div class="clear">&nbsp;</div>
-<h1></h1>
-<div class="gallery_image">
+<div class="product_temp">
 <ul>
 <?php if(isset($ourworks) && count($ourworks)){?>
 <?php	foreach ($ourworks as $ourwork){?>
-<li><a class="fancybox" href="<?php echo base_url(); ?>uploads/<?php echo $ourwork -> image; ?>" rel="lightbox[album4]" title=""><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $ourwork -> image; ?>&h=192&w=257&q=90"  alt=""></a></li>
+<li><a class="fancybox" href="<?php echo base_url(); ?>uploads/<?php echo $ourwork -> image; ?>" rel="lightbox[album4]" title=""><img src="<?php echo base_url(); ?>uploads/timthumb.php?src=<?php echo base_url(); ?>uploads/<?php echo $ourwork -> image; ?>&h=81&w=113&q=90"  alt=""></a></li>
 
 <?php }
 }else{ echo "No Works found";}?>
-</div>
-</div>
 <div class="clear"></div>
 </ul>
 
 <div class="clear"></div>
-<!--about us end here-->
 </div>
-<!--about us end here-->
+
+
 </div>
+
+
+<div id="more_button">
+<a href="<?php echo site_url('ourwork/view');?>/<?php echo $pid;?>">more</a><img src="<?php echo base_url();?>/assets/images/more_button.png">
+</div><div class="clear"></div>
+
+</div>
+
 <!-- aside_left close -->
 
 <!-- aside_right start -->
@@ -119,13 +129,6 @@
 <!--footer start-->
 <?php echo $this -> load -> view('slice/footer'); ?>
 <!--footer close-->
-
-
-
-
-
-
-
 
 
 </body>

@@ -16,7 +16,7 @@
 
 						<?php echo $this -> load -> view('backend/slice/side_nav'); ?>
 				
-					<div class="span10">
+					<div class="span9">
 						<?php echo $this -> ci_alerts -> display('success'); ?>
 						<legend>Pages</legend>
 						<table class="table table-hover table-striped table-bordered" id="members_result_table">

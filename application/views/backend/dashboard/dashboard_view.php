@@ -13,7 +13,7 @@
 				
 				<?php echo $this -> load -> view('backend/slice/side_nav'); ?>
 				
-					<div class="span10 well">
+					<div class="span9 well">
 
 						Welcome !!!
 

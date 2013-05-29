@@ -2,12 +2,12 @@
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 /**
- * Dashboard Class 
- * @package Glenna Jean 
- * @subpackage Backend 
- * @category Controller 
- * @author AMI 
- * @link ami@bandyworks.com 
+ * Dashboard
+ * @package Roberts
+ * @subpackage Backend
+ * @category Controller
+ * @author AMI
+ * @link ami@bandyworks.com
  * */
 class Dashboard extends CI_Controller {
 

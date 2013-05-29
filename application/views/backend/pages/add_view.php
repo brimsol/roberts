@@ -17,7 +17,7 @@
 				
 
 					
-					<div class="span10 well">
+					<div class="span9 well">
 
 						<form  method="post" action="<?php site_url('admin/page/add');?>" >
 							<fieldset>

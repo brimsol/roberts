@@ -63,94 +63,17 @@
 }?>	
 	
 	</select>
+	
 </div>
 <div class="clear"></div>
 <!--============ACCORDION STARTS============-->
 
-<div id="accordion-container">
-	
-    
-    <!--================Accordion Tab 1 Starts==============-->
-    
-	<h2 class="accordion-header">Fabric</h2>
-    <div class="accordion-content">
-    
-    	<!--================Sub Accordion Tab 1 Starts==============-->
-    
-       <h2 class="accordion-header2">Window</h2>
-       <div class="accordion-content2">
-       		<ul>
-                <li><a href="#">Wedge</a></li>
-                <li><a href="#">Quarter Round</a></li>
-                <li><a href="#">Bullnose</a></li>
-            </ul>
-       </div>
-       
-       <!--================Sub Accordion Tab 2 Starts==============-->
-       
-       <h2 class="accordion-header2">Door</h2>
-       <div class="accordion-content2">
-       		<ul>
-                <li><a href="#">Wedge</a></li>
-                <li><a href="#">Quarter Round</a></li>
-                <li><a href="#">Bullnose</a></li>
-                <li><a href="#">Halfnose</a></li>
-            </ul>
-       </div>
-       
-       <h2 class="plain-header"><a href="#">Deck / Patio</a></h2>
-       <h2 class="plain-header"><a href="#">Curtain</a></h2>
-       
-    </div>
-    
-    <!--================Accordion Tab 2 Starts==============-->
-    
-    <h2 class="accordion-header">Aluminum</h2>
-    <div class="accordion-content">
-       <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-    </div>
-    
-    <!--================Accordion Tab 3 Starts==============-->
-    
-    <h2 class="accordion-header">Retractable</h2>
-    <div class="accordion-content">
-       <p>It has survived not only five centuries, but also the leap into electronic typesetting.</p>
-    </div>
-    
-    <!--================Accordion Tab 4 Starts==============-->
-    
-    <h2 class="accordion-header">Bahama Shutter</h2>
-    <div class="accordion-content">
-       <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
-    </div>
-    
-    <!--================Accordion Tab 5 Starts==============-->
-    
-    <h2 class="accordion-header">Standing Seam Metal</h2>
-    <div class="accordion-content">
-       <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
-    </div>
-    
-    <!--================Accordion Tab 6 Starts==============-->
-    
-    <h2 class="accordion-header">Graphics / Lettering</h2>
-    <div class="accordion-content">
-       <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
-    </div>
-    
-    <!--================Accordion Tab 7 Starts==============-->
-    
-    <h2 class="accordion-header">Misc.</h2>
-    <div class="accordion-content">
-       <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
-    </div>
-     
-</div>
+
 
 <!--============ACCORDION ENDS============-->
-
+<div id="ajax_ourworks">
 <div class="gallery_image">
-<ul id="ajax_ourworks">
+<ul>
 
 <?php if(isset($ourworks) && count($ourworks)){?>
 <?php	foreach ($ourworks as $ourwork){?>
@@ -168,16 +91,9 @@
 
 
 <div id="work_pagination">
-	<div id="pages_link">PAGES ►
-    <a href="#" class="active_page">1</a>
-    <a href="#" class="inactive_page">2</a>
-    <a href="#" class="inactive_page">3</a>
-    <a href="#" class="inactive_page">4</a>
-    <a href="#" class="inactive_page">5</a>
-    
-    </div><div class="clear"></div>
+	<?php if (isset($links)) {echo $links;}?>
 </div>
-
+</div>
 </div>
 <!-- aside_left close -->
 

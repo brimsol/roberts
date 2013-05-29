@@ -16,7 +16,7 @@
 			
 					
 					
-						<div class="span10">
+						<div class="span9">
 							<?php echo $this -> ci_alerts -> display('success'); ?>
 <legend>Spotlights</legend>
 								<?php if(isset($spotlights) && count($spotlights)){

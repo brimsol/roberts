@@ -2,7 +2,7 @@
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 /**
- * Spotlight Class
+ * Ourworks Class
  * @package Roberts
  * @subpackage Backend
  * @category Controller
@@ -83,7 +83,7 @@ Class Ourworks extends CI_Controller {
 
 				if ($this -> upload -> do_upload()) {
 					$data = $this -> upload -> data();
-					$form_data = array('category' => set_value('category'), 'name' => set_value('name'), 'image' => $data['file_name']);
+					$form_data = array('category' => $this->input->post('category'),'sub_category_a' =>  $this->input->post('sub_category_a'),'sub_category_b' =>  $this->input->post('sub_category_b'),'sub_category_c' =>  $this->input->post('sub_category_c'), 'name' => set_value('name'), 'image' => $data['file_name']);
 					if ($this -> ourworks_model -> Save($form_data) == TRUE)// the information has therefore been successfully saved in the db
 					{
 						$this -> ci_alerts -> set('success', 'Saved Successfully');
@@ -102,7 +102,7 @@ Class Ourworks extends CI_Controller {
 
 			} else {
 
-				$form_data = array('category' => set_value('category'), 'name' => set_value('name'));
+				$form_data = array('category' => set_value('category'),'sub_category_a' =>  $this->input->post('sub_category_a'),'sub_category_b' =>  $this->input->post('sub_category_b'),'sub_category_c' =>  $this->input->post('sub_category_c'),'name' => set_value('name'));
 				if ($this -> ourworks_model -> Save($form_data) == TRUE)// the information has therefore been successfully saved in the db
 				{
 					$this -> ci_alerts -> set('success', 'Saved Successfully');
@@ -117,55 +117,7 @@ Class Ourworks extends CI_Controller {
 		}
 	}
 
-	function add_category() {
-		$this -> form_validation -> set_rules('description', 'Description', 'required|trim|xss_clean|max_length[500]');
-		$this -> form_validation -> set_rules('name', 'Title', 'required|trim|xss_clean|max_length[100]');
-        
-		if ($this -> form_validation -> run() == FALSE)// validation hasn't been passed
-		{
-			$this -> load -> view('backend/ourworks/add_category_view');
-
-		} else {
-
-			$form_data = array('description' => set_value('description'), 'name' => set_value('name'));
-			if ($this -> ourworks_model -> SaveCategory($form_data) == TRUE)// the information has therefore been successfully saved in the db
-			{
-				$this -> ci_alerts -> set('success', 'Saved Successfully');
-				redirect('admin/ourworks/category/add');
-				// or whatever logic needs to occur
-			} else {
-				$this -> ci_alerts -> set('success', 'An error occurred saving your information. Please try again later');
-				redirect('admin/ourworks/category/add');
-
-			}
-		}
-	}
-
-	function edit_category($id) {
-		$this -> form_validation -> set_rules('description', 'description', 'required|trim|xss_clean|max_length[500]');
-		$this -> form_validation -> set_rules('name', 'Title', 'required|trim|xss_clean|max_length[100]');
-
-		if ($this -> form_validation -> run() == FALSE)// validation hasn't been passed
-		{
-			$data['categories'] = $this -> ourworks_model -> GetOneCategory($id);
-			$this -> load -> view('backend/ourworks/edit_category_view', $data);
-		} else {// passed validation proceed to post success logic
-
-			$form_data = array('description' => set_value('description'), 'name' => set_value('name'));
-			if ($this -> ourworks_model -> UpdateCategory($id, $form_data) == TRUE)// the information has therefore been successfully saved in the db
-			{
-				$this -> ci_alerts -> set('success', 'Saved Successfully');
-				redirect('admin/ourworks/category/edit/' . $id);
-				// or whatever logic needs to occur
-			} else {
-				$this -> ci_alerts -> set('success', 'Nothing to Update');
-				redirect('admin/ourworks/category/edit/' . $id);
-
-			}
-
-		}
-	}
-
+	
 	//Edit collection,little tricky no change if there is no new image
 
 	function edit($id) {
@@ -274,19 +226,7 @@ Class Ourworks extends CI_Controller {
 
 	}
 
-	function delete_category($id = null, $filename = null) {
-
-		if ($id == '' || $id == null) {
-
-			redirect('admin/ourworks/categories');
-
-		} else {
-			$this -> db -> delete('categories', array('id' => $id));
-			$this -> ci_alerts -> set('success', 'Deleted successfully');
-			redirect('admin/ourworks/categories');
-		}
-	}
-
+	
 }
 
 /* End of file collections.php */
