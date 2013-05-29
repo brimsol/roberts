@@ -1,6 +1,6 @@
 <?php
 /**
- * Ourworks_model Class
+ * Categories_model Class
  * @package Roberts
  * @category Models
  * @author AMI
@@ -124,28 +124,7 @@ class Categories_model extends CI_Model {
 		return FALSE;
 	}
 
-	function SaveCategory($form_data) {
-		$this -> db -> insert('categories', $form_data);
-
-		if ($this -> db -> affected_rows() == '1') {
-			return TRUE;
-		}
-
-		return FALSE;
-	}
-
-	function UpdateCategory($id, $form_data) {
-
-		$this -> db -> where('id', $id);
-		$this -> db -> update('categories', $form_data);
-
-		if ($this -> db -> affected_rows() == '1') {
-			return TRUE;
-		}
-
-		return FALSE;
-	}
-
+	
 	function GetOneCategory($id) {
 
 		return $this -> db -> where('id', $id) -> limit(1) -> get('categories') -> result();

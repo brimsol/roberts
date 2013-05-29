@@ -41,4 +41,4 @@ class Settings extends CI_Controller {
 
 }
 
-/* End of file home.php */
+/* End of file settings.php */

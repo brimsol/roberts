@@ -1,7 +1,7 @@
 <?php
 /**
  * Admin_model Class 
- * @package Glenna Jean 
+ * @package Roberts
  * @category Models 
  * @author AMI 
  * @link ami@bandyworks.com 

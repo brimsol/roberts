@@ -255,4 +255,4 @@ Class Signs extends CI_Controller {
 
 }
 
-/* End of file collections.php */
+/* End of file signs.php */

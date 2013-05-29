@@ -3,7 +3,7 @@ if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 /**
  * Admin Class
- * @package Glenna Jean
+ * @package Roberts
  * @subpackage Backend
  * @category Controller
  * @author AMI
