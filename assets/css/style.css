@@ -98,6 +98,7 @@ header portion starts here
 	border-bottom: 2px solid #fff;
 	border-top: 3px solid #ca3231;
 	width: 100%;
+	padding-bottom:10px;
 }
 #header_inner {
 	width: 1000px;
@@ -118,13 +119,20 @@ header portion starts here
 	width: 100%;
 }
 #contact_number {
-	height: 22px;
-	background: url(../images/callnumber..png) no-repeat;
-	font-size: 15px;
-	padding: 3.6px 0 0 33px;
-	width: 117px;
+	height: 23px;
+	border: 1px solid #CC4546;
+    border-radius: 5px;
+	font-size: 19px;
+	padding: 3px 0 3px 33px;
+	width: 145px;
 	float: right;
 	margin: 0px 10px 0px 0px;
+	position:relative;
+}
+#call_btn{
+	position:absolute;
+	left:2px;
+	top:2px;
 }
 .ie7 #contact_number {
 	height: 21px;
@@ -139,13 +147,14 @@ header portion starts here
 	padding: 5px 0 0 33px;
 }
 #searchhead {
-	height: 23px;
-	background: url(../images/searchh.png) no-repeat;
+	height: 29px;
+	border: 1px solid #CC4546;
+    border-radius: 5px;
 	font-size: 15px;
 	padding: 0px 0 0 0px;
-	width: 180px;
+	width: 25px;
 	float: right;
-	margin: 2px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 .textboxhead {
 	margin: 3px 0px 0px 0px;
@@ -166,7 +175,7 @@ header portion starts here
 	margin-top: 1px;
 }
 .search_icon {
-	margin: 3.5px 5px 0px 0px;
+	margin:8px 5px 0px 0px;
 	float: right;
 	width: 15px;
 	height: 14px;
@@ -183,12 +192,19 @@ mobile search portion starts here
 }
 #mob_contact_number {
 	height: 25px;
-	background: url(../images/callnumber..png) no-repeat;
-	font-size: 15px;
-	padding: 3.6px 0 0 33px;
-	width: 117px;
+	border: 1px solid #CC4546;
+    border-radius: 5px;
+	font-size: 19px;
+	padding: 3px 0 3px 33px;
+	width: 145px;
 	margin: 5px auto;
 	display: none;
+	position:relative;
+}
+#mob_call_btn{
+	position:absolute;
+	left:2px;
+	top:2px;
 }
 .ie7 #mob_contact_number {
 	height: 21px;
@@ -279,7 +295,7 @@ nav portion starts here
 	position: absolute;
 	left: 0;
 	top: 100%;
-	padding: 25px 0 0;
+	padding: 6px 0 0;
 	margin: 0;
 }
 #nav li:hover > ul {
@@ -295,7 +311,7 @@ nav portion starts here
 	color: #fff;
 }
 #nav li ul li, #nav li ul li a:hover {
-	color: #4b4b4b;
+	color: #959595;
 }
 #nav li ul li {
 	_display: inline; /* for IE6 */
@@ -380,6 +396,7 @@ mobile navigation portion starts here
 }
 .mob_go {
 	border-right: none !important;
+	text-shadow: none !important;
 	float: left;
 	background: #CD7940;
 }
@@ -769,8 +786,7 @@ about us portion starts here
 }
 #aside_right_contact_today {
 	font-family: 'Open Sans Condensed';
-	margin: 10px auto 20px;
-auto;
+	margin: 10px auto 20px auto;
 	display: block;
 	border: 2px solid #d2d2d2;
 	color: #fff;
