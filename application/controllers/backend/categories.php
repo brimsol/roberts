@@ -107,6 +107,9 @@ Class Categories extends CI_Controller {
 
 		$data['categories'] = $this -> categories_model -> get_all_sub_a();
 		$data['action_link'] = 'edit_sub_category_a';
+		$data['refresh_link'] = 'list_sub_category_a';
+		$data['del_link'] = 'sub_category_a';
+		$data['del_field'] = 'aid';
 		$this -> load -> view('backend/categories/list_view', $data);
 
 	}
@@ -114,6 +117,9 @@ Class Categories extends CI_Controller {
 
 		$data['categories'] = $this -> categories_model -> get_all_sub_b();
 		$data['action_link'] = 'edit_sub_category_b';
+		$data['refresh_link'] = 'list_sub_category_b';
+		$data['del_link'] = 'sub_category_b';
+		$data['del_field'] = 'bid';
 		$this -> load -> view('backend/categories/list_view', $data);
 
 	}
@@ -121,6 +127,9 @@ Class Categories extends CI_Controller {
 
 		$data['categories'] = $this -> categories_model -> get_all_sub_c();
 		$data['action_link'] = 'edit_sub_category_c';
+		$data['refresh_link'] = 'list_sub_category_c';
+		$data['del_link'] = 'sub_category_c';
+		$data['del_field'] = 'cid';
 		$this -> load -> view('backend/categories/list_view', $data);
 
 	}
@@ -214,34 +223,11 @@ Class Categories extends CI_Controller {
 
 	//oops,deleted from db and unlink the related image
 
-	function delete($id = null, $filename = null) {
+	function delete($id,$link,$table,$id_field) {
 
-		if ($id == '' || $id == null) {
-
-			redirect('admin/spotlights/');
-
-		} elseif ($filename != null) {
-			$this -> db -> delete('ourworks', array('id' => $id));
-			$full_path = './uploads/' . $filename;
-			//echo $full_path;
-			if (file_exists($full_path)) {
-				if (unlink($full_path)) {
-
-					$this -> ci_alerts -> set('success', 'Deleted successfully');
-					redirect('admin/ourworks/');
-
-				} else {
-
-					$this -> ci_alerts -> set('success', 'Delected from database,but image files are not removed');
-					redirect('admin/ourworks/');
-				}
-			} else {
-
-				$this -> ci_alerts -> set('success', 'Deleted successfully');
-				redirect('admin/ourworks/');
-			}
-		}
-
+			$this -> db -> delete($table, array($id_field => $id));
+			redirect('backend/categories/'.$link);
+	
 	}
 	
 	function filter() {

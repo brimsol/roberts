@@ -42,8 +42,8 @@
 							<td>
 						    <!--<a rel="tooltip" data-original-title="View Details" data-toggle="modal" class="btn btn-mini" href="<?php echo site_url('admin/ourworks/category/view'); ?>/<?php echo $category -> id; ?>" ><i class="icon-eye-open"></i></a>-->
 							<a rel="tooltip" data-original-title="Edit Store" class="btn btn-mini" href="<?php echo site_url('backend/categories'); ?>/<?php echo $action_link;?>/<?php echo $category -> id; ?>" ><i class="icon-edit"></i></a>
-							<!--<?php echo anchor('admin/ourworks/category/delete/'.$category->id,'<i class="icon-trash icon-white"></i>',
-							array('onclick'=>"return confirm('You are about to delete ".$category-> name.",\\n\\n   Do you want to continue ?')",'data-original-title'=>"Remove",'rel'=>"tooltip",'class'=>"btn btn-mini btn-danger"))?>-->
+							<?php echo anchor('backend/categories/delete/'.$category->id.'/'.$refresh_link.'/'.$del_link.'/'.$del_field,'<i class="icon-trash icon-white"></i>',
+							array('onclick'=>"return confirm('You are about to delete ".$category-> name.",\\n\\n   Do you want to continue ?')",'data-original-title'=>"Remove",'rel'=>"tooltip",'class'=>"btn btn-mini btn-danger"))?>
 						
 							</td>
 						</tr>

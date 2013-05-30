@@ -55,21 +55,20 @@ class Categories_model extends CI_Model {
 	function get_all_sub_a() {
 
 		//return $this -> db -> select('aid as id,name as name') -> get('sub_category_a') -> result();
-		return $this -> db -> select('subcata.aid as id,subcata.product_id,subcata.name as name,p.name as pname') 
-					 -> join('products p', 'subcata.product_id = p.id', 'INNER') 
-					 -> order_by('created_at', 'DESC') 
-					 -> get('sub_category_a subcata') -> result();
+		return $this -> db -> select('subcata.aid as id,subcata.product_id,subcata.name as name,p.name as pname') -> join('products p', 'subcata.product_id = p.id', 'INNER') -> get('sub_category_a subcata') -> result();
 	}
 
 	function get_all_sub_b() {
 
-		return $this -> db -> select('bid as id,name as name') -> get('sub_category_b') -> result();
+		//return $this -> db -> select('bid as id,name as name') -> get('sub_category_b') -> result();
+		return $this -> db -> select('subcatb.bid as id,subcatb.sub_aid,subcatb.name as name,p.name as pname') -> join('sub_category_a p', 'subcatb.sub_aid = p.aid', 'INNER') -> get('sub_category_b subcatb') -> result();
 
 	}
 
 	function get_all_sub_c() {
 
-		return $this -> db -> select('cid as id,name as name') -> get('sub_category_c') -> result();
+		//return $this -> db -> select('cid as id,name as name') -> get('sub_category_c') -> result();
+		return $this -> db -> select('subcatc.cid as id,subcatc.sub_bid,subcatc.name as name,p.name as pname') -> join('sub_category_b p', 'subcatc.sub_bid = p.bid', 'INNER') -> get('sub_category_c subcatc') -> result();
 
 	}
 
@@ -90,6 +89,7 @@ class Categories_model extends CI_Model {
 		return $this -> db -> select('cid as id,name as name,sub_bid as category') -> where('cid', $id) -> get('sub_category_c') -> result();
 
 	}
+
 
 	function update_a($id, $form_data) {
 
@@ -127,7 +127,6 @@ class Categories_model extends CI_Model {
 		return FALSE;
 	}
 
-	
 	function GetOneCategory($id) {
 
 		return $this -> db -> where('id', $id) -> limit(1) -> get('categories') -> result();
@@ -196,60 +195,55 @@ class Categories_model extends CI_Model {
 
 	function get_sidebar($id) {
 
-		
 		//create array
 		$sidebar_array = array();
 
 		//loop through each products
 
 		//get sub_cat_a associated with the products
-			$this -> db -> where('product_id', $id);
+		$this -> db -> where('product_id', $id);
 
-			$sub_cat_a = $this -> db -> get('sub_category_a');
+		$sub_cat_a = $this -> db -> get('sub_category_a');
 
-			//if there are sub categories A, add it to the post object
-			if ($sub_cat_a -> num_rows() > 0) {
-				
-				foreach ($sub_cat_a -> result() as $sub_cat_a) {
-					$this -> db -> where('sub_aid', $sub_cat_a -> aid);
-					$sub_cat_b = $this -> db -> get('sub_category_b');
+		//if there are sub categories A, add it to the post object
+		if ($sub_cat_a -> num_rows() > 0) {
 
-					if ($sub_cat_b -> num_rows() > 0) {
-						
-						$sub_cat_a -> sub_cat_b = $sub_cat_b -> result();
-						
-						
+			foreach ($sub_cat_a -> result() as $sub_cat_a) {
+				$this -> db -> where('sub_aid', $sub_cat_a -> aid);
+				$sub_cat_b = $this -> db -> get('sub_category_b');
 
-						foreach ($sub_cat_b -> result() as $sub_cat_b) {
-							$this -> db -> where('sub_bid', $sub_cat_b -> bid);
-							$sub_cat_c = $this -> db -> get('sub_category_c');
-                            
-							if ($sub_cat_c -> num_rows() > 0) {
-								
-								$sub_cat_b  -> sub_cat_c = $sub_cat_c -> result();
-                               
-							} else {
+				if ($sub_cat_b -> num_rows() > 0) {
 
-								$sub_cat_a -> sub_cat_b = $sub_cat_b;
-							}
+					$sub_cat_a -> sub_cat_b = $sub_cat_b -> result();
 
+					foreach ($sub_cat_b -> result() as $sub_cat_b) {
+						$this -> db -> where('sub_bid', $sub_cat_b -> bid);
+						$sub_cat_c = $this -> db -> get('sub_category_c');
+
+						if ($sub_cat_c -> num_rows() > 0) {
+
+							$sub_cat_b -> sub_cat_c = $sub_cat_c -> result();
+
+						} else {
+
+							$sub_cat_a -> sub_cat_b = $sub_cat_b;
 						}
 
-					} else {
-
-						$sub_cat_a = $sub_cat_a;
 					}
 
+				} else {
+
+					$sub_cat_a = $sub_cat_a;
 				}
 
-			} else {
-
-				$sub_cat_a = array();
 			}
 
-			$sidebar_array[] = $sub_cat_a;
+		} else {
 
-	
+			$sub_cat_a = array();
+		}
+
+		$sidebar_array[] = $sub_cat_a;
 
 		return $sidebar_array;
 
